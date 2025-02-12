@@ -1,5 +1,5 @@
 path:
-  root: ???  # Set to the root of the dataset
+  root: /nobackup/sc22ol
   metadata_dir: ${path.root}/metadata
   music_dir: ${path.root}/audio
   gains_file: ${path.metadata_dir}/gains.json
@@ -8,7 +8,7 @@ path:
   music_file: ${path.metadata_dir}/music.valid.json
   scenes_file: ${path.metadata_dir}/scenes.valid.json
   scene_listeners_file: ${path.metadata_dir}/scene_listeners.valid.json
-  exp_folder: ./exp # folder to store enhanced signals and final results
+  exp_folder: /nobackup/sc22ol/enhanced
 
 input_sample_rate: 44100
 remix_sample_rate: 32000
@@ -17,7 +17,7 @@ HAAQI_sample_rate: 24000
 separator:
   force_redownload: True
   add_residual: 0.1
-  causality: noncausal
+  causality: causal
   device: ~
   separation:
     number_sources: 2
@@ -35,7 +35,7 @@ soft_clip: False
 
 evaluate:
   set_random_seed: True
-  small_test: False
+  small_test: True
   batch_size: 1  # Number of batches
   batch: 0       # Batch number to evaluate
 

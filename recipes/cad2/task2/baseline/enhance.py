@@ -292,7 +292,7 @@ def enhance(config: DictConfig) -> None:
     )
 
     scene_listener_pairs = scene_listener_pairs[
-        config.evaluate.batch :: config.evaluate.batch_size
+        config.evaluate.batch:: config.evaluate.batch_size
     ]
 
     # Decompose each song into left and right vocal, drums, bass, and other stems
@@ -344,7 +344,7 @@ def enhance(config: DictConfig) -> None:
         start = songs[song_name]["mixture"]["start"]
         end = start + songs[song_name]["mixture"]["duration"]
         mixture_signal = mixture_signal[
-            int(start * mix_sample_rate) : int(end * mix_sample_rate),
+            int(start * mix_sample_rate): int(end * mix_sample_rate),
             :,
         ]
 
@@ -361,7 +361,7 @@ def enhance(config: DictConfig) -> None:
 
         # Apply gains to sources
         gain_scene = check_repeated_source(gains[scene["gain"]], source_list)
-        stems = apply_gains(stems, config.input_sample_rate, gain_scene)
+        stems = apply_gains(stems, config.input_sample_rate, gain_scene, listener)
 
         # Downmix to stereo
         enhanced_signal = remix_stems(stems)
