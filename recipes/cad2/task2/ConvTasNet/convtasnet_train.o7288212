@@ -1,0 +1,16 @@
+## WARNING!
+## The current directory is in your home directory. Please use the high-performance
+## cluster filesystem /nobackup. See documentation for information.
+## WARNING!
+
+## Hosts assigned to job 7288212.1:
+##
+## db04gpu5.arc4.leeds.ac.uk 10 slots
+##
+## Resources granted:
+##
+## h_vmem = 5153960755 (per slot)
+## h_rt   = 1:00:00
+## disk   = 1G (per slot)
+
+cudnn/8.1.1 - no flavour compatible with modules 'cuda/11.5.0'
