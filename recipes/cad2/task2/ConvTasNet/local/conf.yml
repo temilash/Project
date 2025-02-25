@@ -26,8 +26,8 @@ optim:
   lr: 0.0001
 # Data config
 data:
-  root_path: path/to/cad2/task2/audio/data # path to Cadenza dataset, audio folder
-  music_tracks_file: path/to/cad2/task2/metadata/data # path to metadata file in cadenza format
+  root_path: /nobackup/sc22ol/audio # path to Cadenza dataset, audio folder
+  music_tracks_file: /nobackup/sc22ol/metadata # path to metadata file in cadenza format
   sample_rate: 44100
   target: 'Bassoon'
   samples_per_track: 64

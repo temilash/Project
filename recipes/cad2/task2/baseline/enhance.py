@@ -55,72 +55,113 @@ def check_repeated_source(gains: dict, source_list: dict) -> dict:
     return new_gains
 
 
+def normalize_audio(audio: torch.Tensor) -> torch.Tensor:
+    """
+    Normalize the input audio to have a consistent loudness before separation.
+    
+    Args:
+        audio (torch.Tensor): Input mixture signal (batch, channels, time)
+
+    Returns:
+        torch.Tensor: Normalized audio
+    """
+    mean_val = torch.mean(audio, dim=-1, keepdim=True)
+    std_val = torch.std(audio, dim=-1, keepdim=True) + 1e-8  # Avoid division by zero
+    return (audio - mean_val) / std_val
+
+def apply_phase_correction(reference_signal, target_signal):
+    """
+    Aligns the phase of the target signal to match the reference signal.
+
+    Args:
+        reference_signal (np.ndarray): The reference signal.
+        target_signal (np.ndarray): The signal to be phase-aligned.
+
+    Returns:
+        np.ndarray: Phase-aligned target signal.
+    """
+    analytic_ref = hilbert(reference_signal)
+    analytic_target = hilbert(target_signal)
+
+    correlation = np.correlate(np.abs(analytic_ref), np.abs(analytic_target), mode="full")
+    delay = np.argmax(correlation) - (len(reference_signal) - 1)
+
+    if delay > 0:
+        aligned_signal = np.pad(target_signal, (delay, 0), mode="constant")[:-delay]
+    elif delay < 0:
+        aligned_signal = np.pad(target_signal, (0, -delay), mode="constant")[-delay:]
+    else:
+        aligned_signal = target_signal
+
+    return aligned_signal
+
 def separate_sources(
     model: torch.nn.Module,
-    mix: torch.Tensor | ndarray,
+    mix: torch.Tensor,
     sample_rate: int,
     segment: float = 10.0,
-    overlap: float = 0.1,
-    number_sources: int = 4,
+    overlap: float = 0.5,  # Increased overlap for smoother blending
     device: torch.device | str | None = None,
 ):
     """
-    Apply model to a given mixture.
-    Use fade, and add segments together in order to add model segment by segment.
+    Apply model to a given mixture using improved Overlap-Add processing with Hann window.
 
     Args:
-        model (torch.nn.Module): model to use for separation
-        mix (torch.Tensor): mixture to separate, shape (batch, channels, time)
-        sample_rate (int): sampling rate of the mixture
-        segment (float): segment length in seconds
-        overlap (float): overlap between segments, between 0 and 1
-        number_sources (int): number of sources to separate
-        device (torch.device, str, or None): if provided, device on which to
-            execute the computation, otherwise `mix.device` is assumed.
-            When `device` is different from `mix.device`, only local computations will
-            be on `device`, while the entire tracks will be stored on `mix.device`.
+        model (torch.nn.Module): Model to use for separation.
+        mix (torch.Tensor): Mixture to separate, shape (batch, channels, time).
+        sample_rate (int): Sampling rate of the mixture.
+        segment (float): Segment length in seconds.
+        overlap (float): Overlap percentage (0 to 1).
+        device (torch.device, str, or None): Processing device.
 
     Returns:
-        torch.Tensor: estimated sources
-
-    Based on https://pytorch.org/audio/main/tutorials/hybrid_demucs_tutorial.html
+        torch.Tensor: Estimated sources with improved overlap-add.
     """
     device = mix.device if device is None else torch.device(device)
-    mix = torch.as_tensor(mix, dtype=torch.float, device=device)
+    mix = mix.to(device)
 
-    if mix.ndim == 1:
-        # one track and mono audio
-        mix = mix.unsqueeze(0).unsqueeze(0)
-    elif mix.ndim == 2:
-        # one track and stereo audio
-        mix = mix.unsqueeze(0)
+    if mix.ndim == 2:
+        mix = mix.unsqueeze(0)  # Convert stereo signal to batch format
 
     batch, channels, length = mix.shape
+    chunk_len = int(sample_rate * segment)
+    step_size = int(chunk_len * (1 - overlap))  # Step size based on overlap
+    fade_window = torch.tensor(hann(chunk_len, sym=False), device=device)
 
-    chunk_len = int(sample_rate * segment * (1 + overlap))
+    # Normalize input before separation
+    mix = normalize_audio(mix)
+
+    final = torch.zeros(batch, 4, channels, length, device=device)
+    sum_weights = torch.zeros_like(final)
+
     start = 0
-    end = chunk_len
-    overlap_frames = overlap * sample_rate
-    fade = Fade(fade_in_len=0, fade_out_len=int(overlap_frames), fade_shape="linear")
-
-    final = torch.zeros(batch, number_sources, channels, length, device=device)
-
-    while start < length - overlap_frames:
+    while start < length - step_size:
+        end = min(start + chunk_len, length)
         chunk = mix[:, :, start:end]
+
+        # Apply model for source separation
         with torch.no_grad():
             out = model.forward(chunk)
-        out = fade(out)
-        final[:, :, :, start:end] += out
-        if start == 0:
-            fade.fade_in_len = int(overlap_frames)
-            start += int(chunk_len - overlap_frames)
-        else:
-            start += chunk_len
-        end += chunk_len
-        if end >= length:
-            fade.fade_out_len = 0
 
-    return final
+        # Apply Hann window for smooth blending
+        out *= fade_window[: out.shape[-1]]
+
+        final[:, :, :, start:end] += out
+        sum_weights[:, :, :, start:end] += fade_window[: out.shape[-1]]
+
+        start += step_size  # Move by step size
+
+    # Normalize to avoid artifacts
+    final /= torch.clamp(sum_weights, min=1e-8)
+
+    # Convert to NumPy and apply phase correction
+    final_np = final.cpu().detach().numpy()
+
+    for i in range(final_np.shape[1]):  # Loop over separated sources
+        for j in range(final_np.shape[2]):  # Left and Right channels
+            final_np[:, i, j, :] = apply_phase_correction(mix.cpu().numpy()[0, j, :], final_np[:, i, j, :])
+
+    return final_np
 
 
 # pylint: disable=unused-argument
@@ -292,7 +333,7 @@ def enhance(config: DictConfig) -> None:
     )
 
     scene_listener_pairs = scene_listener_pairs[
-        config.evaluate.batch :: config.evaluate.batch_size
+        config.evaluate.batch:: config.evaluate.batch_size
     ]
 
     # Decompose each song into left and right vocal, drums, bass, and other stems
@@ -344,7 +385,7 @@ def enhance(config: DictConfig) -> None:
         start = songs[song_name]["mixture"]["start"]
         end = start + songs[song_name]["mixture"]["duration"]
         mixture_signal = mixture_signal[
-            int(start * mix_sample_rate) : int(end * mix_sample_rate),
+            int(start * mix_sample_rate): int(end * mix_sample_rate),
             :,
         ]
 
@@ -361,7 +402,7 @@ def enhance(config: DictConfig) -> None:
 
         # Apply gains to sources
         gain_scene = check_repeated_source(gains[scene["gain"]], source_list)
-        stems = apply_gains(stems, config.input_sample_rate, gain_scene)
+        stems = apply_gains(stems, config.input_sample_rate, gain_scene, listener)
 
         # Downmix to stereo
         enhanced_signal = remix_stems(stems)

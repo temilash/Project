@@ -122,9 +122,9 @@ def main(conf):
         max_epochs=conf["training"]["epochs"],
         callbacks=callbacks,
         default_root_dir=exp_dir,
-        accelerator="gpu",
+        accelerator="gpu" if torch.cuda.is_available() else "cpu",
         strategy="auto",
-        devices=1,
+        devices="auto",
         gradient_clip_val=5.0,
         accumulate_grad_batches=conf["training"]["aggregate"],
     )

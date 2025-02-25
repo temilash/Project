@@ -1,0 +1,80 @@
+## Hosts assigned to job 7290681.1:
+##
+## db04gpu5.arc4.leeds.ac.uk 20 slots
+##
+## Resources granted:
+##
+## h_vmem = 5153960755 (per slot)
+## h_rt   = 01:15:00
+## disk   = 1G (per slot)
+
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/condabin/conda
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/bin/conda
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/bin/conda-env
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/bin/activate
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/bin/deactivate
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/etc/profile.d/conda.sh
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/etc/fish/conf.d/conda.fish
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/shell/condabin/Conda.psm1
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/shell/condabin/conda-hook.ps1
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/lib/python3.10/site-packages/xontrib/conda.xsh
+no change     /apps/developers/compilers/anaconda/2023.03/1/default/etc/profile.d/conda.csh
+no change     /home/home01/sc22ol/.bashrc
+No action taken.
+GPU 0: Tesla V100-PCIE-32GB (UUID: GPU-f317bb51-2fb0-ff18-d50e-05d833521867)
+GPU 1: Tesla V100-PCIE-32GB (UUID: GPU-1ddf6092-a2cf-a20c-8096-9d99165f375c)
+{'convtasnet': {'B': 256,
+                'C': 2,
+                'H': 512,
+                'L': 20,
+                'N': 256,
+                'P': 3,
+                'R': 4,
+                'X': 10,
+                'audio_channels': 2,
+                'causal': False,
+                'mask_nonlinear': 'relu',
+                'norm_type': 'gLN'},
+ 'data': {'music_tracks_file': '/nobackup/sc22ol/metadata',
+          'root_path': '/nobackup/sc22ol/audio',
+          'sample_rate': 44100,
+          'samples_per_track': 64,
+          'segment_length': 3.0,
+          'target': 'Bassoon'},
+ 'main_args': {'exp_dir': 'exp/tmp', 'help': None},
+ 'optim': {'lr': 0.0001},
+ 'positional arguments': {},
+ 'training': {'aggregate': 1,
+              'batch_size': 4,
+              'early_stop': True,
+              'epochs': 200,
+              'half_lr': True,
+              'num_workers': 4}}
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]{'convtasnet': {'B': 256,
+                'C': 2,
+                'H': 512,
+                'L': 20,
+                'N': 256,
+                'P': 3,
+                'R': 4,
+                'X': 10,
+                'audio_channels': 2,
+                'causal': False,
+                'mask_nonlinear': 'relu',
+                'norm_type': 'gLN'},
+ 'data': {'music_tracks_file': '/nobackup/sc22ol/metadata',
+          'root_path': '/nobackup/sc22ol/audio',
+          'sample_rate': 44100,
+          'samples_per_track': 64,
+          'segment_length': 3.0,
+          'target': 'Bassoon'},
+ 'main_args': {'exp_dir': 'exp/tmp', 'help': None},
+ 'optim': {'lr': 0.0001},
+ 'positional arguments': {},
+ 'training': {'aggregate': 1,
+              'batch_size': 4,
+              'early_stop': True,
+              'epochs': 200,
+              'half_lr': True,
+              'num_workers': 4}}
+Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:04<00:04,  0.20it/s]Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:05<00:00,  0.38it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/272 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/272 [00:00<?, ?it/s] Epoch 0:   0%|          | 0/272 [00:05<?, ?it/s]

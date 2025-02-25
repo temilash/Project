@@ -1,0 +1,12 @@
+## Hosts assigned to job 7295715.1:
+##
+## db04gpu5.arc4.leeds.ac.uk 20 slots
+##
+## Resources granted:
+##
+## h_vmem = 5153960755 (per slot)
+## h_rt   = 01:15:00
+## disk   = 1G (per slot)
+
+GPU 0: Tesla V100-PCIE-32GB (UUID: GPU-e5d4c585-0c30-67b2-ff5f-f23ddd0a9e27)
+GPU 1: Tesla V100-PCIE-32GB (UUID: GPU-faed2226-8409-5ea3-cb26-18739df1031a)

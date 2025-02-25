@@ -15,6 +15,7 @@ import numpy as np
 import pyloudnorm as pyln
 from numpy import ndarray
 from omegaconf import DictConfig
+import scipy.signal as signal
 
 from clarity.enhancer.multiband_compressor import MultibandCompressor
 from clarity.evaluator.haaqi import compute_haaqi
@@ -26,35 +27,93 @@ from clarity.utils.signal_processing import compute_rms, resample
 logger = logging.getLogger(__name__)
 
 
-def apply_gains(stems: dict, sample_rate: float, gains: dict) -> dict:
-    """Apply gain to the signal by using LUFS.
+def apply_frequency_gains(signal_data, sample_rate, frequencies, gains):
+    """Apply frequency-specific gains using a parametric equalizer while avoiding over-amplification."""
+    if signal_data.size == 0:
+        raise ValueError("Error: Received empty signal in apply_frequency_gains()")
 
-    Args:
-        stems (dict): Dictionary of stems.
-        sample_rate (float): Sample rate of the signal.
-        gains (dict): Dictionary of gains.
+    output_signal = np.zeros_like(signal_data)  # Initialize empty signal
+    applied_any_gain = False  # Track if any gain is applied
 
-    Returns:
-        dict: Dictionary of stems with applied gains.
-    """
+    for freq, gain in zip(frequencies, gains):
+        if gain == 0:  # Skip frequencies with no gain adjustment
+            continue
+
+        b, a = signal.iirpeak(freq / (sample_rate / 2), Q=1.0)
+        filtered_signal = signal.lfilter(b, a, signal_data)
+
+        output_signal += filtered_signal  
+        applied_any_gain = True  # At least one gain was applied
+
+    # If no gains were applied, return original signal to prevent empty output
+    if not applied_any_gain:
+        print("Warning: No frequency gains were applied; returning original signal.")
+        return signal_data
+
+    return output_signal
+
+
+
+def apply_gains(stems: dict, sample_rate: float, gains: dict, listener: dict) -> dict:
+    """Apply instrument and listener-specific gains before remixing."""
+    if not stems:
+        raise ValueError("Error: apply_gains() received an empty stems dictionary!")
+
     meter = pyln.Meter(int(sample_rate))
 
+    frequencies = listener.audiogram_left.frequencies
+    gain_left_freq = listener.audiogram_left.levels
+    gain_right_freq = listener.audiogram_right.levels
+
     stems_gain = {}
+
     for stem_str, stem_signal in stems.items():
+        if stem_signal.size == 0:
+            print(f"?? Warning: {stem_str} has an empty signal!")
+            continue  # Skip empty signals to avoid errors
+
+        # Ensure correct shape (convert mono if needed)
         if stem_signal.shape[0] < stem_signal.shape[1]:
             stem_signal = stem_signal.T
 
-        stem_lufs = meter.integrated_loudness(stem_signal)
-        if stem_lufs == -np.inf:
-            stem_lufs = -80
+        left_lufs = meter.integrated_loudness(stem_signal[:, 0])
+        right_lufs = meter.integrated_loudness(stem_signal[:, 1])
 
-        gain = stem_lufs + gains[stem_str]
+        # Handle silent signals (replace -inf with a default level)
+        if left_lufs == -np.inf:
+            print(f"Warning: {stem_str} left channel is silent, setting default LUFS to -80")
+            left_lufs = -80
+        if right_lufs == -np.inf:
+            print(f"Warning: {stem_str} right channel is silent, setting default LUFS to -80")
+            right_lufs = -80
+
+        # Retrieve instrument gain (default to 0 dB if missing)
+        instrument_gain = gains.get(stem_str, 0)
+
+        left_gain = left_lufs + instrument_gain
+        right_gain = right_lufs + instrument_gain
+
         with warnings.catch_warnings():
-            warnings.filterwarnings(
-                "ignore", message="Possible clipped samples in output"
-            )
-            stems_gain[stem_str] = pyln.normalize.loudness(stem_signal, stem_lufs, gain)
+            warnings.filterwarnings("ignore", message="Possible clipped samples in output")
+            adjusted_left = pyln.normalize.loudness(stem_signal[:, 0], left_lufs, left_gain)
+            adjusted_right = pyln.normalize.loudness(stem_signal[:, 1], right_lufs, right_gain)
+
+        # Apply frequency-dependent listener-specific gains
+        adjusted_left = apply_frequency_gains(adjusted_left, sample_rate, frequencies, gain_left_freq)
+        adjusted_right = apply_frequency_gains(adjusted_right, sample_rate, frequencies, gain_right_freq)
+
+        # Ensure the processed signal is not empty
+        if adjusted_left.size == 0 or adjusted_right.size == 0:
+            print(f"?? Warning: Processed signal for {stem_str} is empty!")
+
+        stems_gain[stem_str] = np.stack([adjusted_left, adjusted_right], axis=1)
+
+    if not stems_gain:
+        raise ValueError("Error: No valid stems were processed in apply_gains()!")
+
     return stems_gain
+
+
 
 
 def remix_stems(stems: dict) -> ndarray:
@@ -72,7 +131,6 @@ def remix_stems(stems: dict) -> ndarray:
     for _, stem_signal in stems.items():
         remix_signal += stem_signal
     return remix_signal
-
 
 def make_scene_listener_list(scenes_listeners: dict, small_test: bool = False) -> list:
     """Make the list of scene-listener pairing to process
@@ -105,6 +163,7 @@ def set_song_seed(song: str) -> None:
     np.random.seed(song_md5)
 
 
+
 def load_reference_stems(music_dir: str | Path, stems: dict) -> dict[Any, ndarray]:
     """Load the reference stems for a given scene.
 
@@ -114,13 +173,13 @@ def load_reference_stems(music_dir: str | Path, stems: dict) -> dict[Any, ndarra
     Returns:
         dict: Dictionary of reference stems.
     """
-    reference_stems = {}
+    reference_stems= {}
     for source_id, source_data in stems.items():
         if source_id == "mixture":
             continue
 
-        stem, _ = read_flac_signal(Path(music_dir) / source_data["track"])
-        reference_stems[source_id] = stem
+        stem, _= read_flac_signal(Path(music_dir) / source_data["track"])
+        reference_stems[source_id]= stem
 
     return reference_stems
 
@@ -130,43 +189,43 @@ def adjust_level(signal: np.ndarray, gains_scene: dict) -> np.ndarray:
     Adjust the level of the signal to compensate the effect of amplifying the
     sources
     """
-    dbi = np.array(list(gains_scene.values()))
-    dbn = -10 * np.log10(np.sum(10 ** (dbi / 10)) / dbi.shape[0])
+    dbi= np.array(list(gains_scene.values()))
+    dbn= -10 * np.log10(np.sum(10 ** (dbi / 10)) / dbi.shape[0])
     return signal * 10 ** (dbn / 20)
 
 
-@hydra.main(config_path="", config_name="config", version_base=None)
+@ hydra.main(config_path="", config_name="config", version_base=None)
 def run_calculate_aq(config: DictConfig) -> None:
     """Evaluate the enhanced signals using the HAAQI metric."""
 
-    enhanced_folder = Path("enhanced_signals")
+    enhanced_folder= Path("enhanced_signals")
     logger.info(f"Evaluating from {enhanced_folder} directory")
 
     # Load listener audiograms and songs
-    listener_dict = Listener.load_listener_dict(config.path.listeners_file)
+    listener_dict= Listener.load_listener_dict(config.path.listeners_file)
 
     with Path(config.path.gains_file).open("r", encoding="utf-8") as file:
-        gains = json.load(file)
+        gains= json.load(file)
 
     with Path(config.path.scenes_file).open("r", encoding="utf-8") as file:
-        scenes = json.load(file)
+        scenes= json.load(file)
 
     with Path(config.path.scene_listeners_file).open("r", encoding="utf-8") as file:
-        scenes_listeners = json.load(file)
+        scenes_listeners= json.load(file)
 
     with Path(config.path.music_file).open("r", encoding="utf-8") as file:
-        songs = json.load(file)
+        songs= json.load(file)
 
         # Load compressor params
     with Path(config.path.enhancer_params_file).open("r", encoding="utf-8") as file:
-        enhancer_params = json.load(file)
+        enhancer_params= json.load(file)
 
-    enhancer = MultibandCompressor(
-        crossover_frequencies=config.enhancer.crossover_frequencies,
-        sample_rate=config.input_sample_rate,
+    enhancer= MultibandCompressor(
+        crossover_frequencies = config.enhancer.crossover_frequencies,
+        sample_rate = config.input_sample_rate,
     )
 
-    scores_headers = [
+    scores_headers= [
         "scene",
         "song",
         "listener",
@@ -175,9 +234,9 @@ def run_calculate_aq(config: DictConfig) -> None:
         "avg_haaqi",
     ]
     if config.evaluate.batch_size == 1:
-        results_file = ResultsFile(
+        results_file= ResultsFile(
             "scores.csv",
-            header_columns=scores_headers,
+            header_columns = scores_headers,
         )
     else:
         results_file = ResultsFile(
@@ -202,14 +261,16 @@ def run_calculate_aq(config: DictConfig) -> None:
             f"[{idx:03d}/{num_scenes:03d}] "
             f"Evaluating {scene_id} for listener {listener_id}"
         )
-
+        
+        # Evaluate listener
+        listener = listener_dict[listener_id]
+        
         # Load reference signals
         reference_stems = load_reference_stems(
             Path(config.path.music_dir), songs[song_name]
         )
-        reference_stems = apply_gains(
-            reference_stems, config.input_sample_rate, gains[scene["gain"]]
-        )
+        reference_stems = apply_gains(reference_stems, config.input_sample_rate, gains[scene["gain"]], listener)
+
         reference_mixture = remix_stems(reference_stems)
         reference_mixture = adjust_level(reference_mixture, gains[scene["gain"]])
 
@@ -217,8 +278,7 @@ def run_calculate_aq(config: DictConfig) -> None:
         if config.evaluate.set_random_seed:
             set_song_seed(scene_id)
 
-        # Evaluate listener
-        listener = listener_dict[listener_id]
+        
 
         # Compressor params
         mbc_params_listener: dict[str, dict] = {"left": {}, "right": {}}
