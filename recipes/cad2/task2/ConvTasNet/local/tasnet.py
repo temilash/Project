@@ -52,10 +52,10 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         Returns:
             est_source: [M, C, T]
         """
-        spectrogram, phase = self.encoder(mixture)
+        spectrogram,phase = self.encoder(mixture)
         
         # Step 2: Chunking for Overlap-and-Add
-        spectrogram_chunks = self.chunk_input(spectrogram)
+        spectrogram_chunks = self.chunk_input(spectrogram, phase)
 
         # Step 3: Process each chunk independently
         separated_chunks = []
@@ -63,13 +63,11 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
             mask = self.separator(chunk)
             mask = mask[:, :, :, :chunk.size(-1)]  # Ensure mask matches chunk size
             separated_chunk = chunk * mask  # Apply the mask
-            separated_chunks.append(separated_chunk)
+            decoded_waveform = self.decoder(separated_chunk,phase)
+            separated_chunks.append(decoded_waveform)
 
         # Step 4: Merge chunks using Overlap-and-Add
         separated_spectrogram = self.overlap_add(torch.stack(separated_chunks), self.frame_step)
-        
-
-        separated_spectrogram = self.decoder(separated_spectrogram, phase)
 
         # T changed after conv1d in encoder, fix it here
         T_origin = mixture.size(-1)  # Original waveform length
@@ -123,22 +121,39 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         }
         return model_args
         
-    def chunk_input(self, spectrogram):
+    def chunk_input(self, spectrogram, phase):
         """
-        Splits the spectrogram into overlapping chunks.
+        Splits both the spectrogram and phase into overlapping, aligned chunks.
+    
         Args:
             spectrogram: [batch, channels, freq_bins, time]
+            phase:       [batch, channels, freq_bins, time]
+        
         Returns:
-            List of chunks: [chunk1, chunk2, ...]
+            spec_chunks:  list of [batch, channels, freq_bins, frame_length]
+            phase_chunks: list of [batch, channels, freq_bins, frame_length]
         """
-        batch, channels, freq_bins, time = spectrogram.shape
-        chunks = []
-
-        for start in range(0, time - self.frame_length + 1, self.frame_step):
-            chunk = spectrogram[:, :, :, start:start + self.frame_length]
-            chunks.append(chunk)
-
-        return chunks  # List of tensors (each is [batch, channels, freq_bins, frame_length])
+        batch, channels, freq_bins, total_time = spectrogram.shape
+        spec_chunks = []
+        phase_chunks = []
+    
+        for start in range(0, total_time, self.frame_step):
+            end = start + self.frame_length
+    
+            if end <= total_time:
+                # Normal chunk
+                spec_chunk = spectrogram[:, :, :, start:end]
+                phase_chunk = phase[:, :, :, start:end]
+            else:
+                # Last chunk â€” pad to full length
+                pad_len = end - total_time
+                spec_chunk = F.pad(spectrogram[:, :, :, start:], (0, pad_len))
+                phase_chunk = F.pad(phase[:, :, :, start:], (0, pad_len))
+    
+            spec_chunks.append(spec_chunk)
+            phase_chunks.append(phase_chunk)
+    
+        return spec_chunks, phase_chunks
 
     def overlap_add(self, chunks, frame_step):
         """
@@ -162,6 +177,7 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
 class SpectrogramEncoder(nn.Module):
     def __init__(self, n_fft=512, hop_length=256):
         super().__init__()
+        self.hop_length = hop_length
         self.stft = T.Spectrogram(n_fft=n_fft, hop_length=hop_length, power=1)  # Power=1 keeps phase info
         self.conv2d_freq = nn.Conv2d(in_channels=2, out_channels=256, kernel_size=(5,5), padding=(2,2))
 
@@ -186,88 +202,50 @@ class SpectrogramEncoder(nn.Module):
 
         return spectrogram, phase
 
+
 class SpectrogramDecoder(nn.Module):
     def __init__(self, n_fft=512, hop_length=256):
         super().__init__()
         self.n_fft = n_fft
         self.hop_length = hop_length
 
-        self.deconv2d = nn.ConvTranspose2d(
-            in_channels=256,
-            out_channels=2,  # Match the number of channels in phase
-            kernel_size=(5, 5),
-            padding=(2, 2)
-        )
+        # í ½í´¥ Learnable 1x1 Convolution to Reduce 256 â†’ 2 Channels
+        self.reduce_conv = nn.Conv2d(256, 2, kernel_size=1)  
 
-    def forward(self, encoded_spec, phase, mixture):
+    def forward(self, encoded_spec, phase):
         """
         Args:
-            encoded_spec: [batch, 256, freq_bins, time]  (Processed spectrogram from 2D CNN)
-            phase: [batch, 2, freq_bins, time]  (Saved phase from encoder)
-            mixture: [batch, 2, time]  (Original input waveform for length reference)
+            encoded_spec: [batch, 256, freq_bins, time_frames]  (Processed spectrogram)
+            phase: [batch, 2, freq_bins, time_frames]  (Phase information)
         Returns:
-            waveform: [batch, 2, time]  (Reconstructed waveform matching mixture shape)
+            waveform: [batch, 2, time]  (Reconstructed waveform)
         """
+        print(f"Encoded Spectrogram Shape (Before Reduction): {encoded_spec.shape}")  # [batch, 256, freq_bins, time_frames]
+        print(f"Phase Shape: {phase.shape}")  # [batch, 2, freq_bins, time_frames]
 
-        print("\n=== Decoder Debugging ===")
-        print(f"Encoded Spectrogram Shape: {encoded_spec.shape}")  
-        print(f"Phase Shape: {phase.shape}")  
+        # í ½í´¥ Reduce spectrogram from 256 â†’ 2 channels
+        encoded_spec = self.reduce_conv(encoded_spec)  # Now [batch, 2, freq_bins, time_frames]
 
-        # Convert from 256 channels to 2 channels
-        mag_est = self.deconv2d(encoded_spec)  
-        print(f"After Deconv2D Shape: {mag_est.shape}")  
+        print(f"Encoded Spectrogram Shape (After Reduction): {encoded_spec.shape}")  # Should match phase
 
-        _, _, freq_bins, time_frames = phase.shape  # Get correct frequency-time dimensions
+        # í ½í´¥ Convert Magnitude + Phase Back to Complex
+        complex_spec = torch.polar(encoded_spec.clamp(min=0), phase)  # âœ… Now both are 4D
 
-        # Ensure mag_est and phase match in time dimension
-        _, _, _, time_mag = mag_est.shape
+        print(f"Complex Spectrogram Shape (Before Reshaping for ISTFT): {complex_spec.shape}")  # Should be [batch, 2, freq_bins, time_frames]
 
-        if time_mag > time_frames:
-            print(f"Cropping mag_est from {time_mag} to {time_frames}")
-            mag_est = mag_est[:, :, :, :time_frames]
-        elif time_mag < time_frames:
-            pad_amount = time_frames - time_mag
-            print(f"Padding mag_est by {pad_amount} to match phase")
-            mag_est = F.pad(mag_est, (0, pad_amount))
-
-        print(f"Final mag_est Shape Before ISTFT: {mag_est.shape}")
-
-        # Ensure non-negative magnitude
-        mag_est = mag_est.clamp(min=0)
-
-        # Convert magnitude + phase back to complex form
-        complex_spec = torch.polar(mag_est, phase)  
-        print(f"Complex Spectrogram Shape: {complex_spec.shape}")
-
+        # í ½í´¥ Reshape Complex Spectrogram to 3D Before ISTFT
         batch, channels, freq_bins, time_frames = complex_spec.shape
+        complex_spec = complex_spec.view(batch * channels, freq_bins, time_frames)  # âœ… Merge batch & channels for ISTFT
 
-        # í ½í´¥ **FIX: Multiply freq_bins * time_frames to match the time dimension**
-        complex_spec = complex_spec.view(batch, channels, freq_bins * time_frames)  
+        print(f"Complex Spectrogram Shape (After Reshaping for ISTFT): {complex_spec.shape}")  # Should be [batch * 2, freq_bins, time_frames]
 
-        print(f"Reshaped for ISTFT (Fixed): {complex_spec.shape}")
+        # í ½í´¥ Apply ISTFT
+        waveform = torch.istft(complex_spec, n_fft=self.n_fft, hop_length=self.hop_length, window=None)
 
-        # Apply ISTFT
-        waveform = torch.istft(
-            complex_spec,
-            n_fft=self.n_fft,
-            hop_length=self.hop_length,
-            window=None
-        )
+        # í ½í´¥ Reshape Back to Stereo Format
+        waveform = waveform.view(batch, channels, -1)  # âœ… Restore [batch, 2, time]
 
-        print(f"ISTFT Output Shape (Before Fixing Dimensions): {waveform.shape}")
-
-        # í ½í´¥ **Ensure final output shape matches mixture**
-        T_target = mixture.size(-1)  # 661500
-        T_decoded = waveform.size(-1)  
-
-        if T_decoded > T_target:
-            print(f"Trimming output from {T_decoded} to {T_target}")
-            waveform = waveform[:, :, :T_target]  
-        elif T_decoded < T_target:
-            print(f"Padding output by {T_target - T_decoded} samples")
-            waveform = F.pad(waveform, (0, T_target - T_decoded))  
-
-        print(f"Final Matched Output Shape: {waveform.shape}")  # Should be [batch, 2, 661500]
+        print(f"ISTFT Output Shape: {waveform.shape}")  # Should be [batch, 2, time]
 
         return waveform
 
