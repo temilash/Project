@@ -18,6 +18,8 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         frame_length=64,
         frame_step=32,
         samplerate=44100,
+        num_sources=2,
+        num_repeats=4,
     ):
         """
         Args:
@@ -34,10 +36,20 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         self.frame_length = frame_length
         self.frame_step = frame_step
         self.samplerate = samplerate
+        self.input_channels = input_channels
+        self.num_sources = num_sources
+        self.num_repeats = num_repeats
+    
         # Components
         self.encoder = SpectrogramEncoder(n_fft=n_fft, hop_length=hop_length)
-        self.separator = CausalHybridDPTSeparator(input_channels=256)
+        self.separator = CausalHybridGRUSeparator(
+            input_channels=256,  # Encoder outputs 256
+            num_sources=self.num_sources,
+            num_repeats=self.num_repeats
+        )
         self.decoder = SpectrogramDecoder(n_fft=n_fft, hop_length=hop_length)
+    
+        # Weight init
         for p in self.parameters():
             if p.dim() > 1:
                 nn.init.xavier_normal_(p)
@@ -54,27 +66,16 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         """
         spectrogram,phase = self.encoder(mixture)
         
-        # Step 2: Chunking for Overlap-and-Add
-        spectrogram_chunks = self.chunk_input(spectrogram, phase)
+        masked_chunks = self.separator(spectrogram)
+        
+        #masked_spec = self.overlap_add(masked_chunks, self.frame_step)
+        
+        input_length = mixture.size(-1)
+        separated_waveforms = self.decoder(masked_chunks, phase,input_length)
+        
+        print(f"waveform shape {separated_waveforms.shape}")
 
-        # Step 3: Process each chunk independently
-        separated_chunks = []
-        for chunk in spectrogram_chunks:
-            mask = self.separator(chunk)
-            mask = mask[:, :, :, :chunk.size(-1)]  # Ensure mask matches chunk size
-            separated_chunk = chunk * mask  # Apply the mask
-            decoded_waveform = self.decoder(separated_chunk,phase)
-            separated_chunks.append(decoded_waveform)
-
-        # Step 4: Merge chunks using Overlap-and-Add
-        separated_spectrogram = self.overlap_add(torch.stack(separated_chunks), self.frame_step)
-
-        # T changed after conv1d in encoder, fix it here
-        T_origin = mixture.size(-1)  # Original waveform length
-        T_conv = separated_spectrogram.size(-1)  # Decoded waveform length after ISTFT
-        separated_spectrogram = F.pad(separated_spectrogram, (0, T_origin - T_conv))  # Fix length mismatch
-
-        return separated_spectrogram
+        return separated_waveforms
 
     def serialize(self):
         """Serialize model and output dictionary.
@@ -120,58 +121,47 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
             "encoder_activation": self.encoder_activation,
         }
         return model_args
-        
-    def chunk_input(self, spectrogram, phase):
+
+    def overlap_and_add(chunks, frame_step):
         """
-        Splits both the spectrogram and phase into overlapping, aligned chunks.
+        Reconstructs full spectrogram from overlapped chunks using advanced overlap-add.
     
         Args:
-            spectrogram: [batch, channels, freq_bins, time]
-            phase:       [batch, channels, freq_bins, time]
+            chunks: [N, B, C, S, F, K]
+            frame_step: step size between chunks (hop length)
         
         Returns:
-            spec_chunks:  list of [batch, channels, freq_bins, frame_length]
-            phase_chunks: list of [batch, channels, freq_bins, frame_length]
+            full_spec: [B, C, S, F, T]
         """
-        batch, channels, freq_bins, total_time = spectrogram.shape
-        spec_chunks = []
-        phase_chunks = []
+        N, B, C, S, F, K = chunks.shape
     
-        for start in range(0, total_time, self.frame_step):
-            end = start + self.frame_length
+        outer_dims = (B, C, S, F)
+        total_frames = frame_step * (N - 1) + K
     
-            if end <= total_time:
-                # Normal chunk
-                spec_chunk = spectrogram[:, :, :, start:end]
-                phase_chunk = phase[:, :, :, start:end]
-            else:
-                # Last chunk â€” pad to full length
-                pad_len = end - total_time
-                spec_chunk = F.pad(spectrogram[:, :, :, start:], (0, pad_len))
-                phase_chunk = F.pad(phase[:, :, :, start:], (0, pad_len))
+        subframe_len = math.gcd(K, frame_step)
+        subframes_per_chunk = K // subframe_len
+        subframe_step = frame_step // subframe_len
+        total_subframes = total_frames // subframe_len
     
-            spec_chunks.append(spec_chunk)
-            phase_chunks.append(phase_chunk)
+        # Reshape chunks to subframes
+        subframe_chunks = chunks.reshape(N, *outer_dims, subframes_per_chunk, subframe_len)
+        subframe_chunks = subframe_chunks.permute(1, 2, 3, 4, 0, 5, 6)  # [B, C, S, F, N, subframes, subframe_len]
+        subframe_chunks = subframe_chunks.reshape(*outer_dims, -1, subframe_len)  # [B, C, S, F, N*subframes, subframe_len]
     
-        return spec_chunks, phase_chunks
-
-    def overlap_add(self, chunks, frame_step):
-        """
-        Merges overlapping chunks using Overlap-and-Add.
-        Args:
-            chunks: [num_chunks, batch, channels, freq_bins, frame_length]
-            frame_step: Overlap step size
-        Returns:
-            Merged spectrogram: [batch, channels, freq_bins, time]
-        """
-        num_chunks, batch, channels, freq_bins, frame_length = chunks.shape
-        output_size = frame_step * (num_chunks - 1) + frame_length
-        output = torch.zeros(batch, channels, freq_bins, output_size, device=chunks.device)
-
-        for i, chunk in enumerate(chunks):
-            output[:, :, :, i * frame_step: i * frame_step + frame_length] += chunk
-
-        return output
+        # Create unfolding indices
+        frame = torch.arange(0, total_subframes, device=chunks.device).unfold(
+            0, subframes_per_chunk, subframe_step
+        )
+        frame = frame.contiguous().view(-1)[:subframe_chunks.shape[-2]]  # [N * subframes]
+        
+        # Add overlapping subframes
+        output = torch.zeros(*outer_dims, total_subframes, subframe_len, device=chunks.device)
+        output.index_add_(-2, frame, subframe_chunks)
+    
+        # Reshape back to [B, C, S, F, T]
+        full_spec = output.reshape(*outer_dims, -1)
+    
+        return full_spec
 
 
 class SpectrogramEncoder(nn.Module):
@@ -202,54 +192,58 @@ class SpectrogramEncoder(nn.Module):
 
         return spectrogram, phase
 
-
 class SpectrogramDecoder(nn.Module):
     def __init__(self, n_fft=512, hop_length=256):
         super().__init__()
         self.n_fft = n_fft
         self.hop_length = hop_length
 
-        # í ½í´¥ Learnable 1x1 Convolution to Reduce 256 â†’ 2 Channels
-        self.reduce_conv = nn.Conv2d(256, 2, kernel_size=1)  
+        # Reduce 256 â†’ 2 channels (stereo)
+        self.reduce_conv = nn.Conv2d(256, 2, kernel_size=1)
 
-    def forward(self, encoded_spec, phase):
+    def forward(self, masked_spec, phase, input_length):
         """
         Args:
-            encoded_spec: [batch, 256, freq_bins, time_frames]  (Processed spectrogram)
-            phase: [batch, 2, freq_bins, time_frames]  (Phase information)
+            masked_spec: [B, C, S, freq, T_spec]  (Separated magnitude spectrogram)
+            phase: [B, 2, freq, T_phase] â€” shared phase for all sources
         Returns:
-            waveform: [batch, 2, time]  (Reconstructed waveform)
+            waveform: [B, S, 2, time]
         """
-        print(f"Encoded Spectrogram Shape (Before Reduction): {encoded_spec.shape}")  # [batch, 256, freq_bins, time_frames]
-        print(f"Phase Shape: {phase.shape}")  # [batch, 2, freq_bins, time_frames]
+        B, C, S, freq, T_spec = masked_spec.shape
+        T_phase = phase.size(-1)
 
-        # í ½í´¥ Reduce spectrogram from 256 â†’ 2 channels
-        encoded_spec = self.reduce_conv(encoded_spec)  # Now [batch, 2, freq_bins, time_frames]
+        # If masked_spec has a shorter time dimension than phase, pad it.
+        if T_spec < T_phase:
+            diff = T_phase - T_spec
+            # Pad along the time dimension (last dimension) on the right.
+            masked_spec = F.pad(masked_spec, (0, diff))
+        
+        waveforms = []
 
-        print(f"Encoded Spectrogram Shape (After Reduction): {encoded_spec.shape}")  # Should match phase
+        for s in range(S):
+            spec_s = masked_spec[:, :, s, :, :]          # [B, C, freq, T_phase]
+            spec_s = self.reduce_conv(spec_s)            # [B, 2, freq, T_phase]
+            # Use clamped magnitude and full phase to create a complex spectrogram
+            complex_spec = torch.polar(spec_s.clamp(min=0), phase)  # [B, 2, freq, T_phase]
 
-        # í ½í´¥ Convert Magnitude + Phase Back to Complex
-        complex_spec = torch.polar(encoded_spec.clamp(min=0), phase)  # âœ… Now both are 4D
+            # Reshape for ISTFT: combine batch and channel dims
+            b, ch, f, t = complex_spec.shape
+            complex_spec = complex_spec.view(b * ch, f, t)
+            
+            print(f"  - Spectrogram shape: {complex_spec.shape}") 
 
-        print(f"Complex Spectrogram Shape (Before Reshaping for ISTFT): {complex_spec.shape}")  # Should be [batch, 2, freq_bins, time_frames]
+            # Inverse STFT to recover time-domain waveform
+            waveform = torch.istft(complex_spec, n_fft=self.n_fft, hop_length=self.hop_length, window=None, length=input_length)
+            
+            print(f"  - Spectrogram shape: {waveform.shape}") 
 
-        # í ½í´¥ Reshape Complex Spectrogram to 3D Before ISTFT
-        batch, channels, freq_bins, time_frames = complex_spec.shape
-        complex_spec = complex_spec.view(batch * channels, freq_bins, time_frames)  # âœ… Merge batch & channels for ISTFT
+            # Reshape back to [B, 2, time]
+            waveform = waveform.view(b, ch, -1)
+            waveforms.append(waveform)  # [B, 2, time]
+            
+        print(f"  - Spectrogram shape: {waveform.shape}") 
 
-        print(f"Complex Spectrogram Shape (After Reshaping for ISTFT): {complex_spec.shape}")  # Should be [batch * 2, freq_bins, time_frames]
-
-        # í ½í´¥ Apply ISTFT
-        waveform = torch.istft(complex_spec, n_fft=self.n_fft, hop_length=self.hop_length, window=None)
-
-        # í ½í´¥ Reshape Back to Stereo Format
-        waveform = waveform.view(batch, channels, -1)  # âœ… Restore [batch, 2, time]
-
-        print(f"ISTFT Output Shape: {waveform.shape}")  # Should be [batch, 2, time]
-
-        return waveform
-
-
+        return torch.stack(waveforms, dim=1)  # [B, S, 2, time]
 
 
 """def overlap_and_add(signal, frame_step):
@@ -274,93 +268,117 @@ class SpectrogramDecoder(nn.Module):
     result.index_add_(-2, frame, subframe_signal)
     result = result.view(*outer_dimensions, -1)
     return result"""
+        
 
 class CausalConv2D(nn.Module):
     """
-    Implements a causal 2D convolution where the time dimension only depends on past values.
+    Implements causal 2D convolution: future time steps are not accessed.
     """
     def __init__(self, in_channels, out_channels, kernel_size=(5, 3), dilation=(1, 1)):
         super().__init__()
-        padding_time = (kernel_size[1] - 1) * dilation[1]
-        
-        self.kernel_size = kernel_size
-        self.dilation = dilation
-        self.padding = (kernel_size[0] // 2, padding_time)  # Asymmetric padding in time
+        pad_freq = kernel_size[0] // 2  # symmetric freq padding is fine
+        pad_time = (kernel_size[1] - 1) * dilation[1]
 
+        self.pad_time = pad_time
+        self.pad = (0, pad_time)  # right-pad time only (causal)
         self.conv = nn.Conv2d(
-            in_channels, out_channels, kernel_size,
-            padding=(kernel_size[0] // 2, 0),  # Ensure no change in time dimension
+            in_channels,
+            out_channels,
+            kernel_size=kernel_size,
+            padding=(pad_freq, 0),  # freq is symmetric
             dilation=dilation
         )
 
     def forward(self, x):
-        return F.relu(self.conv(x))
+        # Causal padding in time dimension (only right side)
+        x = F.pad(x, self.pad)  # [left, right] on time dim only
+        out = self.conv(x)
 
-class GatedCausalConv2D(nn.Module):
-    """
-    Gated causal 2D convolution for improved temporal modeling.
-    """
-    def __init__(self, in_channels, out_channels, kernel_size=(5, 3), dilation=(1, 1)):
+        # Remove extra future-padded steps (causal chomp)
+        if self.pad_time > 0:
+            out = out[..., :-self.pad_time]  # remove future steps
+        return F.relu(out)
+
+class CausalHybridGRUSeparator(nn.Module):
+    def __init__(self, input_channels=256, hidden_channels=128, num_sources=2, num_repeats=4):
         super().__init__()
-        self.conv_f = CausalConv2D(in_channels, out_channels, kernel_size, dilation)
-        self.conv_g = CausalConv2D(in_channels, out_channels, kernel_size, dilation)
+        self.num_sources = num_sources
+        self.num_repeats = num_repeats
 
-    def forward(self, x):
-        return torch.tanh(self.conv_f(x)) * torch.sigmoid(self.conv_g(x))
+        # Short-term modeling with causal convolutions
+        self.causal_conv1 = CausalConv2D(input_channels, hidden_channels, kernel_size=(5, 3), dilation=(1, 1))
+        self.causal_conv2 = CausalConv2D(hidden_channels, hidden_channels, kernel_size=(5, 3), dilation=(1, 2))
 
-class CausalHybridDPTSeparator(nn.Module):
-    """
-    Fully 2D CNN-based causal separator without reshaping the spectrogram.
-    """
+        # Long-term modeling: create a list of GRU layers, each applied sequentially.
+        self.gru_layers = nn.ModuleList([
+            nn.GRU(
+                input_size=hidden_channels,
+                hidden_size=hidden_channels,
+                num_layers=2,  # Single-layer GRU per repetition
+                batch_first=True,
+                bidirectional=False
+            )
+            for _ in range(num_repeats)
+        ])
 
-    def __init__(self, input_channels=256, tcn_depth=4):
-        super().__init__()
-        
-        self.feature_extractor = nn.Sequential(
-            CausalConv2D(input_channels, 128, kernel_size=(5, 1)),  # No time change
-            CausalConv2D(128, 128, kernel_size=(5, 1))  # No time change
-        )
-
-        # Ensure dilated convolutions do NOT shrink time dimension
-        self.tcn_blocks = nn.Sequential(
-            *[
-                nn.Sequential(
-                    CausalConv2D(128, 128, kernel_size=(5, 1), dilation=(1, 2**i)),  # No time change
-                    CumulativeLayerNorm(128)  # Normalization
-                )
-                for i in range(tcn_depth)
-            ]
-        )
-
-        self.gated_conv = GatedCausalConv2D(128, 128, kernel_size=(5, 1))
-
-        # Final convolution that ensures time dimension is unchanged
-        self.final_conv = nn.Conv2d(128, input_channels, kernel_size=1, padding=0)
+        # Final projection to mask space: project hidden features to (input_channels * num_sources)
+        self.mask_proj = nn.Conv2d(hidden_channels, input_channels * num_sources, kernel_size=1)
 
     def forward(self, spectrogram):
         """
         Args:
-            spectrogram: [batch, channels, freq_bins, time]  (No reshaping)
+            spectrogram: [B, C, freq, T_in]  (Full spectrogram)
         Returns:
-            mask: [batch, channels, freq_bins, time] - Mask for separation.
+            masked_spec: [B, C, num_sources, freq, T_new]  (Masked spectrogram for each source)
         """
+        B, C, freq, T_in = spectrogram.shape
 
-        # Step 1: Extract features using causal 2D convolutions
-        spectrogram = self.feature_extractor(spectrogram)
+        # Step 1: Apply causal convolutions for short-term modeling
+        out = self.causal_conv1(spectrogram)  # [B, hidden_channels, freq, T_conv]
+        out = self.causal_conv2(out)          # [B, hidden_channels, freq, T_conv]
+        H = out.size(1)
+        print(f"out shape1 = {out.shape}")
 
-        # Step 2: Apply deep causal TCN layers
-        spectrogram = self.tcn_blocks(spectrogram)
+        # Step 2: Process the full time sequence with the GRU layers for long-term dependencies.
+        # Permute so GRU processes along the time dimension: [B, freq, H, T_conv]
+        out = out.permute(0, 2, 1, 3).contiguous()  
+        print(f"out shape2 = {out.shape}")
+        T_conv = out.size(-1)
+        # Reshape to combine batch and frequency dimensions: [B*freq, T_conv, H]
+        out = out.view(B * freq, H, T_conv).transpose(1, 2)
+        print(f"out shape 3 = {out.shape}")
 
-        # Step 3: Apply gated convolution
-        spectrogram = self.gated_conv(spectrogram)
+        # Apply GRU repeatedly over the time dimension
+        for gru in self.gru_layers:
+            out, _ = gru(out)  # [B*freq, T_new, H]
 
-        # Step 4: Predict final mask
-        mask = self.final_conv(spectrogram)
+        # Capture new time dimension after GRU processing
+        T_new = out.size(1)
+        print(f"Time dimension after GRU = {T_new}")
 
-        # Ensure the mask is between 0 and 1
-        mask = torch.sigmoid(mask)
+        # Reshape back: [B, freq, H, T_new] and then permute to [B, H, freq, T_new]
+        out = out.transpose(1, 2).contiguous().view(B, freq, H, T_new).permute(0, 2, 1, 3)
+        print(f"out shape after GRU and reshape = {out.shape}")
 
-        return mask
+        # Step 3: Project features to mask space
+        mask = self.mask_proj(out)  # [B, (input_channels*num_sources), freq, T_new]
+        # Reshape to explicitly include the source dimension: [B, num_sources, input_channels, freq, T_new]
+        mask = mask.view(B, self.num_sources, C, freq, T_new)
+        mask = F.relu(mask)  # Ensure non-negative mask values
+        print(f"mask shape = {mask.shape}")
+
+        # Step 4: Apply masks to the original spectrogram.
+        # If needed, trim the original spectrogram to T_new
+        if T_in != T_new:
+            spectrogram = spectrogram[..., :T_new]
+        # Expand original spectrogram to include a source dimension: [B, 1, C, freq, T_new]
+        spec_expanded = spectrogram.unsqueeze(1)
+        # Element-wise multiplication: [B, num_sources, C, freq, T_new]
+        masked_spec = spec_expanded * mask
+        # Permute to get final output: [B, C, num_sources, freq, T_new]
+        masked_spec = masked_spec.permute(0, 2, 1, 3, 4)
+
+        return masked_spec
 
 
 
