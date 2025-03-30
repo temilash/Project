@@ -3,8 +3,10 @@ convtasnet:
   n_fft: 512
   hop_length: 256
   input_channels: 2
-  frame_length: 64
-  frame_step: 32
+  frame_length: 256
+  frame_step: 128
+  num_sources: 2
+  num_repeats: 5
 
 # Training config
 training:
