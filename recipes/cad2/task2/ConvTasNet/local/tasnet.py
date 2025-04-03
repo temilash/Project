@@ -34,7 +34,7 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         self.num_repeats = num_repeats
     
         self.encoder = SpectrogramEncoder(n_fft=n_fft, hop_length=hop_length)
-        self.separator = CausalHybridGRUSeparator(
+        self.separator = DualPathGRUSeparator(
             input_channels=256,
             num_sources=self.num_sources,
             num_repeats=self.num_repeats,
@@ -217,14 +217,16 @@ class CausalConv2D(nn.Module):
             out = out[..., :-self.pad_time]  # remove future steps
         return F.relu(out)
 
-class CausalHybridGRUSeparator(nn.Module):
-    def __init__(self, input_channels=256, hidden_channels=128, num_sources=2, num_repeats=4, frame_length=128, frame_step=64):
+class DualPathGRUSeparator(nn.Module):
+    def __init__(self, input_channels=256, hidden_channels=128, num_sources=2,
+                 num_repeats=4, frame_length=128, frame_step=64, inter_hidden=64):
         super().__init__()
         self.num_sources = num_sources
         self.num_repeats = num_repeats
         self.frame_length = frame_length
         self.frame_step = frame_step
 
+        # Intra-chunk processing: same conv blocks + GRU layers as before
         self.conv_blocks = nn.ModuleList([
             CausalConv2D(
                 in_channels=input_channels if i == 0 else hidden_channels,
@@ -233,9 +235,8 @@ class CausalHybridGRUSeparator(nn.Module):
                 dilation=(1, 1) if i % 2 == 0 else (1, 2)
             ) for i in range(num_repeats)
         ])
-
         self.cum_ln = CumulativeLayerNorm(hidden_channels)
-        self.gru_layers = nn.ModuleList([
+        self.intra_gru_layers = nn.ModuleList([
             nn.GRU(
                 input_size=hidden_channels,
                 hidden_size=hidden_channels,
@@ -244,8 +245,14 @@ class CausalHybridGRUSeparator(nn.Module):
                 bidirectional=False
             ) for _ in range(num_repeats)
         ])
-
         self.mask_proj = nn.Conv2d(hidden_channels, input_channels * num_sources, kernel_size=1)
+
+        # Inter-chunk processing: a causal GRU over chunk-level features.
+        # We'll assume each chunk is summarized to a scalar per feature channel.
+        # Here, input size = 1 (scalar per chunk), and we output a scaling factor.
+        self.inter_gru = nn.GRU(input_size=1, hidden_size=inter_hidden, num_layers=1, batch_first=True, bidirectional=False)
+        # Map the GRU output back to a scaling factor (using a linear layer)
+        self.inter_linear = nn.Linear(inter_hidden, 1)
 
     def overlap_and_add(self, chunks, frame_step):
         N, B, C, S, F, K = chunks.shape
@@ -271,35 +278,69 @@ class CausalHybridGRUSeparator(nn.Module):
 
     def forward(self, spectrogram):
         B, C, freq, T_in = spectrogram.shape
+        # --- Split the spectrogram into overlapping chunks along time ---
+        # Shape after unfold: [B, C, freq, n_chunks, frame_length]
         chunks = spectrogram.unfold(-1, self.frame_length, self.frame_step)
         n_chunks = chunks.size(-2)
+        # Permute to bring the chunk dimension first: [n_chunks, B, C, freq, frame_length]
         chunks = chunks.permute(3, 0, 1, 2, 4)
 
-        processed_chunks = []
+        intra_outputs = []
+        # Process each chunk independently (intra-chunk)
         for chunk in chunks:
-            out = chunk
+            out = chunk  # shape: [B, C, freq, frame_length]
             for conv in self.conv_blocks:
                 out = conv(out)
             out = self.cum_ln(out)
-            H = out.size(1)
+            H = out.size(1)  # hidden channels
+            # Rearrange for GRU processing along time within the chunk:
+            # Permute to [B, freq, H, frame_length] then reshape to [B*freq, frame_length, H]
             out = out.permute(0, 2, 1, 3).contiguous()
             T_chunk = out.size(-1)
             out = out.view(B * freq, T_chunk, H)
-            for gru in self.gru_layers:
+            for gru in self.intra_gru_layers:
                 out, _ = gru(out)
             T_new = out.size(1)
+            # Reshape back: [B, freq, T_new, H] then permute to [B, H, freq, T_new]
             out = out.view(B, freq, T_new, H).permute(0, 3, 1, 2).contiguous()
+            # Project to mask space
             mask = self.mask_proj(out)
             mask = mask.view(B, self.num_sources, C, freq, T_new)
             mask = F.relu(mask)
+            # Adjust chunk if necessary
             if self.frame_length != T_new:
                 chunk = chunk[..., :T_new]
-            masked_chunk = chunk.unsqueeze(1) * mask
+            masked_chunk = chunk.unsqueeze(1) * mask  # [B, num_sources, C, freq, T_new]
+            # Permute to [B, C, num_sources, freq, T_new]
             masked_chunk = masked_chunk.permute(0, 2, 1, 3, 4)
-            processed_chunks.append(masked_chunk)
+            intra_outputs.append(masked_chunk)
+        # Now intra_outputs is a list of length n_chunks, each with shape [B, C, num_sources, freq, T_new]
+        # Stack along a new dimension (chunk dimension):
+        intra_outputs = torch.stack(intra_outputs, dim=0)  # [n_chunks, B, C, num_sources, freq, T_new]
 
-        processed_chunks = torch.stack(processed_chunks, dim=0)
-        full_masked_spec = self.overlap_and_add(processed_chunks, self.frame_step)
+        # --- Inter-chunk processing ---
+        # For each chunk, compute a summary statistic (e.g., average over time) to obtain a chunk-level feature.
+        chunk_summary = intra_outputs.mean(dim=-1)  # [n_chunks, B, C, num_sources, freq]
+        # For simplicity, collapse all dimensions except the chunk dimension and treat each chunk's summary as a scalar.
+        # Here, we average over (C, num_sources, freq):
+        chunk_summary = chunk_summary.mean(dim=(2, 3, 4))  # [n_chunks, B]
+        # Transpose so that we have [B, n_chunks, 1] as the input to inter-chunk GRU:
+        chunk_summary = chunk_summary.transpose(0, 1).unsqueeze(-1)  # [B, n_chunks, 1]
+
+        # Process with a causal (unidirectional) inter-chunk GRU
+        inter_out, _ = self.inter_gru(chunk_summary)  # [B, n_chunks, inter_hidden]
+        # Map GRU output to a scaling factor:
+        scaling = self.inter_linear(inter_out)  # [B, n_chunks, 1]
+        # Reshape scaling to apply per chunk: expand to match intra_outputs shape.
+        scaling = scaling.transpose(0, 1)  # [n_chunks, B, 1]
+        # Expand to shape [n_chunks, B, C, num_sources, freq, 1]
+        scaling = scaling.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1).expand(n_chunks, B, C, self.num_sources, freq, 1)
+
+        # Apply the inter-chunk scaling factor to the intra-chunk outputs
+        inter_processed = intra_outputs * scaling  # [n_chunks, B, C, num_sources, freq, T_new]
+
+        # Finally, reconstruct the full spectrogram via overlap-and-add.
+        full_masked_spec = self.overlap_and_add(inter_processed, self.frame_step)
         return full_masked_spec
 
 
