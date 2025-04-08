@@ -1,124 +1,48 @@
-# Copyright (c) Facebook, Inc. and its affiliates.
-# All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-#
-# Created on 2018/12
-# Author: Kaituo XU
-# Modified on 2019/11 by Alexandre Defossez, added support for multiple output channels
-# Here is the original license:
-# The MIT License (MIT)
-#
-# Copyright (c) 2018 Kaituo XU
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
 import math
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from huggingface_hub import PyTorchModelHubMixin
+import torchaudio.transforms as T
+
 
 EPS = 1e-8
-
-
-def overlap_and_add(signal, frame_step):
-    outer_dimensions = signal.size()[:-2]
-    frames, frame_length = signal.size()[-2:]
-
-    subframe_length = math.gcd(frame_length, frame_step)  # gcd=Greatest Common Divisor
-    subframe_step = frame_step // subframe_length
-    subframes_per_frame = frame_length // subframe_length
-    output_size = frame_step * (frames - 1) + frame_length
-    output_subframes = output_size // subframe_length
-
-    subframe_signal = signal.view(*outer_dimensions, -1, subframe_length)
-
-    frame = torch.arange(0, output_subframes, device=signal.device).unfold(
-        0, subframes_per_frame, subframe_step
-    )
-    frame = frame.long()  # signal may in GPU or CPU
-    frame = frame.contiguous().view(-1)
-
-    result = signal.new_zeros(*outer_dimensions, output_subframes, subframe_length)
-    result.index_add_(-2, frame, subframe_signal)
-    result = result.view(*outer_dimensions, -1)
-    return result
 
 
 class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
     def __init__(
         self,
-        N=256,
-        L=20,
-        B=256,
-        H=512,
-        P=3,
-        X=8,
-        R=4,
-        C=4,
-        audio_channels=1,
+        n_fft=512,
+        hop_length=256,
+        input_channels=2,
+        frame_length=128,
+        frame_step=64,
         samplerate=44100,
-        norm_type="gLN",
-        causal=False,
-        mask_nonlinear="relu",
+        num_sources=2,
+        num_repeats=4,
     ):
-        """
-        Args:
-            N: Number of filters in autoencoder
-            L: Length of the filters (in samples)
-            B: Number of channels in bottleneck 1 × 1-conv block
-            H: Number of channels in convolutional blocks
-            P: Kernel size in convolutional blocks
-            X: Number of convolutional blocks in each repeat
-            R: Number of repeats
-            C: Number of speakers
-            norm_type: BN, gLN, cLN
-            causal: causal or non-causal
-            mask_nonlinear: use which non-linear function to generate mask
-        """
         super().__init__()
-        # Hyper-parameter
-        self.N, self.L, self.B, self.H, self.P, self.X, self.R, self.C = (
-            N,
-            L,
-            B,
-            H,
-            P,
-            X,
-            R,
-            C,
-        )
-        self.norm_type = norm_type
-        self.causal = causal
-        self.mask_nonlinear = mask_nonlinear
-        self.audio_channels = audio_channels
+
+        self.n_fft = n_fft
+        self.hop_length = hop_length
+        self.frame_length = frame_length
+        self.frame_step = frame_step
         self.samplerate = samplerate
-        # Components
-        self.encoder = Encoder(L, N, audio_channels)
-        self.separator = TemporalConvNet(
-            N, B, H, P, X, R, C, norm_type, causal, mask_nonlinear
+        self.input_channels = input_channels
+        self.num_sources = num_sources
+        self.num_repeats = num_repeats
+    
+        self.encoder = SpectrogramEncoder(n_fft=n_fft, hop_length=hop_length)
+        self.separator = CausalHybridGRUSeparator(
+            input_channels=128,
+            num_sources=self.num_sources,
+            num_repeats=self.num_repeats,
+            frame_length=self.frame_length,
+            frame_step=self.frame_step            
         )
-        self.decoder = Decoder(N, L, audio_channels)
-        # init
+        self.decoder = SpectrogramDecoder(n_fft=n_fft, hop_length=hop_length)
+    
         for p in self.parameters():
             if p.dim() > 1:
                 nn.init.xavier_normal_(p)
@@ -127,22 +51,12 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         return length
 
     def forward(self, mixture):
-        """
-        Args:
-            mixture: [M, T], M is batch size, T is #samples
-        Returns:
-            est_source: [M, C, T]
-        """
-        mixture_w = self.encoder(mixture)
-        est_mask = self.separator(mixture_w)
-        est_source = self.decoder(mixture_w, est_mask)
-
-        # T changed after conv1d in encoder, fix it here
-        T_origin = mixture.size(-1)
-        T_conv = est_source.size(-1)
-        est_source = F.pad(est_source, (0, T_origin - T_conv))
-        return est_source
-
+        spectrogram, phase = self.encoder(mixture)
+        masked_chunks = self.separator(spectrogram)
+        input_length = mixture.size(-1)
+        separated_waveforms = self.decoder(masked_chunks, phase, input_length)
+        return separated_waveforms
+        
     def serialize(self):
         """Serialize model and output dictionary.
 
@@ -189,315 +103,318 @@ class ConvTasNetStereo(nn.Module, PyTorchModelHubMixin):
         return model_args
 
 
-class Encoder(nn.Module):
-    """Estimation of the nonnegative mixture weight by a 1-D conv layer."""
-
-    def __init__(self, L, N, audio_channels):
-        super().__init__()
-        # Hyper-parameter
-        self.L, self.N = L, N
-        # Components
-        # 50% overlap
-        self.conv1d_U = nn.Conv1d(
-            audio_channels, N, kernel_size=L, stride=L // 2, bias=False
-        )
-
-    def forward(self, mixture):
+class SpectrogramEncoder(nn.Module):
+    def __init__(self, n_fft=512, hop_length=256):
         """
         Args:
-            mixture: [M, T], M is batch size, T is #samples
+            n_fft: FFT size.
+            hop_length: Hop length for the STFT.
+        """
+        super().__init__()
+        self.n_fft = n_fft
+        self.hop_length = hop_length
+        # Compute a complex spectrogram (power=None returns a complex tensor)
+        self.stft = T.Spectrogram(n_fft=n_fft, hop_length=hop_length, power=None)
+        # Since we always merge stereo, after merging the magnitude is a single channel.
+        self.conv2d = nn.Conv2d(in_channels=1, out_channels=128, 
+                                kernel_size=(5, 5), padding=(2, 2))
+
+    def forward(self, waveform):
+        """
+        Args:
+            waveform: Tensor of shape [B, 2, T] (stereo input)
         Returns:
-            mixture_w: [M, N, K], where K = (T-L)/(L/2)+1 = 2T/L-1
+            encoded_spec: Tensor of shape [B, 128, F, T']
+                where 128 is the learned feature dimension,
+                F is the number of frequency bins,
+                and T' is the number of time frames.
+            phase: Tensor of shape [B, F, T'] (merged phase in radians)
         """
-        mixture_w = F.relu(self.conv1d_U(mixture))  # [M, N, K]
-        return mixture_w
+        # Compute the STFT.
+        # For stereo input, complex_spec has shape: [B, 2, F, T']
+        complex_spec = self.stft(waveform)
+        
+        # Merge the stereo channels by averaging the complex values along the stereo dimension.
+        # This creates a joint complex representation with shape: [B, F, T']
+        merged_complex = complex_spec.mean(dim=1)
+        
+        # Compute the magnitude and phase from the merged complex representation.
+        # Magnitude: shape becomes [B, 1, F, T'] after unsqueezing for convolution.
+        mag_spec = torch.abs(merged_complex).unsqueeze(1)
+        # Phase: shape [B, F, T']
+        phase = torch.angle(merged_complex)
+        
+        # Apply log scaling to compress the dynamic range.
+        log_mag_spec = torch.log1p(mag_spec)
+        
+        # Apply a 2D convolution to learn features from the log-scaled magnitude spectrogram.
+        # The conv2d layer expects input shape [B, 1, F, T'] and outputs [B, 128, F, T'].
+        encoded_spec = self.conv2d(log_mag_spec)
+        
+        return encoded_spec, phase
 
-
-class Decoder(nn.Module):
-    def __init__(self, N, L, audio_channels):
+class SpectrogramDecoder(nn.Module):
+    def __init__(self, n_fft=512, hop_length=256):
         super().__init__()
-        # Hyper-parameter
-        self.N, self.L = N, L
-        self.audio_channels = audio_channels
-        # Components
-        self.basis_signals = nn.Linear(N, audio_channels * L, bias=False)
+        self.n_fft = n_fft
+        self.hop_length = hop_length
+        self.reduce_conv = nn.Conv2d(128, 2, kernel_size=1)
 
-    def forward(self, mixture_w, est_mask):
+    def forward(self, masked_spec, phase, input_length):
         """
         Args:
-            mixture_w: [M, N, K]
-            est_mask: [M, C, N, K]
+            masked_spec: Tensor of shape [B, 256, S, freq, T_spec]
+            phase: Tensor of shape [B, freq, T_phase]
+            input_length: Desired output length for the waveform
         Returns:
-            est_source: [M, C, T]
+            Tensor of shape [B, S, ch, time] representing the separated waveforms,
+            where ch is typically 2 (e.g. stereo).
         """
-        # D = W * M
-        source_w = torch.unsqueeze(mixture_w, 1) * est_mask  # [M, C, N, K]
-        source_w = torch.transpose(source_w, 2, 3)  # [M, C, K, N]
-        # S = DV
-        est_source = self.basis_signals(source_w)  # [M, C, K, ac * L]
-        m, c, k, _ = est_source.size()
-        est_source = (
-            est_source.view(m, c, k, self.audio_channels, -1)
-            .transpose(2, 3)
-            .contiguous()
-        )
-        est_source = overlap_and_add(est_source, self.L // 2)  # M x C x ac x T
-        return est_source
+        #print("masked_spec type:", type(masked_spec))
+        #print("masked_spec shape:", masked_spec.shape)
+        B, C, S, freq, T_spec = masked_spec.shape
+        T_phase = phase.size(-1)
+        #print("phase type:", type(phase))
+        #print("phase shape:", phase.shape)
 
+        # Ensure time dimensions match.
+        if T_spec < T_phase:
+            diff = T_phase - T_spec
+            #print("Padding masked_spec with diff:", diff)
+            masked_spec = F.pad(masked_spec, (0, diff))
+        elif T_spec > T_phase:
+            #print("Cropping masked_spec from T_spec:", T_spec, "to T_phase:", T_phase)
+            masked_spec = masked_spec[..., :T_phase]
 
-class TemporalConvNet(nn.Module):
-    def __init__(
-        self, N, B, H, P, X, R, C, norm_type="gLN", causal=False, mask_nonlinear="relu"
-    ):
-        """
-        Args:
-            N: Number of filters in autoencoder
-            B: Number of channels in bottleneck 1 × 1-conv block
-            H: Number of channels in convolutional blocks
-            P: Kernel size in convolutional blocks
-            X: Number of convolutional blocks in each repeat
-            R: Number of repeats
-            C: Number of speakers
-            norm_type: BN, gLN, cLN
-            causal: causal or non-causal
-            mask_nonlinear: use which non-linear function to generate mask
-        """
-        super().__init__()
-        # Hyper-parameter
-        self.C = C
-        self.mask_nonlinear = mask_nonlinear
-        # Components
-        # [M, N, K] -> [M, N, K]
-        layer_norm = ChannelwiseLayerNorm(N)
-        # [M, N, K] -> [M, B, K]
-        bottleneck_conv1x1 = nn.Conv1d(N, B, 1, bias=False)
-        # [M, B, K] -> [M, B, K]
-        repeats = []
-        for _r in range(R):
-            blocks = []
-            for x in range(X):
-                dilation = 2**x
-                padding = (P - 1) * dilation if causal else (P - 1) * dilation // 2
-                blocks += [
-                    TemporalBlock(
-                        B,
-                        H,
-                        P,
-                        stride=1,
-                        padding=padding,
-                        dilation=dilation,
-                        norm_type=norm_type,
-                        causal=causal,
-                    )
-                ]
-            repeats += [nn.Sequential(*blocks)]
-        temporal_conv_net = nn.Sequential(*repeats)
-        # [M, B, K] -> [M, C*N, K]
-        mask_conv1x1 = nn.Conv1d(B, C * N, 1, bias=False)
-        # Put together
-        self.network = nn.Sequential(
-            layer_norm, bottleneck_conv1x1, temporal_conv_net, mask_conv1x1
-        )
+        #print("masked_spec shape after padding/cropping:", masked_spec.shape)
 
-    def forward(self, mixture_w):
-        """
-        Keep this API same with TasNet
-        Args:
-            mixture_w: [M, N, K], M is batch size
-        returns:
-            est_mask: [M, C, N, K]
-        """
-        M, N, K = mixture_w.size()
-        score = self.network(mixture_w)  # [M, N, K] -> [M, C*N, K]
-        score = score.view(M, self.C, N, K)  # [M, C*N, K] -> [M, C, N, K]
-        if self.mask_nonlinear == "softmax":
-            est_mask = F.softmax(score, dim=1)
-        elif self.mask_nonlinear == "relu":
-            est_mask = F.relu(score)
-        else:
-            raise ValueError("Unsupported mask non-linear function")
-        return est_mask
+        # Add channel dimension to phase for broadcasting: [B, 1, freq, T_phase]
+        phase = phase.unsqueeze(1)
+        #print("phase shape after unsqueeze:", phase.shape)
 
+        waveforms = []
+        for s in range(S):
+            #print(f"Processing source index: {s}")
+            # Extract the masked spectrogram for the s-th source.
+            spec_s = masked_spec[:, :, s, :, :]  # [B, 256, freq, T_spec]
+            #print("spec_s shape after extraction:", spec_s.shape)
+            # Reduce the channel dimension from 256 to 2.
+            spec_s = self.reduce_conv(spec_s)     # [B, 2, freq, T_spec]
+            #print("spec_s shape after reduce_conv:", spec_s.shape)
+            # Clamp the values to ensure non-negative magnitudes.
+            mag = spec_s.clamp(min=0)
+            #print("mag shape after clamp:", mag.shape)
+            # Invert the log scaling applied in the encoder.
+            mag = torch.expm1(mag)
+            #print("mag shape after expm1:", mag.shape)
+            # Reconstruct the complex spectrogram using the recovered magnitude and the phase.
+            complex_spec = torch.polar(mag, phase)  # [B, 2, freq, T_spec]
+            #print("complex_spec shape after torch.polar:", complex_spec.shape)
+            b, ch, f, t = complex_spec.shape
+            # Merge the batch and channel dimensions for ISTFT.
+            complex_spec = complex_spec.view(b * ch, f, t)
+            #print("complex_spec shape after view:", complex_spec.shape)
+            # Perform the inverse STFT to recover the time-domain waveform.
+            waveform = torch.istft(complex_spec, n_fft=self.n_fft, hop_length=self.hop_length, window=None, length=input_length)
+            #print("waveform shape after istft:", waveform.shape)
+            # Reshape to restore separate channels.
+            waveform = waveform.view(b, ch, -1)
+            #print("waveform shape after view:", waveform.shape)
+            waveforms.append(waveform)
+        
+        final_output = torch.stack(waveforms, dim=1)
+        #print("Final output shape:", final_output.shape)
+        return final_output
 
-class TemporalBlock(nn.Module):
-    def __init__(
-        self,
-        in_channels,
-        out_channels,
-        kernel_size,
-        stride,
-        padding,
-        dilation,
-        norm_type="gLN",
-        causal=False,
-    ):
-        super().__init__()
-        # [M, B, K] -> [M, H, K]
-        conv1x1 = nn.Conv1d(in_channels, out_channels, 1, bias=False)
-        prelu = nn.PReLU()
-        norm = chose_norm(norm_type, out_channels)
-        # [M, H, K] -> [M, B, K]
-        dsconv = DepthwiseSeparableConv(
-            out_channels,
-            in_channels,
-            kernel_size,
-            stride,
-            padding,
-            dilation,
-            norm_type,
-            causal,
-        )
-        # Put together
-        self.net = nn.Sequential(conv1x1, prelu, norm, dsconv)
-
-    def forward(self, x):
-        """
-        Args:
-            x: [M, B, K]
-        Returns:
-            [M, B, K]
-        """
-        residual = x
-        out = self.net(x)
-        # TODO: when P = 3 here works fine, but when P = 2 maybe need to pad?
-        return out + residual  # look like w/o F.relu is better than w/ F.relu
-        # return F.relu(out + residual)
-
-
-class DepthwiseSeparableConv(nn.Module):
-    def __init__(
-        self,
-        in_channels,
-        out_channels,
-        kernel_size,
-        stride,
-        padding,
-        dilation,
-        norm_type="gLN",
-        causal=False,
-    ):
-        super().__init__()
-        # Use `groups` option to implement depthwise convolution
-        # [M, H, K] -> [M, H, K]
-        depthwise_conv = nn.Conv1d(
-            in_channels,
-            in_channels,
-            kernel_size,
-            stride=stride,
-            padding=padding,
-            dilation=dilation,
-            groups=in_channels,
-            bias=False,
-        )
-        if causal:
-            chomp = Chomp1d(padding)
-        prelu = nn.PReLU()
-        norm = chose_norm(norm_type, in_channels)
-        # [M, H, K] -> [M, B, K]
-        pointwise_conv = nn.Conv1d(in_channels, out_channels, 1, bias=False)
-        # Put together
-        if causal:
-            self.net = nn.Sequential(depthwise_conv, chomp, prelu, norm, pointwise_conv)
-        else:
-            self.net = nn.Sequential(depthwise_conv, prelu, norm, pointwise_conv)
-
-    def forward(self, x):
-        """
-        Args:
-            x: [M, H, K]
-        Returns:
-            result: [M, B, K]
-        """
-        return self.net(x)
-
-
-class Chomp1d(nn.Module):
-    """To ensure the output length is the same as the input."""
-
-    def __init__(self, chomp_size):
-        super().__init__()
-        self.chomp_size = chomp_size
-
-    def forward(self, x):
-        """
-        Args:
-            x: [M, H, Kpad]
-        Returns:
-            [M, H, K]
-        """
-        return x[:, :, : -self.chomp_size].contiguous()
-
-
-def chose_norm(norm_type, channel_size):
-    """The input of normlization will be (M, C, K), where M is batch size,
-    C is channel size and K is sequence length.
+class CausalConv2D(nn.Module):
     """
-    if norm_type == "gLN":
-        return GlobalLayerNorm(channel_size)
-    elif norm_type == "cLN":
-        return ChannelwiseLayerNorm(channel_size)
-    elif norm_type == "id":
-        return nn.Identity()
-    else:  # norm_type == "BN":
-        # Given input (M, C, K), nn.BatchNorm1d(C) will accumulate statics
-        # along M and K, so this BN usage is right.
-        return nn.BatchNorm1d(channel_size)
-
-
-# TODO: Use nn.LayerNorm to impl cLN to speed up
-class ChannelwiseLayerNorm(nn.Module):
-    """Channel-wise Layer Normalization (cLN)"""
-
-    def __init__(self, channel_size):
+    Implements causal 2D convolution: future time steps are not accessed.
+    """
+    def __init__(self, in_channels, out_channels, kernel_size=(5, 3), dilation=(1, 1)):
         super().__init__()
-        self.gamma = nn.Parameter(torch.Tensor(1, channel_size, 1))  # [1, N, 1]
-        self.beta = nn.Parameter(torch.Tensor(1, channel_size, 1))  # [1, N, 1]
-        self.reset_parameters()
+        pad_freq = kernel_size[0] // 2  # symmetric freq padding is fine
+        pad_time = (kernel_size[1] - 1) * dilation[1]
 
-    def reset_parameters(self):
-        self.gamma.data.fill_(1)
-        self.beta.data.zero_()
-
-    def forward(self, y):
-        """
-        Args:
-            y: [M, N, K], M is batch size, N is channel size, K is length
-        Returns:
-            cLN_y: [M, N, K]
-        """
-        mean = torch.mean(y, dim=1, keepdim=True)  # [M, 1, K]
-        var = torch.var(y, dim=1, keepdim=True, unbiased=False)  # [M, 1, K]
-        cLN_y = self.gamma * (y - mean) / torch.pow(var + EPS, 0.5) + self.beta
-        return cLN_y
-
-
-class GlobalLayerNorm(nn.Module):
-    """Global Layer Normalization (gLN)"""
-
-    def __init__(self, channel_size):
-        super().__init__()
-        self.gamma = nn.Parameter(torch.Tensor(1, channel_size, 1))  # [1, N, 1]
-        self.beta = nn.Parameter(torch.Tensor(1, channel_size, 1))  # [1, N, 1]
-        self.reset_parameters()
-
-    def reset_parameters(self):
-        self.gamma.data.fill_(1)
-        self.beta.data.zero_()
-
-    def forward(self, y):
-        """
-        Args:
-            y: [M, N, K], M is batch size, N is channel size, K is length
-        Returns:
-            gLN_y: [M, N, K]
-        """
-        # TODO: in torch 1.0, torch.mean() support dim list
-        mean = y.mean(dim=1, keepdim=True).mean(dim=2, keepdim=True)  # [M, 1, 1]
-        var = (
-            (torch.pow(y - mean, 2)).mean(dim=1, keepdim=True).mean(dim=2, keepdim=True)
+        self.pad_time = pad_time
+        self.pad = (0, pad_time)  # right-pad time only (causal)
+        self.conv = nn.Conv2d(
+            in_channels,
+            out_channels,
+            kernel_size=kernel_size,
+            padding=(pad_freq, 0),  # freq is symmetric
+            dilation=dilation
         )
-        gLN_y = self.gamma * (y - mean) / torch.pow(var + EPS, 0.5) + self.beta
-        return gLN_y
+
+    def forward(self, x):
+        # Causal padding in time dimension (only right side)
+        x = F.pad(x, self.pad)  # [left, right] on time dim only
+        out = self.conv(x)
+
+        # Remove extra future-padded steps (causal chomp)
+        if self.pad_time > 0:
+            out = out[..., :-self.pad_time]  # remove future steps
+        return F.relu(out)
+
+class CausalHybridGRUSeparator(nn.Module):
+    def __init__(self, input_channels=256, hidden_channels=128, num_sources=2,
+                 num_repeats=4, frame_length=128, frame_step=64, inter_hidden=64,
+                 freq_bins=257):
+        super().__init__()
+        self.num_sources = num_sources
+        self.num_repeats = num_repeats
+        self.frame_length = frame_length
+        self.frame_step = frame_step
+
+        # Intra-chunk processing: conv blocks and GRU layers.
+        self.conv_blocks = nn.ModuleList([
+            CausalConv2D(
+                in_channels=input_channels if i == 0 else hidden_channels,
+                out_channels=hidden_channels,
+                kernel_size=(5, 3),
+                dilation=(1, 1) if i % 2 == 0 else (1, 2)
+            ) for i in range(num_repeats)
+        ])
+        self.cum_ln = CumulativeLayerNorm(hidden_channels)
+        self.intra_gru_layers = nn.ModuleList([
+            nn.GRU(
+                input_size=hidden_channels,
+                hidden_size=hidden_channels,
+                num_layers=2,
+                batch_first=True,
+                bidirectional=False
+            ) for _ in range(num_repeats)
+        ])
+        self.mask_proj = nn.Conv2d(hidden_channels, input_channels * num_sources, kernel_size=1)
+
+        # Inter-chunk processing: replace GRU with global causal attention.
+        # We'll summarize each chunk by averaging over time and over the channel dimension.
+        # This gives a summary of shape [n_chunks, B, num_sources * freq_bins].
+        # We project that to inter_hidden and then use a multi-head attention layer.
+        self.inter_proj = nn.Linear(num_sources * freq_bins, inter_hidden)
+        self.inter_attention = nn.MultiheadAttention(embed_dim=inter_hidden, num_heads=4)
+        self.inter_linear = nn.Linear(inter_hidden, 1)
+
+    def overlap_and_add(self, chunks, frame_step):
+        N, B, C, S, F, K = chunks.shape
+        outer_dims = (B, C, S, F)
+        total_frames = frame_step * (N - 1) + K
+
+        subframe_len = math.gcd(K, frame_step)
+        subframes_per_chunk = K // subframe_len
+        subframe_step = frame_step // subframe_len
+        total_subframes = total_frames // subframe_len
+
+        subframe_chunks = chunks.view(N, *outer_dims, subframes_per_chunk, subframe_len)
+        subframe_chunks = subframe_chunks.permute(1, 2, 3, 4, 0, 5, 6)
+        subframe_chunks = subframe_chunks.reshape(*outer_dims, -1, subframe_len)
+
+        frame = torch.arange(0, total_subframes, device=chunks.device).unfold(0, subframes_per_chunk, subframe_step)
+        frame = frame.contiguous().view(-1)[:subframe_chunks.shape[-2]]
+
+        output = torch.zeros(*outer_dims, total_subframes, subframe_len, device=chunks.device)
+        output.index_add_(-2, frame, subframe_chunks)
+        full_spec = output.reshape(*outer_dims, -1)
+        return full_spec
+
+    def forward(self, spectrogram):
+        B, C, freq, T_in = spectrogram.shape
+        # Split spectrogram into overlapping chunks along time:
+        # [B, C, freq, n_chunks, frame_length]
+        chunks = spectrogram.unfold(-1, self.frame_length, self.frame_step)
+        n_chunks = chunks.size(-2)
+        # Permute to [n_chunks, B, C, freq, frame_length]
+        chunks = chunks.permute(3, 0, 1, 2, 4)
+
+        intra_outputs = []
+        # Intra-chunk processing
+        for chunk in chunks:
+            out = chunk  # [B, C, freq, frame_length]
+            for conv in self.conv_blocks:
+                out = conv(out)
+            out = self.cum_ln(out)
+            H = out.size(1)  # hidden channels
+            # Rearrange for GRU: [B, freq, H, frame_length] -> [B*freq, frame_length, H]
+            out = out.permute(0, 2, 1, 3).contiguous()
+            T_chunk = out.size(-1)
+            out = out.view(B * freq, T_chunk, H)
+            for gru in self.intra_gru_layers:
+                out, _ = gru(out)
+            T_new = out.size(1)
+            # Reshape back: [B, freq, T_new, H] -> [B, H, freq, T_new]
+            out = out.view(B, freq, T_new, H).permute(0, 3, 1, 2).contiguous()
+            # Project features to mask space
+            mask = self.mask_proj(out)
+            mask = mask.view(B, self.num_sources, C, freq, T_new)
+            mask = F.relu(mask)
+            # Adjust chunk if necessary
+            if self.frame_length != T_new:
+                chunk = chunk[..., :T_new]
+            masked_chunk = chunk.unsqueeze(1) * mask  # [B, num_sources, C, freq, T_new]
+            # Permute to [B, C, num_sources, freq, T_new]
+            masked_chunk = masked_chunk.permute(0, 2, 1, 3, 4)
+            intra_outputs.append(masked_chunk)
+        # Stack intra-outputs: [n_chunks, B, C, num_sources, freq, T_new]
+        intra_outputs = torch.stack(intra_outputs, dim=0)
+
+        # --- Inter-chunk processing with causal attention ---
+        # First, compute a summary for each chunk by averaging over the time dimension:
+        # Resulting shape: [n_chunks, B, C, num_sources, freq]
+        chunk_summary = intra_outputs.mean(dim=-1)
+        # Average over the channel dimension (C) to reduce dimensionality:
+        chunk_summary = chunk_summary.mean(dim=2)  # [n_chunks, B, num_sources, freq]
+        # Flatten the last two dimensions: [n_chunks, B, num_sources * freq]
+        chunk_summary = chunk_summary.view(n_chunks, B, -1)
+        # Project to inter_hidden dimension:
+        chunk_summary_proj = self.inter_proj(chunk_summary)  # [n_chunks, B, inter_hidden]
+
+        # Create a causal mask for the attention mechanism:
+        # The mask is of shape [n_chunks, n_chunks] where positions (i, j) with j > i are -inf.
+        attn_mask = torch.triu(torch.ones(n_chunks, n_chunks, device=spectrogram.device) * float('-inf'), diagonal=1)
+        # Apply multi-head attention (expects shape [L, N, E], where L=n_chunks, N=B)
+        attn_output, _ = self.inter_attention(chunk_summary_proj, chunk_summary_proj, chunk_summary_proj, attn_mask=attn_mask)
+        # Map the attention output to a scaling factor:
+        scaling = self.inter_linear(attn_output)  # [n_chunks, B, 1]
+        # Expand scaling to match intra_outputs shape: [n_chunks, B, C, num_sources, freq, 1]
+        scaling = scaling.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1).expand(n_chunks, B, C, self.num_sources, freq, 1)
+        # Apply the scaling factor:
+        inter_processed = intra_outputs * scaling  # [n_chunks, B, C, num_sources, freq, T_new]
+
+        # Reconstruct the full spectrogram via overlap-and-add.
+        full_masked_spec = self.overlap_and_add(inter_processed, self.frame_step)
+        return full_masked_spec
+
+
+
+class CumulativeLayerNorm(nn.Module):
+    """Cumulative Layer Normalization (CLN)"""
+
+    def __init__(self, channel_size):
+        super().__init__()
+        self.gamma = nn.Parameter(torch.Tensor(1, channel_size, 1, 1))  # [1, C, 1, 1]
+        self.beta = nn.Parameter(torch.Tensor(1, channel_size, 1, 1))  # [1, C, 1, 1]
+        self.reset_parameters()
+
+    def reset_parameters(self):
+        self.gamma.data.fill_(1)
+        self.beta.data.zero_()
+
+    def forward(self, y):
+        """
+        Args:
+            y: [batch, channels, freq_bins, time]
+        Returns:
+            cln_y: Cumulative Layer Normalized tensor
+        """
+        batch, channels, freq_bins, time = y.shape
+
+        # Compute cumulative mean & variance along the **time** axis
+        cumulative_mean = y.cumsum(dim=-1) / (torch.arange(1, time + 1, device=y.device).view(1, 1, 1, -1))
+        cumulative_var = ((y - cumulative_mean) ** 2).cumsum(dim=-1) / (torch.arange(1, time + 1, device=y.device).view(1, 1, 1, -1))
+
+        # Normalize using cumulative statistics
+        cln_y = self.gamma * (y - cumulative_mean) / torch.sqrt(cumulative_var + 1e-5) + self.beta
+        return cln_y
+
 
 
 if __name__ == "__main__":
