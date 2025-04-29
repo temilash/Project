@@ -1,0 +1,8 @@
+[2025-04-23 13:15:57,007][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-23 13:15:57,077][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-04-23 13:16:16,485][__main__][INFO] - [002/006] Evaluating S50201 for listener L5009
+[2025-04-23 13:16:35,067][__main__][INFO] - [003/006] Evaluating S50401 for listener L5043
+[2025-04-23 13:16:53,750][__main__][INFO] - [004/006] Evaluating S50601 for listener L5007
+[2025-04-23 13:17:12,319][__main__][INFO] - [005/006] Evaluating S50801 for listener L5066
+[2025-04-23 13:17:30,883][__main__][INFO] - [006/006] Evaluating S51001 for listener L5053
+[2025-04-23 13:17:49,147][__main__][INFO] - Done!

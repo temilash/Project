@@ -1,0 +1,38 @@
+[2025-04-25 23:52:17,810][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "enhance.py", line 279, in enhance
+    separation_models = load_separation_model(
+  File "enhance.py", line 204, in load_separation_model
+    models[instrument] = ConvTasNetStereo.from_pretrained(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/huggingface_hub/hub_mixin.py", line 553, in from_pretrained
+    instance = cls._from_pretrained(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/huggingface_hub/hub_mixin.py", line 792, in _from_pretrained
+    return cls._load_as_safetensor(model, model_file, map_location, strict)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/huggingface_hub/hub_mixin.py", line 827, in _load_as_safetensor
+    safetensors.torch.load_model(model, model_file, strict=strict, device=map_location)  # type: ignore [arg-type]
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/safetensors/torch.py", line 204, in load_model
+    to_removes = _remove_duplicate_names(model_state_dict, preferred_names=state_dict.keys())
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/safetensors/torch.py", line 102, in _remove_duplicate_names
+    raise RuntimeError(
+RuntimeError: Error while trying to find names to remove to save state dict, but found no suitable name to keep for saving amongst: {'encoder.stft.window'}. None is covering the entire storage.Refusing to save/load the model since you could be storing much more memory than needed. Please refer to https://huggingface.co/docs/safetensors/torch_shared_tensors for more information. Or open an issue.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2025-04-25 23:52:20,853][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-25 23:52:20,922][__main__][INFO] - [001/203] Evaluating S62001 for listener L6201
+[2025-04-25 23:52:53,740][__main__][INFO] - [002/203] Evaluating S62002 for listener L6239
+[2025-04-25 23:52:54,836][clarity.utils.flac_encoder][ERROR] - File enhanced_signals/test/S62002_L6239_remix.flac not found.
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "evaluate.py", line 248, in run_calculate_aq
+    enhanced_signal, _ = read_flac_signal(
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/flac_encoder.py", line 254, in read_flac_signal
+    signal, sample_rate = flac_encoder.decode(
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/flac_encoder.py", line 232, in decode
+    raise FileNotFoundError(f"File {input_filename} not found.")
+FileNotFoundError: File enhanced_signals/test/S62002_L6239_remix.flac not found.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Both scripts ran successfully!

@@ -1,0 +1,34 @@
+[2025-04-20 18:02:20,429][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Bassoon/best_model.safetensors
+[2025-04-20 18:02:20,651][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Cello/best_model.safetensors
+[2025-04-20 18:02:20,678][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Clarinet/best_model.safetensors
+[2025-04-20 18:02:20,704][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Flute/best_model.safetensors
+[2025-04-20 18:02:20,730][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Oboe/best_model.safetensors
+[2025-04-20 18:02:20,756][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Sax/best_model.safetensors
+[2025-04-20 18:02:20,781][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Viola/best_model.safetensors
+[2025-04-20 18:02:20,807][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/final_sd-sdr/Violin/best_model.safetensors
+[2025-04-20 18:02:20,850][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "enhance.py", line 416, in enhance
+    stems = apply_gains(stems, config.input_sample_rate, gain_scene, listener)
+  File "/mnt/scratch/sc22ol/Project/recipes/cad2/task2/baseline/evaluate.py", line 103, in apply_gains
+    adjusted_left = apply_frequency_gains(adjusted_left, sample_rate, frequencies, gain_left_freq)
+  File "/mnt/scratch/sc22ol/Project/recipes/cad2/task2/baseline/evaluate.py", line 36, in apply_frequency_gains
+    if not frequencies or not gains or all(g == 0 for g in gains):
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2025-04-20 18:02:23,606][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-20 18:02:23,656][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "evaluate.py", line 270, in run_calculate_aq
+    reference_stems = apply_gains(reference_stems, config.input_sample_rate, gains[scene["gain"]], listener)
+  File "evaluate.py", line 103, in apply_gains
+    adjusted_left = apply_frequency_gains(adjusted_left, sample_rate, frequencies, gain_left_freq)
+  File "evaluate.py", line 36, in apply_frequency_gains
+    if not frequencies or not gains or all(g == 0 for g in gains):
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Both scripts ran successfully!

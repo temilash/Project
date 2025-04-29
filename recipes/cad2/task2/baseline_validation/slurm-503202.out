@@ -1,0 +1,21 @@
+[2025-04-04 18:17:46,451][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Bassoon/checkpoints/best_model.safetensors
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "enhance.py", line 331, in enhance
+    separation_models = load_separation_model(
+  File "enhance.py", line 254, in load_separation_model
+    state_dict = load_file(model_path)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/safetensors/torch.py", line 313, in load_file
+    with safe_open(filename, framework="pt", device=device) as f:
+FileNotFoundError: No such file or directory: "/mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Bassoon/checkpoints/best_model.safetensors"
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2025-04-04 18:17:47,867][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-04 18:17:47,935][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-04-04 18:18:07,087][__main__][INFO] - [002/006] Evaluating S50201 for listener L5009
+[2025-04-04 18:18:25,243][__main__][INFO] - [003/006] Evaluating S50401 for listener L5043
+[2025-04-04 18:18:43,528][__main__][INFO] - [004/006] Evaluating S50601 for listener L5007
+[2025-04-04 18:19:01,979][__main__][INFO] - [005/006] Evaluating S50801 for listener L5066
+[2025-04-04 18:19:20,268][__main__][INFO] - [006/006] Evaluating S51001 for listener L5053
+[2025-04-04 18:19:38,398][__main__][INFO] - Done!
+Both scripts ran successfully!

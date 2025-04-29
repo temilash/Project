@@ -1,0 +1,132 @@
+[2025-04-29 02:02:44,002][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-29 02:02:44,061][__main__][INFO] - [001/101] Evaluating S62001 for listener L6201
+[2025-04-29 02:02:45,333][clarity.utils.flac_encoder][ERROR] - File enhanced_signals/test/S62001_L6201_remix.flac not found.
+[2025-04-29 02:07:03,538][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-29 02:07:03,584][__main__][INFO] - [001/101] Evaluating S62001 for listener L6201
+[2025-04-29 02:07:04,522][clarity.utils.flac_encoder][ERROR] - File enhanced_signals/test/S62001_L6201_remix.flac not found.
+[2025-04-29 02:08:31,450][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-29 02:08:31,496][__main__][INFO] - [001/101] Evaluating S62001 for listener L6201
+[2025-04-29 02:08:32,430][clarity.utils.flac_encoder][ERROR] - File enhanced_signals/test/S62001_L6201_remix.flac not found.
+[2025-04-29 02:14:28,394][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-29 02:14:28,440][__main__][INFO] - [001/101] Evaluating S62001 for listener L6201
+[2025-04-29 02:15:02,396][__main__][INFO] - [002/101] Evaluating S62004 for listener L6229
+[2025-04-29 02:15:35,060][__main__][INFO] - [003/101] Evaluating S62007 for listener L6251
+[2025-04-29 02:15:55,833][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:15:58,409][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:16:03,554][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:16:06,124][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:16:06,126][__main__][INFO] - [004/101] Evaluating S62011 for listener L6233
+[2025-04-29 02:16:38,263][__main__][INFO] - [005/101] Evaluating S62014 for listener L6249
+[2025-04-29 02:17:11,153][__main__][INFO] - [006/101] Evaluating S62018 for listener L6228
+[2025-04-29 02:17:43,928][__main__][INFO] - [007/101] Evaluating S62021 for listener L6246
+[2025-04-29 02:18:16,826][__main__][INFO] - [008/101] Evaluating S62025 for listener L6216
+[2025-04-29 02:19:19,690][__main__][INFO] - [009/101] Evaluating S62028 for listener L6245
+[2025-04-29 02:20:20,370][__main__][INFO] - [010/101] Evaluating S62032 for listener L6215
+[2025-04-29 02:21:20,773][__main__][INFO] - [011/101] Evaluating S62035 for listener L6245
+[2025-04-29 02:22:21,012][__main__][INFO] - [012/101] Evaluating S62039 for listener L6208
+[2025-04-29 02:23:21,532][__main__][INFO] - [013/101] Evaluating S62042 for listener L6239
+[2025-04-29 02:24:22,061][__main__][INFO] - [014/101] Evaluating S62046 for listener L6214
+[2025-04-29 02:25:22,464][__main__][INFO] - [015/101] Evaluating S62049 for listener L6229
+[2025-04-29 02:26:23,254][__main__][INFO] - [016/101] Evaluating S62053 for listener L6209
+[2025-04-29 02:27:23,496][__main__][INFO] - [017/101] Evaluating S62056 for listener L6230
+[2025-04-29 02:28:23,476][__main__][INFO] - [018/101] Evaluating S62060 for listener L6207
+[2025-04-29 02:29:23,792][__main__][INFO] - [019/101] Evaluating S62063 for listener L6229
+[2025-04-29 02:30:23,831][__main__][INFO] - [020/101] Evaluating S62067 for listener L6205
+[2025-04-29 02:31:24,259][__main__][INFO] - [021/101] Evaluating S62070 for listener L6232
+[2025-04-29 02:32:24,527][__main__][INFO] - [022/101] Evaluating S62074 for listener L6203
+[2025-04-29 02:33:24,871][__main__][INFO] - [023/101] Evaluating S62077 for listener L6222
+[2025-04-29 02:34:25,144][__main__][INFO] - [024/101] Evaluating S62080 for listener L6251
+[2025-04-29 02:35:09,715][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:35:12,239][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:35:17,445][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:35:19,982][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:35:19,984][__main__][INFO] - [025/101] Evaluating S62084 for listener L6227
+[2025-04-29 02:36:20,391][__main__][INFO] - [026/101] Evaluating S62087 for listener L6249
+[2025-04-29 02:36:45,117][__main__][INFO] - [027/101] Evaluating S62091 for listener L6218
+[2025-04-29 02:37:09,633][__main__][INFO] - [028/101] Evaluating S62094 for listener L6248
+[2025-04-29 02:37:34,259][__main__][INFO] - [029/101] Evaluating S62098 for listener L6220
+[2025-04-29 02:37:57,688][__main__][INFO] - [030/101] Evaluating S62101 for listener L6243
+[2025-04-29 02:38:20,784][__main__][INFO] - [031/101] Evaluating S62105 for listener L6221
+[2025-04-29 02:38:43,958][__main__][INFO] - [032/101] Evaluating S62108 for listener L6237
+[2025-04-29 02:39:07,119][__main__][INFO] - [033/101] Evaluating S62112 for listener L6215
+[2025-04-29 02:39:38,379][__main__][INFO] - [034/101] Evaluating S62115 for listener L6235
+[2025-04-29 02:40:09,350][__main__][INFO] - [035/101] Evaluating S62119 for listener L6213
+[2025-04-29 02:40:40,367][__main__][INFO] - [036/101] Evaluating S62122 for listener L6234
+[2025-04-29 02:41:11,198][__main__][INFO] - [037/101] Evaluating S62126 for listener L6212
+[2025-04-29 02:41:42,136][__main__][INFO] - [038/101] Evaluating S62129 for listener L6230
+[2025-04-29 02:42:13,529][__main__][INFO] - [039/101] Evaluating S62133 for listener L6204
+[2025-04-29 02:42:44,344][__main__][INFO] - [040/101] Evaluating S62136 for listener L6241
+[2025-04-29 02:43:15,426][__main__][INFO] - [041/101] Evaluating S62140 for listener L6212
+[2025-04-29 02:43:46,407][__main__][INFO] - [042/101] Evaluating S62143 for listener L6229
+[2025-04-29 02:44:17,479][__main__][INFO] - [043/101] Evaluating S62147 for listener L6204
+[2025-04-29 02:44:48,638][__main__][INFO] - [044/101] Evaluating S62150 for listener L6220
+[2025-04-29 02:45:22,466][__main__][INFO] - [045/101] Evaluating S62153 for listener L6251
+[2025-04-29 02:45:44,622][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:45:47,142][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:45:52,294][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:45:54,822][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:45:54,824][__main__][INFO] - [046/101] Evaluating S62157 for listener L6225
+[2025-04-29 02:46:28,804][__main__][INFO] - [047/101] Evaluating S62160 for listener L6245
+[2025-04-29 02:47:02,209][__main__][INFO] - [048/101] Evaluating S62164 for listener L6224
+[2025-04-29 02:47:35,878][__main__][INFO] - [049/101] Evaluating S62167 for listener L6243
+[2025-04-29 02:48:09,202][__main__][INFO] - [050/101] Evaluating S62171 for listener L6215
+[2025-04-29 02:48:42,634][__main__][INFO] - [051/101] Evaluating S62174 for listener L6241
+[2025-04-29 02:49:06,039][__main__][INFO] - [052/101] Evaluating S62178 for listener L6215
+[2025-04-29 02:49:29,222][__main__][INFO] - [053/101] Evaluating S62181 for listener L6237
+[2025-04-29 02:49:52,439][__main__][INFO] - [054/101] Evaluating S62185 for listener L6213
+[2025-04-29 02:50:15,458][__main__][INFO] - [055/101] Evaluating S62188 for listener L6240
+[2025-04-29 02:50:38,420][__main__][INFO] - [056/101] Evaluating S62192 for listener L6215
+[2025-04-29 02:51:21,465][__main__][INFO] - [057/101] Evaluating S62195 for listener L6235
+[2025-04-29 02:52:04,052][__main__][INFO] - [058/101] Evaluating S62199 for listener L6216
+[2025-04-29 02:52:46,623][__main__][INFO] - [059/101] Evaluating S62202 for listener L6236
+[2025-04-29 02:53:29,249][__main__][INFO] - [060/101] Evaluating S62206 for listener L6205
+[2025-04-29 02:54:11,834][__main__][INFO] - [061/101] Evaluating S62209 for listener L6235
+[2025-04-29 02:54:54,962][__main__][INFO] - [062/101] Evaluating S62213 for listener L6206
+[2025-04-29 02:55:37,423][__main__][INFO] - [063/101] Evaluating S62216 for listener L6234
+[2025-04-29 02:56:20,025][__main__][INFO] - [064/101] Evaluating S62220 for listener L6201
+[2025-04-29 02:57:02,280][__main__][INFO] - [065/101] Evaluating S62223 for listener L6229
+[2025-04-29 02:57:44,754][__main__][INFO] - [066/101] Evaluating S62226 for listener L6251
+[2025-04-29 02:58:15,340][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:58:17,914][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:58:23,147][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:58:25,711][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:58:25,714][__main__][INFO] - [067/101] Evaluating S62230 for listener L6224
+[2025-04-29 02:58:58,251][__main__][INFO] - [068/101] Evaluating S62233 for listener L6250
+[2025-04-29 02:59:30,409][__main__][INFO] - [069/101] Evaluating S62237 for listener L6223
+[2025-04-29 03:00:02,671][__main__][INFO] - [070/101] Evaluating S62240 for listener L6244
+[2025-04-29 03:00:34,815][__main__][INFO] - [071/101] Evaluating S62244 for listener L6220
+[2025-04-29 03:01:07,219][__main__][INFO] - [072/101] Evaluating S62247 for listener L6247
+[2025-04-29 03:01:39,501][__main__][INFO] - [073/101] Evaluating S62251 for listener L6217
+[2025-04-29 03:02:11,929][__main__][INFO] - [074/101] Evaluating S62254 for listener L6242
+[2025-04-29 03:02:44,007][__main__][INFO] - [075/101] Evaluating S62258 for listener L6218
+[2025-04-29 03:03:15,715][__main__][INFO] - [076/101] Evaluating S62261 for listener L6240
+[2025-04-29 03:03:47,296][__main__][INFO] - [077/101] Evaluating S62265 for listener L6208
+[2025-04-29 03:04:18,983][__main__][INFO] - [078/101] Evaluating S62268 for listener L6240
+[2025-04-29 03:04:50,788][__main__][INFO] - [079/101] Evaluating S62272 for listener L6209
+[2025-04-29 03:05:22,353][__main__][INFO] - [080/101] Evaluating S62275 for listener L6232
+[2025-04-29 03:05:53,888][__main__][INFO] - [081/101] Evaluating S62279 for listener L6211
+[2025-04-29 03:06:24,176][__main__][INFO] - [082/101] Evaluating S62282 for listener L6236
+[2025-04-29 03:06:54,437][__main__][INFO] - [083/101] Evaluating S62286 for listener L6203
+[2025-04-29 03:07:24,525][__main__][INFO] - [084/101] Evaluating S62289 for listener L6237
+[2025-04-29 03:07:54,711][__main__][INFO] - [085/101] Evaluating S62293 for listener L6204
+[2025-04-29 03:08:24,901][__main__][INFO] - [086/101] Evaluating S62296 for listener L6228
+[2025-04-29 03:08:55,122][__main__][INFO] - [087/101] Evaluating S62299 for listener L6251
+[2025-04-29 03:09:07,156][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 03:09:09,717][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 03:09:14,891][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 03:09:17,463][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 03:09:17,465][__main__][INFO] - [088/101] Evaluating S62303 for listener L6225
+[2025-04-29 03:09:40,452][__main__][INFO] - [089/101] Evaluating S62306 for listener L6249
+[2025-04-29 03:10:02,287][__main__][INFO] - [090/101] Evaluating S62310 for listener L6228
+[2025-04-29 03:10:23,776][__main__][INFO] - [091/101] Evaluating S62313 for listener L6247
+[2025-04-29 03:10:44,120][__main__][INFO] - [092/101] Evaluating S62317 for listener L6215
+[2025-04-29 03:11:06,561][__main__][INFO] - [093/101] Evaluating S62320 for listener L6241
+[2025-04-29 03:11:28,871][__main__][INFO] - [094/101] Evaluating S62324 for listener L6219
+[2025-04-29 03:11:51,208][__main__][INFO] - [095/101] Evaluating S62327 for listener L6243
+[2025-04-29 03:12:13,277][__main__][INFO] - [096/101] Evaluating S62331 for listener L6218
+[2025-04-29 03:12:35,228][__main__][INFO] - [097/101] Evaluating S62334 for listener L6240
+[2025-04-29 03:12:56,785][__main__][INFO] - [098/101] Evaluating S62338 for listener L6213
+[2025-04-29 03:13:18,123][__main__][INFO] - [099/101] Evaluating S62341 for listener L6233
+[2025-04-29 03:13:38,184][__main__][INFO] - [100/101] Evaluating S62345 for listener L6209
+[2025-04-29 03:13:59,099][__main__][INFO] - [101/101] Evaluating S62348 for listener L6237
+[2025-04-29 03:14:19,873][__main__][INFO] - Done!

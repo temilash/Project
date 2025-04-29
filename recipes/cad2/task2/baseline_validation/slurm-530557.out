@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "enhance.py", line 23, in <module>
+    from clarity.enhancer.multiband_compressor import MultibandCompressor
+ModuleNotFoundError: No module named 'clarity'
+Traceback (most recent call last):
+  File "evaluate.py", line 20, in <module>
+    from clarity.enhancer.multiband_compressor import MultibandCompressor
+ModuleNotFoundError: No module named 'clarity'
+Both scripts ran successfully!

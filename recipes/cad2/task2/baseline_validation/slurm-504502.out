@@ -1,0 +1,38 @@
+[2025-04-06 00:03:23,075][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Bassoon/best_model.safetensors
+[2025-04-06 00:03:23,328][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Cello/best_model.safetensors
+[2025-04-06 00:03:23,374][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Clarinet/best_model.safetensors
+[2025-04-06 00:03:23,419][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Flute/best_model.safetensors
+[2025-04-06 00:03:23,463][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Oboe/best_model.safetensors
+[2025-04-06 00:03:23,508][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Sax/best_model.safetensors
+[2025-04-06 00:03:23,552][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Viola/best_model.safetensors
+[2025-04-06 00:03:23,597][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp_mymod/Violin/best_model.safetensors
+[2025-04-06 00:03:23,646][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-04-06 00:03:27,210][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-04-06 00:03:30,562][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-04-06 00:03:34,206][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50401_L5043_remix.flac: 15 samples clipped
+[2025-04-06 00:03:34,217][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-04-06 00:03:37,848][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50601_L5007_remix.flac: 23 samples clipped
+[2025-04-06 00:03:37,859][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-04-06 00:03:41,467][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-04-06 00:03:44,296][__main__][INFO] - Done!
+/mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/local/tasnet.py:144: UserWarning: A window was not provided. A rectangular window will be applied.Please provide the same window used by stft to make the inversion lossless.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at ../aten/src/ATen/native/SpectralOps.cpp:1023.)
+  waveform = torch.istft(complex_spec, n_fft=self.n_fft, hop_length=self.hop_length, window=None, length=input_length)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[2025-04-06 00:03:45,792][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-06 00:03:45,857][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-04-06 00:04:05,032][__main__][INFO] - [002/006] Evaluating S50201 for listener L5009
+[2025-04-06 00:04:23,371][__main__][INFO] - [003/006] Evaluating S50401 for listener L5043
+[2025-04-06 00:04:42,459][__main__][INFO] - [004/006] Evaluating S50601 for listener L5007
+[2025-04-06 00:05:01,146][__main__][INFO] - [005/006] Evaluating S50801 for listener L5066
+[2025-04-06 00:05:20,018][__main__][INFO] - [006/006] Evaluating S51001 for listener L5053
+[2025-04-06 00:05:38,927][__main__][INFO] - Done!
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:858: RuntimeWarning: divide by zero encountered in log10
+  control_db = 20 * np.log10(control_rms) + level1
+Both scripts ran successfully!

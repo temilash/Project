@@ -1,0 +1,12 @@
+[2025-04-25 22:18:48,894][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Bassoon/best_model.safetensors
+[2025-04-25 22:18:49,081][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Cello/best_model.safetensors
+[2025-04-25 22:18:49,108][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Clarinet/best_model.safetensors
+[2025-04-25 22:18:49,205][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Flute/best_model.safetensors
+[2025-04-25 22:18:49,233][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Oboe/best_model.safetensors
+[2025-04-25 22:18:49,258][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Sax/best_model.safetensors
+[2025-04-25 22:18:49,284][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Viola/best_model.safetensors
+[2025-04-25 22:18:49,316][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Violin/best_model.safetensors
+[2025-04-25 22:18:49,353][__main__][INFO] - [001/005] Processing S62001: song 17_Nocturne_vn_fl_cl_0001 for listener L6201
+[2025-04-25 22:18:53,060][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62001_L6201_remix.flac: 439831 samples clipped
+[2025-04-25 22:18:53,083][__main__][INFO] - [002/005] Processing S62077: song 44_K515_vn_vn_va_va_vc_0014 for listener L6210
+slurmstepd: error: *** JOB 651058 ON gpu028 CANCELLED AT 2025-04-25T22:18:56 ***

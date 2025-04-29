@@ -1,0 +1,30 @@
+[2025-04-26 17:18:59,709][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Bassoon/best_model.safetensors
+[2025-04-26 17:19:00,052][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Cello/best_model.safetensors
+[2025-04-26 17:19:00,290][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Clarinet/best_model.safetensors
+[2025-04-26 17:19:00,653][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Flute/best_model.safetensors
+[2025-04-26 17:19:00,896][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Oboe/best_model.safetensors
+[2025-04-26 17:19:00,975][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Sax/best_model.safetensors
+[2025-04-26 17:19:01,109][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Viola/best_model.safetensors
+[2025-04-26 17:19:01,341][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Violin/best_model.safetensors
+[2025-04-26 17:19:01,640][__main__][INFO] - [001/203] Processing S62001: song 17_Nocturne_vn_fl_cl_0001 for listener L6201
+[2025-04-26 17:19:05,361][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62001_L6201_remix.flac: 439831 samples clipped
+[2025-04-26 17:19:05,381][__main__][INFO] - [002/203] Processing S62002: song 17_Nocturne_vn_fl_cl_0001 for listener L6239
+[2025-04-26 17:19:08,804][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62002_L6239_remix.flac: 207941 samples clipped
+[2025-04-26 17:19:08,824][__main__][INFO] - [003/203] Processing S62004: song 17_Nocturne_vn_fl_cl_0001 for listener L6226
+[2025-04-26 17:19:12,263][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62004_L6226_remix.flac: 508730 samples clipped
+[2025-04-26 17:19:12,284][__main__][INFO] - [004/203] Processing S62006: song 17_Nocturne_vn_fl_cl_0002 for listener L6212
+[2025-04-26 17:19:15,721][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62006_L6212_remix.flac: 422462 samples clipped
+[2025-04-26 17:19:15,741][__main__][INFO] - [005/203] Processing S62007: song 17_Nocturne_vn_fl_cl_0002 for listener L6246
+[2025-04-26 17:19:19,153][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62007_L6246_remix.flac: 460567 samples clipped
+[2025-04-26 17:19:19,174][__main__][INFO] - [006/203] Processing S62009: song 17_Nocturne_vn_fl_cl_0003 for listener L6231
+[2025-04-26 17:19:22,603][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62009_L6231_remix.flac: 354003 samples clipped
+[2025-04-26 17:19:22,623][__main__][INFO] - [007/203] Processing S62011: song 17_Nocturne_vn_fl_cl_0003 for listener L6225
+[2025-04-26 17:19:26,055][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62011_L6225_remix.flac: 501707 samples clipped
+[2025-04-26 17:19:26,076][__main__][INFO] - [008/203] Processing S62013: song 17_Nocturne_vn_fl_cl_0004 for listener L6202
+[2025-04-26 17:19:29,500][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62013_L6202_remix.flac: 411096 samples clipped
+[2025-04-26 17:19:29,520][__main__][INFO] - [009/203] Processing S62014: song 17_Nocturne_vn_fl_cl_0004 for listener L6238
+[2025-04-26 17:19:32,943][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62014_L6238_remix.flac: 595167 samples clipped
+[2025-04-26 17:19:32,963][__main__][INFO] - [010/203] Processing S62016: song 17_Nocturne_vn_fl_cl_0004 for listener L6228
+[2025-04-26 17:19:36,412][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62016_L6228_remix.flac: 293794 samples clipped
+[2025-04-26 17:19:36,432][__main__][INFO] - [011/203] Processing S62018: song 17_Nocturne_vn_fl_cl_0005 for listener L6218
+slurmstepd: error: *** JOB 652437 ON gpu020 CANCELLED AT 2025-04-26T17:19:38 ***
