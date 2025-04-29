@@ -1,0 +1,140 @@
+17_Nocturne_vn_fl_cl_0001
+Clarinet        ==> SDR:   3.280  SIR:   3.290  ISR:  20.401  SAR: 118.819  
+accompaniment   ==> SDR:   0.762  SIR:   1.675  ISR:   0.747  SAR:   1.966  
+
+17_Nocturne_vn_fl_cl_0002
+Clarinet        ==> SDR:   1.804  SIR:   1.813  ISR:  32.181  SAR: 123.984  
+accompaniment   ==> SDR:   1.199  SIR:   3.585  ISR:   1.376  SAR:   1.979  
+
+17_Nocturne_vn_fl_cl_0003
+Clarinet        ==> SDR:  -1.447  SIR:  -1.482  ISR:  28.863  SAR: 124.738  
+accompaniment   ==> SDR:   0.930  SIR:   2.691  ISR:   1.137  SAR:   2.360  
+
+17_Nocturne_vn_fl_cl_0004
+Clarinet        ==> SDR:   1.922  SIR:   1.912  ISR:  34.238  SAR: 125.272  
+accompaniment   ==> SDR:   1.133  SIR:   0.190  ISR:   1.425  SAR:   1.300  
+
+17_Nocturne_vn_fl_cl_0005
+Clarinet        ==> SDR:   2.536  SIR:   2.526  ISR:  28.238  SAR: 126.142  
+accompaniment   ==> SDR:   1.191  SIR:   1.200  ISR:   1.622  SAR:   2.399  
+
+17_Nocturne_vn_fl_cl_0006
+Clarinet        ==> SDR:   1.188  SIR:   1.092  ISR:  18.946  SAR: 125.918  
+accompaniment   ==> SDR:   1.175  SIR:   2.715  ISR:   1.192  SAR:   0.985  
+
+40_Miserere_fl_fl_ob_cl_bn_0001
+Clarinet        ==> SDR: -10.732  SIR:  -9.286  ISR:   6.065  SAR: 124.570  
+accompaniment   ==> SDR:   0.522  SIR:  10.145  ISR:   0.600  SAR:   2.372  
+
+40_Miserere_fl_fl_ob_cl_bn_0002
+Clarinet        ==> SDR:  -7.749  SIR:  -7.515  ISR:  11.216  SAR: 125.614  
+accompaniment   ==> SDR:   1.285  SIR:   6.281  ISR:   1.336  SAR:   2.393  
+
+03_Dance_fl_cl_0001
+Clarinet        ==> SDR:   5.667  SIR:   5.639  ISR:  23.368  SAR: 127.020  
+accompaniment   ==> SDR:   0.214  SIR:  -2.480  ISR:   1.968  SAR:   1.273  
+
+03_Dance_fl_cl_0002
+Clarinet        ==> SDR:   5.547  SIR:   5.583  ISR:  34.237  SAR: 126.682  
+accompaniment   ==> SDR:   0.585  SIR:  -1.744  ISR:   3.420  SAR:   1.529  
+
+03_Dance_fl_cl_0003
+Clarinet        ==> SDR:   6.168  SIR:   5.972  ISR:  29.415  SAR: 126.647  
+accompaniment   ==> SDR:   0.813  SIR:  -2.896  ISR:   2.112  SAR:  -0.587  
+
+03_Dance_fl_cl_0004
+Clarinet        ==> SDR:   3.116  SIR:   3.050  ISR:  23.898  SAR: 125.154  
+accompaniment   ==> SDR:   0.697  SIR:  -1.508  ISR:   1.313  SAR:   0.725  
+
+03_Dance_fl_cl_0005
+Clarinet        ==> SDR:   6.009  SIR:   6.008  ISR:  29.547  SAR: 126.731  
+accompaniment   ==> SDR:   0.642  SIR:  -1.895  ISR:   1.883  SAR:  -0.286  
+
+03_Dance_fl_cl_0006
+Clarinet        ==> SDR:   7.190  SIR:   7.283  ISR:  35.814  SAR: 126.813  
+accompaniment   ==> SDR:   0.765  SIR:  -1.285  ISR:   2.823  SAR:   1.520  
+
+14_Waltz_fl_fl_cl_0001
+Clarinet        ==> SDR:  -6.457  SIR:  -6.354  ISR:  22.239  SAR: 126.083  
+accompaniment   ==> SDR:   0.950  SIR:   2.659  ISR:   1.107  SAR:   3.681  
+
+14_Waltz_fl_fl_cl_0002
+Clarinet        ==> SDR:  -1.612  SIR:  -1.423  ISR:  21.235  SAR: 126.060  
+accompaniment   ==> SDR:   1.740  SIR:   3.289  ISR:   1.959  SAR:   2.908  
+
+14_Waltz_fl_fl_cl_0003
+Clarinet        ==> SDR:  -6.876  SIR:  -6.799  ISR:  16.851  SAR: 126.259  
+accompaniment   ==> SDR:   0.867  SIR:   0.841  ISR:   1.060  SAR:   3.363  
+
+14_Waltz_fl_fl_cl_0004
+Clarinet        ==> SDR:  -7.327  SIR:  -7.367  ISR:  15.152  SAR: 127.036  
+accompaniment   ==> SDR:   0.707  SIR:   2.910  ISR:   0.944  SAR:   1.860  
+
+14_Waltz_fl_fl_cl_0005
+Clarinet        ==> SDR:  -7.077  SIR:  -7.084  ISR:  22.858  SAR: 126.501  
+accompaniment   ==> SDR:   1.169  SIR:   5.425  ISR:   1.532  SAR:   2.464  
+
+14_Waltz_fl_fl_cl_0006
+Clarinet        ==> SDR:  -5.608  SIR:  -5.333  ISR:  16.667  SAR: 126.531  
+accompaniment   ==> SDR:   0.909  SIR:   2.114  ISR:   0.867  SAR:   0.828  
+
+02-AchLiebenChristen_0001
+Clarinet        ==> SDR:  -4.080  SIR:  -3.913  ISR:   8.845  SAR: 124.968  
+accompaniment   ==> SDR:   1.073  SIR:   4.791  ISR:   1.086  SAR:   1.709  
+
+02-AchLiebenChristen_0002
+Clarinet        ==> SDR:  -4.311  SIR:  -3.382  ISR:  17.805  SAR: 125.752  
+accompaniment   ==> SDR:   1.155  SIR:   5.768  ISR:   1.287  SAR:   1.504  
+
+08-FuerDeinenThron_0001
+Clarinet        ==> SDR:  -4.999  SIR:  -6.866  ISR:   9.521  SAR: 124.929  
+accompaniment   ==> SDR:   1.110  SIR:   7.593  ISR:   1.125  SAR:   1.567  
+
+08-FuerDeinenThron_0002
+Clarinet        ==> SDR:  -4.346  SIR:  -4.699  ISR:  14.752  SAR: 126.060  
+accompaniment   ==> SDR:   1.157  SIR:   4.543  ISR:   1.342  SAR:   1.990  
+
+01-AchGottundHerr_0001
+Clarinet        ==> SDR:  -2.302  SIR:  -2.179  ISR:  23.106  SAR: 124.674  
+accompaniment   ==> SDR:   1.038  SIR:   6.874  ISR:   1.039  SAR:   1.978  
+
+10-NunBitten_0001
+Clarinet        ==> SDR:  -7.396  SIR:  -6.875  ISR:  16.833  SAR: 125.068  
+accompaniment   ==> SDR:   1.417  SIR:   8.068  ISR:   1.328  SAR:   1.418  
+
+10-NunBitten_0002
+Clarinet        ==> SDR:  -6.053  SIR:  -5.962  ISR:  15.302  SAR: 126.171  
+accompaniment   ==> SDR:   1.538  SIR:   7.224  ISR:   1.697  SAR:   2.165  
+
+05-DieNacht_0001
+Clarinet        ==> SDR:  -5.564  SIR:  -5.338  ISR:  10.803  SAR: 125.203  
+accompaniment   ==> SDR:   1.226  SIR:   9.289  ISR:   1.156  SAR:   2.146  
+
+05-DieNacht_0002
+Clarinet        ==> SDR:  -4.523  SIR:  -3.967  ISR:  15.765  SAR: 125.796  
+accompaniment   ==> SDR:   1.182  SIR:   5.217  ISR:   1.226  SAR:   2.223  
+
+07-HerrGott_0001
+Clarinet        ==> SDR:  -5.028  SIR:  -4.996  ISR:  19.664  SAR: 124.728  
+accompaniment   ==> SDR:   1.099  SIR:   5.609  ISR:   1.078  SAR:   1.437  
+
+07-HerrGott_0002
+Clarinet        ==> SDR:  -5.133  SIR:  -4.898  ISR:  19.968  SAR: 126.628  
+accompaniment   ==> SDR:   1.367  SIR:   6.324  ISR:   1.316  SAR:   2.944  
+
+03-ChristederdubistTagundLicht_0001
+Clarinet        ==> SDR:  -7.715  SIR:  -7.674  ISR:   8.858  SAR: 126.972  
+accompaniment   ==> SDR:   1.042  SIR:   6.818  ISR:   1.072  SAR:   2.657  
+
+09-Jesus_0001
+Clarinet        ==> SDR:  -0.078  SIR:   0.188  ISR:  21.205  SAR: 126.004  
+accompaniment   ==> SDR:   1.436  SIR:   8.229  ISR:   1.601  SAR:   2.390  
+
+Aggrated Scores (median over frames, median over tracks)
+Clarinet        ==> SDR:  -4.311  SIR:  -3.913  ISR:  19.968  SAR: 126.004  
+accompaniment   ==> SDR:   1.099  SIR:   3.585  ISR:   1.313  SAR:   1.978  
+
+Aggrated Scores (mean over frames, median over tracks)
+Clarinet        ==> SDR:  -4.125  SIR:  -3.759  ISR:  19.145  SAR: 125.683  
+accompaniment   ==> SDR:   1.190  SIR:   3.835  ISR:   1.397  SAR:   2.023  
+

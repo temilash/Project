@@ -1,21 +1,16 @@
 # ConvTasNet config
 convtasnet:
-  N: 256
-  L: 20
-  B: 256
-  H: 512
-  P: 3
-  X: 10
-  R: 4
-  C: 2
-  audio_channels: 2 #  stereo
-  norm_type: gLN
-  causal: False
-  mask_nonlinear: 'relu'
+  frame_length: 256
+  frame_step: 128
+  hop_length: 350
+  input_channels: 2
+  n_fft: 512
+  num_repeats: 5
+  num_sources: 2
 
 # Training config
 training:
-  epochs: 200
+  epochs: 50
   batch_size: 4
   num_workers: 4
   half_lr: yes
@@ -26,11 +21,10 @@ optim:
   lr: 0.0001
 # Data config
 data:
-  root_path: path/to/cad2/task2/audio/data # path to Cadenza dataset, audio folder
-  music_tracks_file: path/to/cad2/task2/metadata/data # path to metadata file in cadenza format
+  root_path: /mnt/scratch/sc22ol/audio
+  music_tracks_file: /mnt/scratch/sc22ol/metadata
   sample_rate: 44100
-  target: 'Bassoon'
+  target: 'Clarinet'
   samples_per_track: 64
   segment_length: 3.0
-
 

@@ -1,0 +1,112 @@
+44_K515_vn_vn_va_va_vc_0001
+Cello           ==> SDR: -12.022  SIR: -11.915  ISR:  12.713  SAR: 124.879  
+accompaniment   ==> SDR:  12.022  SIR:   2.834  ISR:  14.367  SAR: 123.267  
+
+44_K515_vn_vn_va_va_vc_0002
+Cello           ==> SDR:  -4.905  SIR:  -5.017  ISR:  18.966  SAR: 126.766  
+accompaniment   ==> SDR:   4.905  SIR:   3.915  ISR:  15.460  SAR: 126.723  
+
+44_K515_vn_vn_va_va_vc_0003
+Cello           ==> SDR:  -2.733  SIR:  -2.672  ISR:  24.137  SAR: 126.626  
+accompaniment   ==> SDR:   2.733  SIR:   2.739  ISR:  33.074  SAR: 126.572  
+
+44_K515_vn_vn_va_va_vc_0004
+Cello           ==> SDR:  -9.366  SIR:  -9.504  ISR:  17.468  SAR: 126.812  
+accompaniment   ==> SDR:   9.366  SIR:   9.697  ISR:  24.892  SAR: 126.665  
+
+44_K515_vn_vn_va_va_vc_0005
+Cello           ==> SDR:  -2.319  SIR:  -2.104  ISR:  23.429  SAR: 126.657  
+accompaniment   ==> SDR:   2.319  SIR:   2.341  ISR:  35.889  SAR: 126.607  
+
+44_K515_vn_vn_va_va_vc_0006
+Cello           ==> SDR:  -5.293  SIR:  -5.255  ISR:   7.610  SAR: 127.031  
+accompaniment   ==> SDR:   5.293  SIR:   4.873  ISR:  25.857  SAR: 126.950  
+
+44_K515_vn_vn_va_va_vc_0007
+Cello           ==> SDR:  -9.433  SIR:  -9.374  ISR:  12.357  SAR: 126.892  
+accompaniment   ==> SDR:   9.433  SIR:   9.462  ISR:  16.188  SAR: 126.690  
+
+44_K515_vn_vn_va_va_vc_0008
+Cello           ==> SDR: -12.871  SIR: -12.503  ISR:  15.010  SAR: 126.687  
+accompaniment   ==> SDR:  12.871  SIR:  12.628  ISR:  25.331  SAR: 126.406  
+
+44_K515_vn_vn_va_va_vc_0009
+Cello           ==> SDR:  -9.304  SIR:  -8.937  ISR:  13.922  SAR: 126.684  
+accompaniment   ==> SDR:   9.304  SIR:   9.081  ISR:  23.005  SAR: 126.490  
+
+44_K515_vn_vn_va_va_vc_0010
+Cello           ==> SDR: -12.273  SIR: -12.066  ISR:  20.472  SAR: 127.264  
+accompaniment   ==> SDR:  12.273  SIR:  12.265  ISR:  36.561  SAR: 127.093  
+
+44_K515_vn_vn_va_va_vc_0011
+Cello           ==> SDR: -12.404  SIR: -12.110  ISR:  18.830  SAR: 127.092  
+accompaniment   ==> SDR:  12.404  SIR:  12.388  ISR:  33.679  SAR: 126.999  
+
+44_K515_vn_vn_va_va_vc_0012
+Cello           ==> SDR: -12.635  SIR: -12.621  ISR:  12.791  SAR: 127.039  
+accompaniment   ==> SDR:  12.635  SIR:  12.601  ISR:  33.892  SAR: 126.992  
+
+44_K515_vn_vn_va_va_vc_0013
+Cello           ==> SDR:  -9.615  SIR:  -9.684  ISR:  20.472  SAR: 127.247  
+accompaniment   ==> SDR:   9.615  SIR:   9.597  ISR:  35.587  SAR: 126.954  
+
+44_K515_vn_vn_va_va_vc_0014
+Cello           ==> SDR: -13.221  SIR: -13.050  ISR:  15.148  SAR: 127.055  
+accompaniment   ==> SDR:  13.221  SIR:  13.233  ISR:  37.710  SAR: 126.834  
+
+44_K515_vn_vn_va_va_vc_0015
+Cello           ==> SDR: -16.361  SIR: -14.072  ISR:   8.843  SAR: 126.684  
+accompaniment   ==> SDR:  16.361  SIR:  16.364  ISR:  36.231  SAR: 126.643  
+
+26_King_vn_vn_va_vc_0001
+Cello           ==> SDR:  -8.023  SIR:  -7.544  ISR:  12.390  SAR: 126.741  
+accompaniment   ==> SDR:   8.023  SIR:   7.968  ISR:  26.076  SAR: 126.659  
+
+26_King_vn_vn_va_vc_0002
+Cello           ==> SDR:   0.090  SIR:   0.316  ISR:  19.280  SAR: 126.652  
+accompaniment   ==> SDR:  -0.090  SIR:   0.325  ISR:  16.024  SAR: 126.597  
+
+26_King_vn_vn_va_vc_0003
+Cello           ==> SDR:   1.005  SIR:   0.986  ISR:  19.945  SAR: 126.921  
+accompaniment   ==> SDR:  -1.005  SIR:  -1.020  ISR:  20.789  SAR: 126.751  
+
+26_King_vn_vn_va_vc_0004
+Cello           ==> SDR:  -1.524  SIR:  -1.619  ISR:  21.081  SAR: 126.896  
+accompaniment   ==> SDR:   1.524  SIR:   1.315  ISR:  28.060  SAR: 126.673  
+
+26_King_vn_vn_va_vc_0005
+Cello           ==> SDR:  -1.218  SIR:  -1.206  ISR:  21.111  SAR: 125.325  
+accompaniment   ==> SDR:   1.218  SIR:   1.129  ISR:  26.363  SAR: 125.297  
+
+11_Maria_ob_vc_0001
+Cello           ==> SDR:  -4.651  SIR:  -4.522  ISR:  29.704  SAR: 126.596  
+accompaniment   ==> SDR:   4.651  SIR:   2.338  ISR:   6.295  SAR: 126.313  
+
+11_Maria_ob_vc_0002
+Cello           ==> SDR:   7.465  SIR:   7.490  ISR:  30.068  SAR: 127.047  
+accompaniment   ==> SDR:  -7.465  SIR:  -7.442  ISR:  17.104  SAR: 126.656  
+
+11_Maria_ob_vc_0003
+Cello           ==> SDR:   3.328  SIR:   3.354  ISR:  30.618  SAR: 126.926  
+accompaniment   ==> SDR:  -3.328  SIR:  -3.204  ISR:  20.131  SAR: 126.390  
+
+11_Maria_ob_vc_0004
+Cello           ==> SDR:   0.795  SIR:   0.809  ISR:  31.978  SAR: 127.041  
+accompaniment   ==> SDR:  -0.795  SIR:  -0.723  ISR:  19.400  SAR: 126.751  
+
+11_Maria_ob_vc_0005
+Cello           ==> SDR:   2.358  SIR:   2.368  ISR:  33.268  SAR: 126.142  
+accompaniment   ==> SDR:  -2.358  SIR:  -2.344  ISR:  19.751  SAR: 125.649  
+
+11_Maria_ob_vc_0006
+Cello           ==> SDR:   7.627  SIR:   7.657  ISR:  37.082  SAR: 126.564  
+accompaniment   ==> SDR:  -7.627  SIR:  -7.515  ISR:  18.509  SAR: 126.009  
+
+Aggrated Scores (median over frames, median over tracks)
+Cello           ==> SDR:  -5.099  SIR:  -5.136  ISR:  19.613  SAR: 126.789  
+accompaniment   ==> SDR:   5.099  SIR:   3.374  ISR:  25.111  SAR: 126.658  
+
+Aggrated Scores (mean over frames, median over tracks)
+Cello           ==> SDR:  -8.599  SIR:  -8.303  ISR:  18.610  SAR: 126.592  
+accompaniment   ==> SDR:   8.599  SIR:   7.123  ISR:  24.685  SAR: 126.283  
+

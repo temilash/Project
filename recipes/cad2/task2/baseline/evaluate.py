@@ -106,7 +106,6 @@ def apply_gains(stems: dict, sample_rate: float, gains: dict, listener: dict) ->
         adjusted_left = apply_frequency_gains(adjusted_left, sample_rate, frequencies, gain_left_freq)
         adjusted_right = apply_frequency_gains(adjusted_right, sample_rate, frequencies, gain_right_freq)
 
-        # FIX: Store correctly in `stems_gain`
         stems_gain[stem_str] = np.stack([adjusted_left, adjusted_right], axis=1)
 
     #  Ensure all required stems are present before returning

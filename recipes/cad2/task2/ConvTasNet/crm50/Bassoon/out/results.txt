@@ -1,0 +1,76 @@
+40_Miserere_fl_fl_ob_cl_bn_0001
+Bassoon         ==> SDR:   0.110  SIR:  -3.391  ISR:   0.243  SAR:   0.045  
+accompaniment   ==> SDR:   9.289  SIR:   8.954  ISR:  22.446  SAR: 124.688  
+
+40_Miserere_fl_fl_ob_cl_bn_0002
+Bassoon         ==> SDR:   0.231  SIR:  -4.451  ISR:   0.371  SAR:  -0.813  
+accompaniment   ==> SDR:   3.907  SIR:   3.900  ISR:  23.361  SAR: 126.767  
+
+41_Miserere_fl_fl_ob_sax_bn_0001
+Bassoon         ==> SDR:   0.197  SIR:  -2.052  ISR:   0.281  SAR:   0.481  
+accompaniment   ==> SDR:   8.451  SIR:   8.865  ISR:  25.573  SAR: 125.301  
+
+41_Miserere_fl_fl_ob_sax_bn_0002
+Bassoon         ==> SDR:   0.113  SIR:  -3.764  ISR:   0.275  SAR:   0.521  
+accompaniment   ==> SDR:   4.132  SIR:   4.160  ISR:  22.458  SAR: 126.507  
+
+02-AchLiebenChristen_0001
+Bassoon         ==> SDR:   0.241  SIR:   0.360  ISR:   0.319  SAR:  -1.672  
+accompaniment   ==> SDR:   3.661  SIR:   3.301  ISR:  25.675  SAR: 125.635  
+
+02-AchLiebenChristen_0002
+Bassoon         ==> SDR:   0.365  SIR:  -0.437  ISR:   0.428  SAR:  -1.625  
+accompaniment   ==> SDR:   5.293  SIR:   5.388  ISR:  27.834  SAR: 125.233  
+
+08-FuerDeinenThron_0001
+Bassoon         ==> SDR:   0.219  SIR:  -2.635  ISR:   0.258  SAR:  -1.720  
+accompaniment   ==> SDR:   2.249  SIR:   1.640  ISR:  16.595  SAR: 124.928  
+
+08-FuerDeinenThron_0002
+Bassoon         ==> SDR:   0.249  SIR:  -0.900  ISR:   0.330  SAR:  -3.731  
+accompaniment   ==> SDR:   4.586  SIR:   4.479  ISR:  22.631  SAR: 126.588  
+
+01-AchGottundHerr_0001
+Bassoon         ==> SDR:   0.161  SIR:  -3.292  ISR:   0.366  SAR:  -3.147  
+accompaniment   ==> SDR:   7.551  SIR:   7.569  ISR:  29.451  SAR: 124.500  
+
+10-NunBitten_0001
+Bassoon         ==> SDR:   0.334  SIR:  -4.375  ISR:   0.531  SAR:  -2.194  
+accompaniment   ==> SDR:   5.679  SIR:   5.999  ISR:  25.116  SAR: 124.627  
+
+10-NunBitten_0002
+Bassoon         ==> SDR:   0.350  SIR:  -3.093  ISR:   0.696  SAR:  -1.605  
+accompaniment   ==> SDR:   5.557  SIR:   5.556  ISR:  24.326  SAR: 126.401  
+
+05-DieNacht_0001
+Bassoon         ==> SDR:   0.395  SIR:   0.055  ISR:   0.454  SAR:  -2.208  
+accompaniment   ==> SDR:   5.354  SIR:   5.500  ISR:  24.998  SAR: 125.218  
+
+05-DieNacht_0002
+Bassoon         ==> SDR:   0.303  SIR:   0.807  ISR:   0.381  SAR:  -1.587  
+accompaniment   ==> SDR:   4.368  SIR:   4.453  ISR:  26.692  SAR: 123.075  
+
+07-HerrGott_0001
+Bassoon         ==> SDR:   0.284  SIR:   0.412  ISR:   0.484  SAR:  -2.602  
+accompaniment   ==> SDR:   6.109  SIR:   6.102  ISR:  31.862  SAR: 126.302  
+
+07-HerrGott_0002
+Bassoon         ==> SDR:   0.459  SIR:  -0.657  ISR:   0.555  SAR:  -2.990  
+accompaniment   ==> SDR:   4.780  SIR:   4.869  ISR:  25.416  SAR: 126.528  
+
+03-ChristederdubistTagundLicht_0001
+Bassoon         ==> SDR:   0.287  SIR:  -0.176  ISR:   0.338  SAR:  -1.787  
+accompaniment   ==> SDR:   4.659  SIR:   4.613  ISR:  25.785  SAR: 125.705  
+
+09-Jesus_0001
+Bassoon         ==> SDR:   0.239  SIR:  -3.834  ISR:   0.476  SAR:  -2.619  
+accompaniment   ==> SDR:   8.164  SIR:   8.081  ISR:  23.618  SAR: 125.765  
+
+Aggrated Scores (median over frames, median over tracks)
+Bassoon         ==> SDR:   0.249  SIR:  -2.052  ISR:   0.371  SAR:  -1.720  
+accompaniment   ==> SDR:   5.293  SIR:   5.388  ISR:  25.116  SAR: 125.635  
+
+Aggrated Scores (mean over frames, median over tracks)
+Bassoon         ==> SDR:   0.301  SIR:  -2.705  ISR:   0.421  SAR:  -2.086  
+accompaniment   ==> SDR:   5.520  SIR:   5.422  ISR:  25.158  SAR: 125.237  
+

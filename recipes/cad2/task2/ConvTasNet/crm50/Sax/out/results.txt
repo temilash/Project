@@ -1,0 +1,140 @@
+25_Pirates_vn_vn_va_sax_0001
+Sax             ==> SDR:  -4.391  SIR:  -3.047  ISR:  14.158  SAR:  95.291  
+accompaniment   ==> SDR:   4.391  SIR:   4.949  ISR:  24.256  SAR: 126.126  
+
+25_Pirates_vn_vn_va_sax_0002
+Sax             ==> SDR:  -1.890  SIR:  -1.697  ISR:  15.617  SAR: 124.264  
+accompaniment   ==> SDR:   1.890  SIR:   1.844  ISR:  29.095  SAR: 126.626  
+
+25_Pirates_vn_vn_va_sax_0003
+Sax             ==> SDR:  -5.507  SIR:  -5.736  ISR:  16.127  SAR: 123.085  
+accompaniment   ==> SDR:   5.507  SIR:   5.523  ISR:  25.719  SAR: 125.623  
+
+27_King_vn_vn_va_sax_0001
+Sax             ==> SDR:  -2.270  SIR:  -2.508  ISR:  18.703  SAR: 124.976  
+accompaniment   ==> SDR:   2.270  SIR:   2.103  ISR:  23.647  SAR: 126.874  
+
+27_King_vn_vn_va_sax_0002
+Sax             ==> SDR:  -2.002  SIR:  -1.380  ISR:  17.023  SAR: 122.280  
+accompaniment   ==> SDR:   2.002  SIR:   1.849  ISR:  23.395  SAR: 126.546  
+
+27_King_vn_vn_va_sax_0003
+Sax             ==> SDR:  -2.149  SIR:  -2.135  ISR:  12.388  SAR: 124.614  
+accompaniment   ==> SDR:   2.149  SIR:   2.172  ISR:  21.569  SAR: 126.797  
+
+27_King_vn_vn_va_sax_0004
+Sax             ==> SDR:  -1.904  SIR:  -1.477  ISR:  12.867  SAR: 124.782  
+accompaniment   ==> SDR:   1.904  SIR:   2.352  ISR:  23.281  SAR: 126.700  
+
+27_King_vn_vn_va_sax_0005
+Sax             ==> SDR:  -2.318  SIR:  -2.292  ISR:  18.759  SAR: 124.642  
+accompaniment   ==> SDR:   2.318  SIR:   2.352  ISR:  24.090  SAR: 126.076  
+
+41_Miserere_fl_fl_ob_sax_bn_0001
+Sax             ==> SDR:  -8.855  SIR:  -7.425  ISR:  11.061  SAR: 124.089  
+accompaniment   ==> SDR:   8.855  SIR:   9.036  ISR:  30.575  SAR: 125.398  
+
+41_Miserere_fl_fl_ob_sax_bn_0002
+Sax             ==> SDR: -12.508  SIR: -10.399  ISR:  11.770  SAR: 125.557  
+accompaniment   ==> SDR:  12.508  SIR:  12.545  ISR:  25.584  SAR: 127.037  
+
+06_Entertainer_sax_sax_0001
+Sax             ==> SDR: 123.566  SIR: 211.154  ISR: 126.818  SAR: 125.148  
+accompaniment   ==> SDR:-274.579  SIR:-201.926  ISR: -72.654  SAR: 126.910  
+
+06_Entertainer_sax_sax_0001
+Sax             ==> SDR: 123.566  SIR: 211.154  ISR: 126.818  SAR: 125.148  
+accompaniment   ==> SDR:-274.579  SIR:-201.926  ISR: -72.654  SAR: 126.910  
+
+06_Entertainer_sax_sax_0002
+Sax             ==> SDR: 123.830  SIR: 210.478  ISR: 127.454  SAR: 126.265  
+accompaniment   ==> SDR:-275.492  SIR:-225.467  ISR: -50.002  SAR: 127.187  
+
+06_Entertainer_sax_sax_0002
+Sax             ==> SDR: 123.830  SIR: 210.478  ISR: 127.454  SAR: 126.265  
+accompaniment   ==> SDR:-275.492  SIR:-225.467  ISR: -50.002  SAR: 127.187  
+
+06_Entertainer_sax_sax_0003
+Sax             ==> SDR: 123.419  SIR: 201.452  ISR: 126.205  SAR: 124.311  
+accompaniment   ==> SDR:-278.653  SIR:-207.550  ISR: -71.106  SAR: 126.428  
+
+06_Entertainer_sax_sax_0003
+Sax             ==> SDR: 123.419  SIR: 201.452  ISR: 126.205  SAR: 124.311  
+accompaniment   ==> SDR:-278.653  SIR:-207.550  ISR: -71.106  SAR: 126.428  
+
+06_Entertainer_sax_sax_0004
+Sax             ==> SDR: 123.287  SIR: 203.724  ISR: 126.500  SAR: 124.741  
+accompaniment   ==> SDR:-275.572  SIR:-224.347  ISR: -51.201  SAR: 126.726  
+
+06_Entertainer_sax_sax_0004
+Sax             ==> SDR: 123.287  SIR: 203.724  ISR: 126.500  SAR: 124.741  
+accompaniment   ==> SDR:-275.572  SIR:-224.347  ISR: -51.201  SAR: 126.726  
+
+06_Entertainer_sax_sax_0005
+Sax             ==> SDR: 122.993  SIR: 218.577  ISR: 127.162  SAR: 124.781  
+accompaniment   ==> SDR:-275.840  SIR:-203.441  ISR: -72.401  SAR: 127.025  
+
+06_Entertainer_sax_sax_0005
+Sax             ==> SDR: 122.993  SIR: 218.577  ISR: 127.162  SAR: 124.781  
+accompaniment   ==> SDR:-275.840  SIR:-203.441  ISR: -72.401  SAR: 127.025  
+
+02-AchLiebenChristen_0001
+Sax             ==> SDR:  -7.472  SIR:  -7.771  ISR:  14.704  SAR: 124.213  
+accompaniment   ==> SDR:   7.472  SIR:   7.060  ISR:  23.674  SAR: 124.837  
+
+02-AchLiebenChristen_0002
+Sax             ==> SDR:  -4.155  SIR:  -4.235  ISR:  16.021  SAR: 123.895  
+accompaniment   ==> SDR:   4.155  SIR:   4.374  ISR:  24.504  SAR: 125.270  
+
+08-FuerDeinenThron_0001
+Sax             ==> SDR:  -5.898  SIR:  -5.194  ISR:  17.023  SAR: 124.419  
+accompaniment   ==> SDR:   5.898  SIR:   6.061  ISR:  23.480  SAR: 125.920  
+
+08-FuerDeinenThron_0002
+Sax             ==> SDR:  -4.252  SIR:  -4.180  ISR:  19.503  SAR: 124.911  
+accompaniment   ==> SDR:   4.252  SIR:   4.193  ISR:  29.575  SAR: 126.971  
+
+01-AchGottundHerr_0001
+Sax             ==> SDR:  -2.883  SIR:  -2.901  ISR:  19.964  SAR: 125.044  
+accompaniment   ==> SDR:   2.883  SIR:   3.122  ISR:  23.998  SAR: 125.565  
+
+10-NunBitten_0001
+Sax             ==> SDR:  -4.295  SIR:  -4.200  ISR:  18.591  SAR: 124.001  
+accompaniment   ==> SDR:   4.295  SIR:   4.284  ISR:  27.648  SAR: 124.827  
+
+10-NunBitten_0002
+Sax             ==> SDR:  -4.357  SIR:  -4.243  ISR:  20.618  SAR: 124.980  
+accompaniment   ==> SDR:   4.357  SIR:   4.308  ISR:  24.900  SAR: 126.680  
+
+05-DieNacht_0001
+Sax             ==> SDR:  -4.047  SIR:  -4.126  ISR:  16.313  SAR: 123.576  
+accompaniment   ==> SDR:   4.047  SIR:   3.993  ISR:  25.976  SAR: 125.022  
+
+05-DieNacht_0002
+Sax             ==> SDR:  -3.838  SIR:  -3.828  ISR:  18.911  SAR: 125.092  
+accompaniment   ==> SDR:   3.838  SIR:   3.864  ISR:  29.086  SAR: 125.797  
+
+07-HerrGott_0001
+Sax             ==> SDR:  -1.781  SIR:  -1.776  ISR:  18.880  SAR: 123.637  
+accompaniment   ==> SDR:   1.781  SIR:   1.649  ISR:  28.245  SAR: 124.774  
+
+07-HerrGott_0002
+Sax             ==> SDR:  -3.663  SIR:  -3.515  ISR:  23.309  SAR: 125.731  
+accompaniment   ==> SDR:   3.663  SIR:   3.866  ISR:  29.378  SAR: 127.102  
+
+03-ChristederdubistTagundLicht_0001
+Sax             ==> SDR:  -6.278  SIR:  -6.113  ISR:  17.572  SAR: 124.573  
+accompaniment   ==> SDR:   6.278  SIR:   6.286  ISR:  29.537  SAR: 124.873  
+
+09-Jesus_0001
+Sax             ==> SDR:  -7.254  SIR:  -7.089  ISR:  16.451  SAR: 124.605  
+accompaniment   ==> SDR:   7.254  SIR:   7.035  ISR:  26.151  SAR: 126.416  
+
+Aggrated Scores (median over frames, median over tracks)
+Sax             ==> SDR:  -3.751  SIR:  -3.281  ISR:  18.082  SAR: 124.609  
+accompaniment   ==> SDR:   3.751  SIR:   3.865  ISR:  24.380  SAR: 126.422  
+
+Aggrated Scores (mean over frames, median over tracks)
+Sax             ==> SDR:  -4.015  SIR:  -3.896  ISR:  17.575  SAR: 123.286  
+accompaniment   ==> SDR:   4.015  SIR:   3.998  ISR:  24.923  SAR: 125.686  
+
