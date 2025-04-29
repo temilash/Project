@@ -1,0 +1,206 @@
+[2025-04-26 18:34:20,839][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Bassoon/best_model.safetensors
+[2025-04-26 18:34:21,104][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Cello/best_model.safetensors
+[2025-04-26 18:34:21,137][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Clarinet/best_model.safetensors
+[2025-04-26 18:34:21,254][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Flute/best_model.safetensors
+[2025-04-26 18:34:21,284][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Oboe/best_model.safetensors
+[2025-04-26 18:34:21,310][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Sax/best_model.safetensors
+[2025-04-26 18:34:21,340][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Viola/best_model.safetensors
+[2025-04-26 18:34:21,365][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50/Violin/best_model.safetensors
+[2025-04-26 18:34:21,415][__main__][INFO] - [001/101] Processing S62001: song 17_Nocturne_vn_fl_cl_0001 for listener L6201
+[2025-04-26 18:34:25,715][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62001_L6201_remix.flac: 439831 samples clipped
+[2025-04-26 18:34:25,736][__main__][INFO] - [002/101] Processing S62004: song 17_Nocturne_vn_fl_cl_0001 for listener L6229
+[2025-04-26 18:34:29,221][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62004_L6229_remix.flac: 298883 samples clipped
+[2025-04-26 18:34:29,242][__main__][INFO] - [003/101] Processing S62007: song 17_Nocturne_vn_fl_cl_0002 for listener L6251
+[2025-04-26 18:34:32,540][__main__][INFO] - [004/101] Processing S62011: song 17_Nocturne_vn_fl_cl_0003 for listener L6233
+[2025-04-26 18:34:35,955][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62011_L6233_remix.flac: 26329 samples clipped
+[2025-04-26 18:34:35,975][__main__][INFO] - [005/101] Processing S62014: song 17_Nocturne_vn_fl_cl_0004 for listener L6249
+[2025-04-26 18:34:39,468][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62014_L6249_remix.flac: 360466 samples clipped
+[2025-04-26 18:34:39,488][__main__][INFO] - [006/101] Processing S62018: song 17_Nocturne_vn_fl_cl_0005 for listener L6228
+[2025-04-26 18:34:42,982][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62018_L6228_remix.flac: 388460 samples clipped
+[2025-04-26 18:34:43,002][__main__][INFO] - [007/101] Processing S62021: song 17_Nocturne_vn_fl_cl_0006 for listener L6246
+[2025-04-26 18:34:46,518][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62021_L6246_remix.flac: 458534 samples clipped
+[2025-04-26 18:34:46,540][__main__][INFO] - [008/101] Processing S62025: song 44_K515_vn_vn_va_va_vc_0001 for listener L6216
+[2025-04-26 18:34:51,782][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62025_L6216_remix.flac: 146930 samples clipped
+[2025-04-26 18:34:51,802][__main__][INFO] - [009/101] Processing S62028: song 44_K515_vn_vn_va_va_vc_0001 for listener L6245
+[2025-04-26 18:34:56,172][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62028_L6245_remix.flac: 143558 samples clipped
+[2025-04-26 18:34:56,192][__main__][INFO] - [010/101] Processing S62032: song 44_K515_vn_vn_va_va_vc_0002 for listener L6215
+[2025-04-26 18:35:00,544][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62032_L6215_remix.flac: 298785 samples clipped
+[2025-04-26 18:35:00,565][__main__][INFO] - [011/101] Processing S62035: song 44_K515_vn_vn_va_va_vc_0003 for listener L6245
+[2025-04-26 18:35:04,923][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62035_L6245_remix.flac: 250095 samples clipped
+[2025-04-26 18:35:04,944][__main__][INFO] - [012/101] Processing S62039: song 44_K515_vn_vn_va_va_vc_0004 for listener L6208
+[2025-04-26 18:35:09,296][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62039_L6208_remix.flac: 439543 samples clipped
+[2025-04-26 18:35:09,317][__main__][INFO] - [013/101] Processing S62042: song 44_K515_vn_vn_va_va_vc_0005 for listener L6239
+[2025-04-26 18:35:13,669][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62042_L6239_remix.flac: 109069 samples clipped
+[2025-04-26 18:35:13,689][__main__][INFO] - [014/101] Processing S62046: song 44_K515_vn_vn_va_va_vc_0006 for listener L6214
+[2025-04-26 18:35:18,026][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62046_L6214_remix.flac: 282615 samples clipped
+[2025-04-26 18:35:18,046][__main__][INFO] - [015/101] Processing S62049: song 44_K515_vn_vn_va_va_vc_0007 for listener L6229
+[2025-04-26 18:35:22,402][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62049_L6229_remix.flac: 141878 samples clipped
+[2025-04-26 18:35:22,422][__main__][INFO] - [016/101] Processing S62053: song 44_K515_vn_vn_va_va_vc_0008 for listener L6209
+[2025-04-26 18:35:26,786][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62053_L6209_remix.flac: 532832 samples clipped
+[2025-04-26 18:35:26,806][__main__][INFO] - [017/101] Processing S62056: song 44_K515_vn_vn_va_va_vc_0008 for listener L6230
+[2025-04-26 18:35:31,157][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62056_L6230_remix.flac: 193580 samples clipped
+[2025-04-26 18:35:31,177][__main__][INFO] - [018/101] Processing S62060: song 44_K515_vn_vn_va_va_vc_0009 for listener L6207
+[2025-04-26 18:35:35,543][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62060_L6207_remix.flac: 272581 samples clipped
+[2025-04-26 18:35:35,564][__main__][INFO] - [019/101] Processing S62063: song 44_K515_vn_vn_va_va_vc_0010 for listener L6229
+[2025-04-26 18:35:39,926][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62063_L6229_remix.flac: 260766 samples clipped
+[2025-04-26 18:35:39,946][__main__][INFO] - [020/101] Processing S62067: song 44_K515_vn_vn_va_va_vc_0011 for listener L6205
+[2025-04-26 18:35:44,295][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62067_L6205_remix.flac: 257314 samples clipped
+[2025-04-26 18:35:44,317][__main__][INFO] - [021/101] Processing S62070: song 44_K515_vn_vn_va_va_vc_0012 for listener L6232
+[2025-04-26 18:35:48,671][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62070_L6232_remix.flac: 486276 samples clipped
+[2025-04-26 18:35:48,691][__main__][INFO] - [022/101] Processing S62074: song 44_K515_vn_vn_va_va_vc_0013 for listener L6203
+[2025-04-26 18:35:53,046][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62074_L6203_remix.flac: 133401 samples clipped
+[2025-04-26 18:35:53,066][__main__][INFO] - [023/101] Processing S62077: song 44_K515_vn_vn_va_va_vc_0014 for listener L6222
+[2025-04-26 18:35:57,438][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62077_L6222_remix.flac: 129128 samples clipped
+[2025-04-26 18:35:57,458][__main__][INFO] - [024/101] Processing S62080: song 44_K515_vn_vn_va_va_vc_0014 for listener L6251
+[2025-04-26 18:36:01,489][__main__][INFO] - [025/101] Processing S62084: song 44_K515_vn_vn_va_va_vc_0015 for listener L6227
+[2025-04-26 18:36:05,843][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62084_L6227_remix.flac: 436793 samples clipped
+[2025-04-26 18:36:05,864][__main__][INFO] - [026/101] Processing S62087: song 25_Pirates_vn_vn_va_sax_0001 for listener L6249
+[2025-04-26 18:36:09,680][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62087_L6249_remix.flac: 309561 samples clipped
+[2025-04-26 18:36:09,700][__main__][INFO] - [027/101] Processing S62091: song 25_Pirates_vn_vn_va_sax_0002 for listener L6218
+[2025-04-26 18:36:13,469][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62091_L6218_remix.flac: 503285 samples clipped
+[2025-04-26 18:36:13,490][__main__][INFO] - [028/101] Processing S62094: song 25_Pirates_vn_vn_va_sax_0003 for listener L6248
+[2025-04-26 18:36:17,263][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62094_L6248_remix.flac: 177789 samples clipped
+[2025-04-26 18:36:17,283][__main__][INFO] - [029/101] Processing S62098: song 02_Sonata_vn_vn_0001 for listener L6220
+[2025-04-26 18:36:20,380][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62098_L6220_remix.flac: 142893 samples clipped
+[2025-04-26 18:36:20,400][__main__][INFO] - [030/101] Processing S62101: song 02_Sonata_vn_vn_0002 for listener L6243
+[2025-04-26 18:36:23,461][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62101_L6243_remix.flac: 57686 samples clipped
+[2025-04-26 18:36:23,481][__main__][INFO] - [031/101] Processing S62105: song 02_Sonata_vn_vn_0003 for listener L6221
+[2025-04-26 18:36:26,528][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62105_L6221_remix.flac: 419534 samples clipped
+[2025-04-26 18:36:26,548][__main__][INFO] - [032/101] Processing S62108: song 02_Sonata_vn_vn_0003 for listener L6237
+[2025-04-26 18:36:29,623][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62108_L6237_remix.flac: 401735 samples clipped
+[2025-04-26 18:36:29,644][__main__][INFO] - [033/101] Processing S62112: song 26_King_vn_vn_va_vc_0001 for listener L6215
+[2025-04-26 18:36:33,548][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62112_L6215_remix.flac: 273231 samples clipped
+[2025-04-26 18:36:33,568][__main__][INFO] - [034/101] Processing S62115: song 26_King_vn_vn_va_vc_0002 for listener L6235
+[2025-04-26 18:36:37,374][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62115_L6235_remix.flac: 123130 samples clipped
+[2025-04-26 18:36:37,394][__main__][INFO] - [035/101] Processing S62119: song 26_King_vn_vn_va_vc_0003 for listener L6213
+[2025-04-26 18:36:41,193][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62119_L6213_remix.flac: 158085 samples clipped
+[2025-04-26 18:36:41,213][__main__][INFO] - [036/101] Processing S62122: song 26_King_vn_vn_va_vc_0004 for listener L6234
+[2025-04-26 18:36:45,004][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62122_L6234_remix.flac: 243566 samples clipped
+[2025-04-26 18:36:45,024][__main__][INFO] - [037/101] Processing S62126: song 26_King_vn_vn_va_vc_0005 for listener L6212
+[2025-04-26 18:36:48,838][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62126_L6212_remix.flac: 242352 samples clipped
+[2025-04-26 18:36:48,858][__main__][INFO] - [038/101] Processing S62129: song 27_King_vn_vn_va_sax_0001 for listener L6230
+[2025-04-26 18:36:52,743][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62129_L6230_remix.flac: 227980 samples clipped
+[2025-04-26 18:36:52,763][__main__][INFO] - [039/101] Processing S62133: song 27_King_vn_vn_va_sax_0002 for listener L6204
+[2025-04-26 18:36:56,573][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62133_L6204_remix.flac: 359905 samples clipped
+[2025-04-26 18:36:56,593][__main__][INFO] - [040/101] Processing S62136: song 27_King_vn_vn_va_sax_0002 for listener L6241
+[2025-04-26 18:37:00,410][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62136_L6241_remix.flac: 571991 samples clipped
+[2025-04-26 18:37:00,430][__main__][INFO] - [041/101] Processing S62140: song 27_King_vn_vn_va_sax_0003 for listener L6212
+[2025-04-26 18:37:04,251][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62140_L6212_remix.flac: 296833 samples clipped
+[2025-04-26 18:37:04,272][__main__][INFO] - [042/101] Processing S62143: song 27_King_vn_vn_va_sax_0004 for listener L6229
+[2025-04-26 18:37:08,087][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62143_L6229_remix.flac: 386620 samples clipped
+[2025-04-26 18:37:08,107][__main__][INFO] - [043/101] Processing S62147: song 27_King_vn_vn_va_sax_0005 for listener L6204
+[2025-04-26 18:37:11,902][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62147_L6204_remix.flac: 237732 samples clipped
+[2025-04-26 18:37:11,922][__main__][INFO] - [044/101] Processing S62150: song 11_Maria_ob_vc_0001 for listener L6220
+[2025-04-26 18:37:15,154][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62150_L6220_remix.flac: 1892 samples clipped
+[2025-04-26 18:37:15,172][__main__][INFO] - [045/101] Processing S62153: song 11_Maria_ob_vc_0002 for listener L6251
+[2025-04-26 18:37:18,184][__main__][INFO] - [046/101] Processing S62157: song 11_Maria_ob_vc_0003 for listener L6225
+[2025-04-26 18:37:21,322][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62157_L6225_remix.flac: 228113 samples clipped
+[2025-04-26 18:37:21,343][__main__][INFO] - [047/101] Processing S62160: song 11_Maria_ob_vc_0003 for listener L6245
+[2025-04-26 18:37:24,468][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62160_L6245_remix.flac: 68713 samples clipped
+[2025-04-26 18:37:24,489][__main__][INFO] - [048/101] Processing S62164: song 11_Maria_ob_vc_0004 for listener L6224
+[2025-04-26 18:37:27,589][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62164_L6224_remix.flac: 168567 samples clipped
+[2025-04-26 18:37:27,608][__main__][INFO] - [049/101] Processing S62167: song 11_Maria_ob_vc_0005 for listener L6243
+[2025-04-26 18:37:30,735][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62167_L6243_remix.flac: 59797 samples clipped
+[2025-04-26 18:37:30,755][__main__][INFO] - [050/101] Processing S62171: song 11_Maria_ob_vc_0006 for listener L6215
+[2025-04-26 18:37:33,901][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62171_L6215_remix.flac: 184170 samples clipped
+[2025-04-26 18:37:33,921][__main__][INFO] - [051/101] Processing S62174: song 40_Miserere_fl_fl_ob_cl_bn_0001 for listener L6241
+[2025-04-26 18:37:38,058][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62174_L6241_remix.flac: 576590 samples clipped
+[2025-04-26 18:37:38,079][__main__][INFO] - [052/101] Processing S62178: song 40_Miserere_fl_fl_ob_cl_bn_0002 for listener L6215
+[2025-04-26 18:37:42,165][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62178_L6215_remix.flac: 386123 samples clipped
+[2025-04-26 18:37:42,186][__main__][INFO] - [053/101] Processing S62181: song 41_Miserere_fl_fl_ob_sax_bn_0001 for listener L6237
+[2025-04-26 18:37:46,316][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62181_L6237_remix.flac: 471470 samples clipped
+[2025-04-26 18:37:46,336][__main__][INFO] - [054/101] Processing S62185: song 41_Miserere_fl_fl_ob_sax_bn_0002 for listener L6213
+[2025-04-26 18:37:50,436][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62185_L6213_remix.flac: 353047 samples clipped
+[2025-04-26 18:37:50,456][__main__][INFO] - [055/101] Processing S62188: song 41_Miserere_fl_fl_ob_sax_bn_0002 for listener L6240
+[2025-04-26 18:37:54,538][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62188_L6240_remix.flac: 322577 samples clipped
+[2025-04-26 18:37:54,558][__main__][INFO] - [056/101] Processing S62192: song 04_Allegro_fl_fl_0001 for listener L6215
+[2025-04-26 18:37:57,938][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62192_L6215_remix.flac: 340642 samples clipped
+[2025-04-26 18:37:57,958][__main__][INFO] - [057/101] Processing S62195: song 04_Allegro_fl_fl_0002 for listener L6235
+[2025-04-26 18:38:01,148][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62195_L6235_remix.flac: 94515 samples clipped
+[2025-04-26 18:38:01,168][__main__][INFO] - [058/101] Processing S62199: song 04_Allegro_fl_fl_0003 for listener L6216
+[2025-04-26 18:38:04,357][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62199_L6216_remix.flac: 279215 samples clipped
+[2025-04-26 18:38:04,377][__main__][INFO] - [059/101] Processing S62202: song 04_Allegro_fl_fl_0004 for listener L6236
+[2025-04-26 18:38:07,579][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62202_L6236_remix.flac: 284205 samples clipped
+[2025-04-26 18:38:07,599][__main__][INFO] - [060/101] Processing S62206: song 04_Allegro_fl_fl_0005 for listener L6205
+[2025-04-26 18:38:10,808][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62206_L6205_remix.flac: 229766 samples clipped
+[2025-04-26 18:38:10,828][__main__][INFO] - [061/101] Processing S62209: song 04_Allegro_fl_fl_0006 for listener L6235
+[2025-04-26 18:38:14,026][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62209_L6235_remix.flac: 165246 samples clipped
+[2025-04-26 18:38:14,047][__main__][INFO] - [062/101] Processing S62213: song 04_Allegro_fl_fl_0007 for listener L6206
+[2025-04-26 18:38:17,236][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62213_L6206_remix.flac: 280948 samples clipped
+[2025-04-26 18:38:17,257][__main__][INFO] - [063/101] Processing S62216: song 04_Allegro_fl_fl_0007 for listener L6234
+[2025-04-26 18:38:20,452][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62216_L6234_remix.flac: 205494 samples clipped
+[2025-04-26 18:38:20,472][__main__][INFO] - [064/101] Processing S62220: song 04_Allegro_fl_fl_0008 for listener L6201
+[2025-04-26 18:38:23,668][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62220_L6201_remix.flac: 427596 samples clipped
+[2025-04-26 18:38:23,688][__main__][INFO] - [065/101] Processing S62223: song 04_Allegro_fl_fl_0009 for listener L6229
+[2025-04-26 18:38:26,892][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62223_L6229_remix.flac: 199396 samples clipped
+[2025-04-26 18:38:26,913][__main__][INFO] - [066/101] Processing S62226: song 04_Allegro_fl_fl_0010 for listener L6251
+[2025-04-26 18:38:30,003][__main__][INFO] - [067/101] Processing S62230: song 03_Dance_fl_cl_0001 for listener L6224
+[2025-04-26 18:38:33,211][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62230_L6224_remix.flac: 40793 samples clipped
+[2025-04-26 18:38:33,231][__main__][INFO] - [068/101] Processing S62233: song 03_Dance_fl_cl_0002 for listener L6250
+[2025-04-26 18:38:36,366][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62233_L6250_remix.flac: 314750 samples clipped
+[2025-04-26 18:38:36,396][__main__][INFO] - [069/101] Processing S62237: song 03_Dance_fl_cl_0003 for listener L6223
+[2025-04-26 18:38:39,523][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62237_L6223_remix.flac: 115002 samples clipped
+[2025-04-26 18:38:39,543][__main__][INFO] - [070/101] Processing S62240: song 03_Dance_fl_cl_0003 for listener L6244
+[2025-04-26 18:38:42,657][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62240_L6244_remix.flac: 110152 samples clipped
+[2025-04-26 18:38:42,677][__main__][INFO] - [071/101] Processing S62244: song 03_Dance_fl_cl_0004 for listener L6220
+[2025-04-26 18:38:45,797][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62244_L6220_remix.flac: 168414 samples clipped
+[2025-04-26 18:38:45,817][__main__][INFO] - [072/101] Processing S62247: song 03_Dance_fl_cl_0005 for listener L6247
+[2025-04-26 18:38:48,943][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62247_L6247_remix.flac: 106177 samples clipped
+[2025-04-26 18:38:48,963][__main__][INFO] - [073/101] Processing S62251: song 03_Dance_fl_cl_0006 for listener L6217
+[2025-04-26 18:38:52,066][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62251_L6217_remix.flac: 76361 samples clipped
+[2025-04-26 18:38:52,085][__main__][INFO] - [074/101] Processing S62254: song 14_Waltz_fl_fl_cl_0001 for listener L6242
+[2025-04-26 18:38:55,632][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62254_L6242_remix.flac: 246030 samples clipped
+[2025-04-26 18:38:55,652][__main__][INFO] - [075/101] Processing S62258: song 14_Waltz_fl_fl_cl_0002 for listener L6218
+[2025-04-26 18:38:59,109][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62258_L6218_remix.flac: 566696 samples clipped
+[2025-04-26 18:38:59,130][__main__][INFO] - [076/101] Processing S62261: song 14_Waltz_fl_fl_cl_0003 for listener L6240
+[2025-04-26 18:39:02,600][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62261_L6240_remix.flac: 252415 samples clipped
+[2025-04-26 18:39:02,620][__main__][INFO] - [077/101] Processing S62265: song 14_Waltz_fl_fl_cl_0004 for listener L6208
+[2025-04-26 18:39:06,080][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62265_L6208_remix.flac: 477943 samples clipped
+[2025-04-26 18:39:06,100][__main__][INFO] - [078/101] Processing S62268: song 14_Waltz_fl_fl_cl_0004 for listener L6240
+[2025-04-26 18:39:09,564][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62268_L6240_remix.flac: 168758 samples clipped
+[2025-04-26 18:39:09,585][__main__][INFO] - [079/101] Processing S62272: song 14_Waltz_fl_fl_cl_0005 for listener L6209
+[2025-04-26 18:39:13,046][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62272_L6209_remix.flac: 608543 samples clipped
+[2025-04-26 18:39:13,067][__main__][INFO] - [080/101] Processing S62275: song 14_Waltz_fl_fl_cl_0006 for listener L6232
+[2025-04-26 18:39:16,527][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62275_L6232_remix.flac: 492750 samples clipped
+[2025-04-26 18:39:16,548][__main__][INFO] - [081/101] Processing S62279: song 06_Entertainer_sax_sax_0001 for listener L6211
+[2025-04-26 18:39:19,706][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62279_L6211_remix.flac: 196775 samples clipped
+[2025-04-26 18:39:19,726][__main__][INFO] - [082/101] Processing S62282: song 06_Entertainer_sax_sax_0002 for listener L6236
+[2025-04-26 18:39:22,833][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62282_L6236_remix.flac: 94157 samples clipped
+[2025-04-26 18:39:22,853][__main__][INFO] - [083/101] Processing S62286: song 06_Entertainer_sax_sax_0003 for listener L6203
+[2025-04-26 18:39:25,975][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62286_L6203_remix.flac: 112403 samples clipped
+[2025-04-26 18:39:25,994][__main__][INFO] - [084/101] Processing S62289: song 06_Entertainer_sax_sax_0004 for listener L6237
+[2025-04-26 18:39:29,092][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62289_L6237_remix.flac: 249458 samples clipped
+[2025-04-26 18:39:29,112][__main__][INFO] - [085/101] Processing S62293: song 06_Entertainer_sax_sax_0005 for listener L6204
+[2025-04-26 18:39:32,223][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62293_L6204_remix.flac: 219987 samples clipped
+[2025-04-26 18:39:32,243][__main__][INFO] - [086/101] Processing S62296: song 06_Entertainer_sax_sax_0005 for listener L6228
+[2025-04-26 18:39:35,341][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62296_L6228_remix.flac: 33292 samples clipped
+[2025-04-26 18:39:35,361][__main__][INFO] - [087/101] Processing S62299: song 02-AchLiebenChristen_0001 for listener L6251
+[2025-04-26 18:39:38,926][__main__][INFO] - [088/101] Processing S62303: song 02-AchLiebenChristen_0002 for listener L6225
+[2025-04-26 18:39:42,682][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62303_L6225_remix.flac: 613689 samples clipped
+[2025-04-26 18:39:42,703][__main__][INFO] - [089/101] Processing S62306: song 08-FuerDeinenThron_0001 for listener L6249
+[2025-04-26 18:39:46,465][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62306_L6249_remix.flac: 574106 samples clipped
+[2025-04-26 18:39:46,486][__main__][INFO] - [090/101] Processing S62310: song 08-FuerDeinenThron_0002 for listener L6228
+[2025-04-26 18:39:50,236][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62310_L6228_remix.flac: 456068 samples clipped
+[2025-04-26 18:39:50,256][__main__][INFO] - [091/101] Processing S62313: song 01-AchGottundHerr_0001 for listener L6247
+[2025-04-26 18:39:54,003][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62313_L6247_remix.flac: 488609 samples clipped
+[2025-04-26 18:39:54,024][__main__][INFO] - [092/101] Processing S62317: song 10-NunBitten_0001 for listener L6215
+[2025-04-26 18:39:57,806][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62317_L6215_remix.flac: 596013 samples clipped
+[2025-04-26 18:39:57,827][__main__][INFO] - [093/101] Processing S62320: song 10-NunBitten_0001 for listener L6241
+[2025-04-26 18:40:01,576][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62320_L6241_remix.flac: 648017 samples clipped
+[2025-04-26 18:40:01,597][__main__][INFO] - [094/101] Processing S62324: song 10-NunBitten_0002 for listener L6219
+[2025-04-26 18:40:05,350][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62324_L6219_remix.flac: 713727 samples clipped
+[2025-04-26 18:40:05,371][__main__][INFO] - [095/101] Processing S62327: song 05-DieNacht_0001 for listener L6243
+[2025-04-26 18:40:09,122][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62327_L6243_remix.flac: 210722 samples clipped
+[2025-04-26 18:40:09,142][__main__][INFO] - [096/101] Processing S62331: song 05-DieNacht_0002 for listener L6218
+[2025-04-26 18:40:12,875][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62331_L6218_remix.flac: 550183 samples clipped
+[2025-04-26 18:40:12,896][__main__][INFO] - [097/101] Processing S62334: song 07-HerrGott_0001 for listener L6240
+[2025-04-26 18:40:16,647][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62334_L6240_remix.flac: 447700 samples clipped
+[2025-04-26 18:40:16,668][__main__][INFO] - [098/101] Processing S62338: song 07-HerrGott_0002 for listener L6213
+[2025-04-26 18:40:20,406][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62338_L6213_remix.flac: 417480 samples clipped
+[2025-04-26 18:40:20,427][__main__][INFO] - [099/101] Processing S62341: song 03-ChristederdubistTagundLicht_0001 for listener L6233
+[2025-04-26 18:40:24,100][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62341_L6233_remix.flac: 156276 samples clipped
+[2025-04-26 18:40:24,120][__main__][INFO] - [100/101] Processing S62345: song 09-Jesus_0001 for listener L6209
+[2025-04-26 18:40:27,889][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62345_L6209_remix.flac: 597200 samples clipped
+[2025-04-26 18:40:27,909][__main__][INFO] - [101/101] Processing S62348: song 09-Jesus_0001 for listener L6237
+[2025-04-26 18:40:31,651][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62348_L6237_remix.flac: 507912 samples clipped
+[2025-04-26 18:40:31,673][__main__][INFO] - Done!

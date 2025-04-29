@@ -1,0 +1,34 @@
+[2025-04-12 15:45:28,139][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Bassoon/best_model.safetensors
+[2025-04-12 15:45:28,511][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Cello/best_model.safetensors
+[2025-04-12 15:45:28,781][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Clarinet/best_model.safetensors
+[2025-04-12 15:45:29,185][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Flute/best_model.safetensors
+[2025-04-12 15:45:29,230][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Oboe/best_model.safetensors
+[2025-04-12 15:45:29,352][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Sax/best_model.safetensors
+[2025-04-12 15:45:29,703][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Viola/best_model.safetensors
+[2025-04-12 15:45:29,826][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models3/Violin/best_model.safetensors
+[2025-04-12 15:45:29,859][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-04-12 15:45:33,958][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-04-12 15:45:37,711][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-04-12 15:45:41,406][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-04-12 15:45:45,225][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-04-12 15:45:49,202][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-04-12 15:45:52,289][__main__][INFO] - Done!
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[2025-04-12 15:45:55,737][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-12 15:45:55,783][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-04-12 15:46:15,652][__main__][INFO] - [002/006] Evaluating S50201 for listener L5009
+[2025-04-12 15:46:34,439][__main__][INFO] - [003/006] Evaluating S50401 for listener L5043
+[2025-04-12 15:46:53,151][__main__][INFO] - [004/006] Evaluating S50601 for listener L5007
+[2025-04-12 15:47:11,819][__main__][INFO] - [005/006] Evaluating S50801 for listener L5066
+[2025-04-12 15:47:30,607][__main__][INFO] - [006/006] Evaluating S51001 for listener L5053
+[2025-04-12 15:47:49,013][__main__][INFO] - Done!
+Both scripts ran successfully!

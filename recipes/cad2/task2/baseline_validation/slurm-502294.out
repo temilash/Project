@@ -1,0 +1,35 @@
+[2025-04-04 15:08:25,046][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Bassoon/best_model.safetensors
+[2025-04-04 15:08:25,363][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Cello/best_model.safetensors
+[2025-04-04 15:08:25,405][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Clarinet/best_model.safetensors
+[2025-04-04 15:08:25,450][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Flute/best_model.safetensors
+[2025-04-04 15:08:25,492][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Oboe/best_model.safetensors
+[2025-04-04 15:08:25,534][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Sax/best_model.safetensors
+[2025-04-04 15:08:25,581][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Viola/best_model.safetensors
+[2025-04-04 15:08:25,623][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/exp/Violin/best_model.safetensors
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "enhance.py", line 331, in enhance
+    separation_models = load_separation_model(
+  File "enhance.py", line 255, in load_separation_model
+    model.load_state_dict(state_dict)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2215, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for ConvTasNetStereo:
+	Unexpected key(s) in state_dict: "separator.conv_blocks.4.conv.bias", "separator.conv_blocks.4.conv.weight", "separator.intra_gru_layers.4.bias_hh_l0", "separator.intra_gru_layers.4.bias_hh_l1", "separator.intra_gru_layers.4.bias_ih_l0", "separator.intra_gru_layers.4.bias_ih_l1", "separator.intra_gru_layers.4.weight_hh_l0", "separator.intra_gru_layers.4.weight_hh_l1", "separator.intra_gru_layers.4.weight_ih_l0", "separator.intra_gru_layers.4.weight_ih_l1". 
+	size mismatch for encoder.conv2d_freq.weight: copying a param with shape torch.Size([256, 2, 5, 5]) from checkpoint, the shape in current model is torch.Size([128, 2, 5, 5]).
+	size mismatch for encoder.conv2d_freq.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for separator.conv_blocks.0.conv.weight: copying a param with shape torch.Size([128, 256, 5, 3]) from checkpoint, the shape in current model is torch.Size([128, 128, 5, 3]).
+	size mismatch for separator.mask_proj.weight: copying a param with shape torch.Size([512, 128, 1, 1]) from checkpoint, the shape in current model is torch.Size([256, 128, 1, 1]).
+	size mismatch for separator.mask_proj.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for decoder.reduce_conv.weight: copying a param with shape torch.Size([2, 256, 1, 1]) from checkpoint, the shape in current model is torch.Size([2, 128, 1, 1]).
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2025-04-04 15:08:27,008][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-04 15:08:27,055][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-04-04 15:08:46,178][__main__][INFO] - [002/006] Evaluating S50201 for listener L5009
+[2025-04-04 15:09:04,435][__main__][INFO] - [003/006] Evaluating S50401 for listener L5043
+[2025-04-04 15:09:22,930][__main__][INFO] - [004/006] Evaluating S50601 for listener L5007
+[2025-04-04 15:09:41,403][__main__][INFO] - [005/006] Evaluating S50801 for listener L5066
+[2025-04-04 15:09:59,738][__main__][INFO] - [006/006] Evaluating S51001 for listener L5053
+[2025-04-04 15:10:17,887][__main__][INFO] - Done!
+Both scripts ran successfully!

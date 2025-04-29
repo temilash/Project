@@ -1,0 +1,107 @@
+Traceback (most recent call last):
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/hydra.py", line 105, in run
+    cfg = self.compose_config(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/hydra.py", line 594, in compose_config
+    cfg = self.config_loader.load_configuration(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 142, in load_configuration
+    return self._load_configuration_impl(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 244, in _load_configuration_impl
+    parsed_overrides, caching_repo = self._parse_overrides_and_create_caching_repo(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 230, in _parse_overrides_and_create_caching_repo
+    self._process_config_searchpath(config_name, parsed_overrides, caching_repo)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 159, in _process_config_searchpath
+    loaded = repo.load_config(config_path=config_name)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_repository.py", line 348, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/core_plugins/file_config_source.py", line 31, in load_config
+    cfg = OmegaConf.load(f)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/omegaconf/omegaconf.py", line 192, in load
+    obj = yaml.load(file_, Loader=get_yaml_loader())
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "/mnt/scratch/sc22ol/Project/recipes/cad2/task2/baseline/config.yaml", line 2, column 18
+Traceback (most recent call last):
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/hydra.py", line 105, in run
+    cfg = self.compose_config(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/hydra.py", line 594, in compose_config
+    cfg = self.config_loader.load_configuration(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 142, in load_configuration
+    return self._load_configuration_impl(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 244, in _load_configuration_impl
+    parsed_overrides, caching_repo = self._parse_overrides_and_create_caching_repo(
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 230, in _parse_overrides_and_create_caching_repo
+    self._process_config_searchpath(config_name, parsed_overrides, caching_repo)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_loader_impl.py", line 159, in _process_config_searchpath
+    loaded = repo.load_config(config_path=config_name)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_repository.py", line 348, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/hydra/_internal/core_plugins/file_config_source.py", line 31, in load_config
+    cfg = OmegaConf.load(f)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/omegaconf/omegaconf.py", line 192, in load
+    obj = yaml.load(file_, Loader=get_yaml_loader())
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/yaml/scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "/mnt/scratch/sc22ol/Project/recipes/cad2/task2/baseline/config.yaml", line 2, column 18
+Both scripts ran successfully!

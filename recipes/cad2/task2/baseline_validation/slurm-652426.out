@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "enhance.py", line 33, in <module>
+    from recipes.cad2.task2.ConvTasNet.local.tasnet import ConvTasNetStereo
+  File "/mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/local/__init__.py", line 7, in <module>
+    from .tasnet import ConvTasNetStereo, overlap_and_add
+ImportError: cannot import name 'overlap_and_add' from 'recipes.cad2.task2.ConvTasNet.local.tasnet' (/mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/local/tasnet.py)
+[2025-04-26 17:07:11,985][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-26 17:07:12,051][__main__][INFO] - [001/203] Evaluating S62001 for listener L6201
+[2025-04-26 17:07:14,889][clarity.utils.flac_encoder][ERROR] - File enhanced_signals/test/S62001_L6201_remix.flac not found.
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "evaluate.py", line 309, in run_calculate_aq
+    enhanced_signal, _ = read_flac_signal(
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/flac_encoder.py", line 254, in read_flac_signal
+    signal, sample_rate = flac_encoder.decode(
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/flac_encoder.py", line 232, in decode
+    raise FileNotFoundError(f"File {input_filename} not found.")
+FileNotFoundError: File enhanced_signals/test/S62001_L6201_remix.flac not found.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Both scripts ran successfully!

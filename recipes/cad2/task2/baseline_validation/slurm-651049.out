@@ -1,0 +1,20 @@
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "enhance.py", line 308, in enhance
+    listener_dict = Listener.load_listener_dict(config.path.listeners_file)
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/audiogram.py", line 260, in load_listener_dict
+    with open(filename, encoding="utf-8") as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/scratch/sc22ol/test_set/cadenza_cad2_task2_eval.v1_1(2)/metadata/listeners.eval.json'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2025-04-25 21:56:10,142][__main__][INFO] - Evaluating from enhanced_signals directory
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "evaluate.py", line 206, in run_calculate_aq
+    listener_dict= Listener.load_listener_dict(config.path.listeners_file)
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/audiogram.py", line 260, in load_listener_dict
+    with open(filename, encoding="utf-8") as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/scratch/sc22ol/test_set/cadenza_cad2_task2_eval.v1_1(2)/metadata/listeners.eval.json'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Both scripts ran successfully!

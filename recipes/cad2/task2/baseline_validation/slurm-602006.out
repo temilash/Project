@@ -1,0 +1,25 @@
+[2025-04-16 05:58:20,240][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/models8_sdr/Bassoon/best_model.safetensors
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "enhance.py", line 331, in enhance
+    separation_models = load_separation_model(
+  File "enhance.py", line 251, in load_separation_model
+    model = ConvTasNetStereo(**config["convtasnet"], samplerate=config["data"]["sample_rate"])
+TypeError: __init__() got an unexpected keyword argument 'frame_length'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2025-04-16 05:58:28,914][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-16 05:58:30,608][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-04-16 05:58:31,395][clarity.utils.flac_encoder][ERROR] - File enhanced_signals/valid/S50001_L5051_remix.flac not found.
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "evaluate.py", line 309, in run_calculate_aq
+    enhanced_signal, _ = read_flac_signal(
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/flac_encoder.py", line 254, in read_flac_signal
+    signal, sample_rate = flac_encoder.decode(
+  File "/mnt/scratch/sc22ol/Project/clarity/utils/flac_encoder.py", line 232, in decode
+    raise FileNotFoundError(f"File {input_filename} not found.")
+FileNotFoundError: File enhanced_signals/valid/S50001_L5051_remix.flac not found.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Both scripts ran successfully!

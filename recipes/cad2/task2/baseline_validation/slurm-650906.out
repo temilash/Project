@@ -1,0 +1,37 @@
+[2025-04-25 20:12:24,550][__main__][INFO] - Loading local model for Bassoon from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Bassoon/best_model.safetensors
+[2025-04-25 20:12:24,830][__main__][INFO] - Loading local model for Cello from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Cello/best_model.safetensors
+[2025-04-25 20:12:24,869][__main__][INFO] - Loading local model for Clarinet from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Clarinet/best_model.safetensors
+[2025-04-25 20:12:24,907][__main__][INFO] - Loading local model for Flute from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Flute/best_model.safetensors
+[2025-04-25 20:12:24,950][__main__][INFO] - Loading local model for Oboe from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Oboe/best_model.safetensors
+[2025-04-25 20:12:24,987][__main__][INFO] - Loading local model for Sax from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Sax/best_model.safetensors
+[2025-04-25 20:12:25,025][__main__][INFO] - Loading local model for Viola from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Viola/best_model.safetensors
+[2025-04-25 20:12:25,075][__main__][INFO] - Loading local model for Violin from /mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm20/Violin/best_model.safetensors
+[2025-04-25 20:12:25,131][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-04-25 20:12:29,140][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50001_L5051_remix.flac: 3685 samples clipped
+[2025-04-25 20:12:29,160][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-04-25 20:12:32,969][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50201_L5009_remix.flac: 21909 samples clipped
+[2025-04-25 20:12:32,989][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-04-25 20:12:37,124][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50401_L5043_remix.flac: 71944 samples clipped
+[2025-04-25 20:12:37,145][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-04-25 20:12:41,275][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50601_L5007_remix.flac: 62363 samples clipped
+[2025-04-25 20:12:41,297][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-04-25 20:12:45,430][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50801_L5066_remix.flac: 26575 samples clipped
+[2025-04-25 20:12:45,451][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-04-25 20:12:48,522][__main__][INFO] - Done!
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[2025-04-25 20:12:50,969][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-25 20:12:51,032][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-04-25 20:13:10,761][__main__][INFO] - [002/006] Evaluating S50201 for listener L5009
+[2025-04-25 20:13:29,471][__main__][INFO] - [003/006] Evaluating S50401 for listener L5043
+[2025-04-25 20:13:48,358][__main__][INFO] - [004/006] Evaluating S50601 for listener L5007
+[2025-04-25 20:14:07,300][__main__][INFO] - [005/006] Evaluating S50801 for listener L5066
+[2025-04-25 20:14:26,154][__main__][INFO] - [006/006] Evaluating S51001 for listener L5053
+[2025-04-25 20:14:44,630][__main__][INFO] - Done!
+Both scripts ran successfully!

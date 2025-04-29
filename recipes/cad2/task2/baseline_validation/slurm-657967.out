@@ -1,0 +1,517 @@
+[2025-04-29 02:09:10,821][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-04-29 02:09:12,627][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-04-29 02:09:14,749][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-04-29 02:09:16,151][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-04-29 02:09:17,758][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-04-29 02:09:19,318][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-04-29 02:09:20,718][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-04-29 02:09:23,742][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-04-29 02:09:25,018][__main__][INFO] - [001/101] Processing S62001: song 17_Nocturne_vn_fl_cl_0001 for listener L6201
+[2025-04-29 02:09:28,950][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62001_L6201_remix.flac: 38806 samples clipped
+[2025-04-29 02:09:28,970][__main__][INFO] - [002/101] Processing S62004: song 17_Nocturne_vn_fl_cl_0001 for listener L6229
+[2025-04-29 02:09:31,851][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62004_L6229_remix.flac: 1999 samples clipped
+[2025-04-29 02:09:31,871][__main__][INFO] - [003/101] Processing S62007: song 17_Nocturne_vn_fl_cl_0002 for listener L6251
+[2025-04-29 02:09:34,749][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62007_L6251_remix.flac: 68 samples clipped
+[2025-04-29 02:09:34,770][__main__][INFO] - [004/101] Processing S62011: song 17_Nocturne_vn_fl_cl_0003 for listener L6233
+[2025-04-29 02:09:37,642][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62011_L6233_remix.flac: 3 samples clipped
+[2025-04-29 02:09:37,661][__main__][INFO] - [005/101] Processing S62014: song 17_Nocturne_vn_fl_cl_0004 for listener L6249
+[2025-04-29 02:09:40,519][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62014_L6249_remix.flac: 750 samples clipped
+[2025-04-29 02:09:40,538][__main__][INFO] - [006/101] Processing S62018: song 17_Nocturne_vn_fl_cl_0005 for listener L6228
+[2025-04-29 02:09:43,395][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62018_L6228_remix.flac: 5050 samples clipped
+[2025-04-29 02:09:43,415][__main__][INFO] - [007/101] Processing S62021: song 17_Nocturne_vn_fl_cl_0006 for listener L6246
+[2025-04-29 02:09:46,264][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62021_L6246_remix.flac: 25366 samples clipped
+[2025-04-29 02:09:46,284][__main__][INFO] - [008/101] Processing S62025: song 44_K515_vn_vn_va_va_vc_0001 for listener L6216
+[2025-04-29 02:09:50,511][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62025_L6216_remix.flac: 2725 samples clipped
+[2025-04-29 02:09:50,530][__main__][INFO] - [009/101] Processing S62028: song 44_K515_vn_vn_va_va_vc_0001 for listener L6245
+[2025-04-29 02:09:53,871][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62028_L6245_remix.flac: 979 samples clipped
+[2025-04-29 02:09:53,890][__main__][INFO] - [010/101] Processing S62032: song 44_K515_vn_vn_va_va_vc_0002 for listener L6215
+[2025-04-29 02:09:57,230][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62032_L6215_remix.flac: 11047 samples clipped
+[2025-04-29 02:09:57,250][__main__][INFO] - [011/101] Processing S62035: song 44_K515_vn_vn_va_va_vc_0003 for listener L6245
+[2025-04-29 02:10:00,599][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62035_L6245_remix.flac: 1514 samples clipped
+[2025-04-29 02:10:00,619][__main__][INFO] - [012/101] Processing S62039: song 44_K515_vn_vn_va_va_vc_0004 for listener L6208
+[2025-04-29 02:10:03,959][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62039_L6208_remix.flac: 73558 samples clipped
+[2025-04-29 02:10:03,978][__main__][INFO] - [013/101] Processing S62042: song 44_K515_vn_vn_va_va_vc_0005 for listener L6239
+[2025-04-29 02:10:07,309][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62042_L6239_remix.flac: 218 samples clipped
+[2025-04-29 02:10:07,328][__main__][INFO] - [014/101] Processing S62046: song 44_K515_vn_vn_va_va_vc_0006 for listener L6214
+[2025-04-29 02:10:10,663][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62046_L6214_remix.flac: 7300 samples clipped
+[2025-04-29 02:10:10,682][__main__][INFO] - [015/101] Processing S62049: song 44_K515_vn_vn_va_va_vc_0007 for listener L6229
+[2025-04-29 02:10:14,012][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62049_L6229_remix.flac: 26 samples clipped
+[2025-04-29 02:10:14,032][__main__][INFO] - [016/101] Processing S62053: song 44_K515_vn_vn_va_va_vc_0008 for listener L6209
+[2025-04-29 02:10:17,374][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62053_L6209_remix.flac: 131558 samples clipped
+[2025-04-29 02:10:17,394][__main__][INFO] - [017/101] Processing S62056: song 44_K515_vn_vn_va_va_vc_0008 for listener L6230
+[2025-04-29 02:10:20,718][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62056_L6230_remix.flac: 4837 samples clipped
+[2025-04-29 02:10:20,737][__main__][INFO] - [018/101] Processing S62060: song 44_K515_vn_vn_va_va_vc_0009 for listener L6207
+[2025-04-29 02:10:24,099][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62060_L6207_remix.flac: 6004 samples clipped
+[2025-04-29 02:10:24,119][__main__][INFO] - [019/101] Processing S62063: song 44_K515_vn_vn_va_va_vc_0010 for listener L6229
+[2025-04-29 02:10:27,454][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62063_L6229_remix.flac: 9830 samples clipped
+[2025-04-29 02:10:27,473][__main__][INFO] - [020/101] Processing S62067: song 44_K515_vn_vn_va_va_vc_0011 for listener L6205
+[2025-04-29 02:10:30,816][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62067_L6205_remix.flac: 803 samples clipped
+[2025-04-29 02:10:30,835][__main__][INFO] - [021/101] Processing S62070: song 44_K515_vn_vn_va_va_vc_0012 for listener L6232
+[2025-04-29 02:10:34,179][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62070_L6232_remix.flac: 29047 samples clipped
+[2025-04-29 02:10:34,200][__main__][INFO] - [022/101] Processing S62074: song 44_K515_vn_vn_va_va_vc_0013 for listener L6203
+[2025-04-29 02:10:37,543][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62074_L6203_remix.flac: 8 samples clipped
+[2025-04-29 02:10:37,562][__main__][INFO] - [023/101] Processing S62077: song 44_K515_vn_vn_va_va_vc_0014 for listener L6222
+[2025-04-29 02:10:40,887][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62077_L6222_remix.flac: 159 samples clipped
+[2025-04-29 02:10:40,907][__main__][INFO] - [024/101] Processing S62080: song 44_K515_vn_vn_va_va_vc_0014 for listener L6251
+[2025-04-29 02:10:44,249][__main__][INFO] - [025/101] Processing S62084: song 44_K515_vn_vn_va_va_vc_0015 for listener L6227
+[2025-04-29 02:10:47,577][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62084_L6227_remix.flac: 15848 samples clipped
+[2025-04-29 02:10:47,597][__main__][INFO] - [026/101] Processing S62087: song 25_Pirates_vn_vn_va_sax_0001 for listener L6249
+[2025-04-29 02:10:50,604][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62087_L6249_remix.flac: 1298 samples clipped
+[2025-04-29 02:10:50,623][__main__][INFO] - [027/101] Processing S62091: song 25_Pirates_vn_vn_va_sax_0002 for listener L6218
+[2025-04-29 02:10:53,581][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62091_L6218_remix.flac: 39516 samples clipped
+[2025-04-29 02:10:53,601][__main__][INFO] - [028/101] Processing S62094: song 25_Pirates_vn_vn_va_sax_0003 for listener L6248
+[2025-04-29 02:10:56,565][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62094_L6248_remix.flac: 7 samples clipped
+[2025-04-29 02:10:56,584][__main__][INFO] - [029/101] Processing S62098: song 02_Sonata_vn_vn_0001 for listener L6220
+[2025-04-29 02:10:59,331][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62098_L6220_remix.flac: 650 samples clipped
+[2025-04-29 02:10:59,350][__main__][INFO] - [030/101] Processing S62101: song 02_Sonata_vn_vn_0002 for listener L6243
+[2025-04-29 02:11:02,024][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62101_L6243_remix.flac: 14 samples clipped
+[2025-04-29 02:11:02,043][__main__][INFO] - [031/101] Processing S62105: song 02_Sonata_vn_vn_0003 for listener L6221
+[2025-04-29 02:11:04,685][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62105_L6221_remix.flac: 43151 samples clipped
+[2025-04-29 02:11:04,704][__main__][INFO] - [032/101] Processing S62108: song 02_Sonata_vn_vn_0003 for listener L6237
+[2025-04-29 02:11:07,338][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62108_L6237_remix.flac: 40933 samples clipped
+[2025-04-29 02:11:07,358][__main__][INFO] - [033/101] Processing S62112: song 26_King_vn_vn_va_vc_0001 for listener L6215
+[2025-04-29 02:11:10,460][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62112_L6215_remix.flac: 13627 samples clipped
+[2025-04-29 02:11:10,479][__main__][INFO] - [034/101] Processing S62115: song 26_King_vn_vn_va_vc_0002 for listener L6235
+[2025-04-29 02:11:13,482][__main__][INFO] - [035/101] Processing S62119: song 26_King_vn_vn_va_vc_0003 for listener L6213
+[2025-04-29 02:11:16,455][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62119_L6213_remix.flac: 757 samples clipped
+[2025-04-29 02:11:16,475][__main__][INFO] - [036/101] Processing S62122: song 26_King_vn_vn_va_vc_0004 for listener L6234
+[2025-04-29 02:11:19,455][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62122_L6234_remix.flac: 454 samples clipped
+[2025-04-29 02:11:19,475][__main__][INFO] - [037/101] Processing S62126: song 26_King_vn_vn_va_vc_0005 for listener L6212
+[2025-04-29 02:11:22,464][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62126_L6212_remix.flac: 9140 samples clipped
+[2025-04-29 02:11:22,483][__main__][INFO] - [038/101] Processing S62129: song 27_King_vn_vn_va_sax_0001 for listener L6230
+[2025-04-29 02:11:25,616][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62129_L6230_remix.flac: 1800 samples clipped
+[2025-04-29 02:11:25,635][__main__][INFO] - [039/101] Processing S62133: song 27_King_vn_vn_va_sax_0002 for listener L6204
+[2025-04-29 02:11:28,635][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62133_L6204_remix.flac: 10673 samples clipped
+[2025-04-29 02:11:28,654][__main__][INFO] - [040/101] Processing S62136: song 27_King_vn_vn_va_sax_0002 for listener L6241
+[2025-04-29 02:11:31,638][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62136_L6241_remix.flac: 168315 samples clipped
+[2025-04-29 02:11:31,657][__main__][INFO] - [041/101] Processing S62140: song 27_King_vn_vn_va_sax_0003 for listener L6212
+[2025-04-29 02:11:34,630][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62140_L6212_remix.flac: 3549 samples clipped
+[2025-04-29 02:11:34,650][__main__][INFO] - [042/101] Processing S62143: song 27_King_vn_vn_va_sax_0004 for listener L6229
+[2025-04-29 02:11:37,626][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62143_L6229_remix.flac: 1694 samples clipped
+[2025-04-29 02:11:37,646][__main__][INFO] - [043/101] Processing S62147: song 27_King_vn_vn_va_sax_0005 for listener L6204
+[2025-04-29 02:11:40,623][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62147_L6204_remix.flac: 22934 samples clipped
+[2025-04-29 02:11:40,642][__main__][INFO] - [044/101] Processing S62150: song 11_Maria_ob_vc_0001 for listener L6220
+[2025-04-29 02:11:43,529][__main__][INFO] - [045/101] Processing S62153: song 11_Maria_ob_vc_0002 for listener L6251
+[2025-04-29 02:11:46,261][__main__][INFO] - [046/101] Processing S62157: song 11_Maria_ob_vc_0003 for listener L6225
+[2025-04-29 02:11:48,989][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62157_L6225_remix.flac: 11044 samples clipped
+[2025-04-29 02:11:49,008][__main__][INFO] - [047/101] Processing S62160: song 11_Maria_ob_vc_0003 for listener L6245
+[2025-04-29 02:11:51,733][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62160_L6245_remix.flac: 924 samples clipped
+[2025-04-29 02:11:51,752][__main__][INFO] - [048/101] Processing S62164: song 11_Maria_ob_vc_0004 for listener L6224
+[2025-04-29 02:11:54,465][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62164_L6224_remix.flac: 403 samples clipped
+[2025-04-29 02:11:54,484][__main__][INFO] - [049/101] Processing S62167: song 11_Maria_ob_vc_0005 for listener L6243
+[2025-04-29 02:11:57,224][__main__][INFO] - [050/101] Processing S62171: song 11_Maria_ob_vc_0006 for listener L6215
+[2025-04-29 02:11:59,941][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62171_L6215_remix.flac: 6121 samples clipped
+[2025-04-29 02:11:59,961][__main__][INFO] - [051/101] Processing S62174: song 40_Miserere_fl_fl_ob_cl_bn_0001 for listener L6241
+[2025-04-29 02:12:03,112][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62174_L6241_remix.flac: 360028 samples clipped
+[2025-04-29 02:12:03,132][__main__][INFO] - [052/101] Processing S62178: song 40_Miserere_fl_fl_ob_cl_bn_0002 for listener L6215
+[2025-04-29 02:12:06,211][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62178_L6215_remix.flac: 103413 samples clipped
+[2025-04-29 02:12:06,231][__main__][INFO] - [053/101] Processing S62181: song 41_Miserere_fl_fl_ob_sax_bn_0001 for listener L6237
+[2025-04-29 02:12:09,363][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62181_L6237_remix.flac: 219370 samples clipped
+[2025-04-29 02:12:09,383][__main__][INFO] - [054/101] Processing S62185: song 41_Miserere_fl_fl_ob_sax_bn_0002 for listener L6213
+[2025-04-29 02:12:12,464][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62185_L6213_remix.flac: 30506 samples clipped
+[2025-04-29 02:12:12,484][__main__][INFO] - [055/101] Processing S62188: song 41_Miserere_fl_fl_ob_sax_bn_0002 for listener L6240
+[2025-04-29 02:12:15,564][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62188_L6240_remix.flac: 38940 samples clipped
+[2025-04-29 02:12:15,584][__main__][INFO] - [056/101] Processing S62192: song 04_Allegro_fl_fl_0001 for listener L6215
+[2025-04-29 02:12:18,595][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62192_L6215_remix.flac: 132481 samples clipped
+[2025-04-29 02:12:18,615][__main__][INFO] - [057/101] Processing S62195: song 04_Allegro_fl_fl_0002 for listener L6235
+[2025-04-29 02:12:21,387][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62195_L6235_remix.flac: 9345 samples clipped
+[2025-04-29 02:12:21,407][__main__][INFO] - [058/101] Processing S62199: song 04_Allegro_fl_fl_0003 for listener L6216
+[2025-04-29 02:12:24,189][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62199_L6216_remix.flac: 56006 samples clipped
+[2025-04-29 02:12:24,209][__main__][INFO] - [059/101] Processing S62202: song 04_Allegro_fl_fl_0004 for listener L6236
+[2025-04-29 02:12:26,986][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62202_L6236_remix.flac: 76699 samples clipped
+[2025-04-29 02:12:27,006][__main__][INFO] - [060/101] Processing S62206: song 04_Allegro_fl_fl_0005 for listener L6205
+[2025-04-29 02:12:29,773][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62206_L6205_remix.flac: 35737 samples clipped
+[2025-04-29 02:12:29,792][__main__][INFO] - [061/101] Processing S62209: song 04_Allegro_fl_fl_0006 for listener L6235
+[2025-04-29 02:12:32,564][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62209_L6235_remix.flac: 17927 samples clipped
+[2025-04-29 02:12:32,584][__main__][INFO] - [062/101] Processing S62213: song 04_Allegro_fl_fl_0007 for listener L6206
+[2025-04-29 02:12:35,363][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62213_L6206_remix.flac: 72255 samples clipped
+[2025-04-29 02:12:35,383][__main__][INFO] - [063/101] Processing S62216: song 04_Allegro_fl_fl_0007 for listener L6234
+[2025-04-29 02:12:38,159][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62216_L6234_remix.flac: 48404 samples clipped
+[2025-04-29 02:12:38,179][__main__][INFO] - [064/101] Processing S62220: song 04_Allegro_fl_fl_0008 for listener L6201
+[2025-04-29 02:12:40,950][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62220_L6201_remix.flac: 152192 samples clipped
+[2025-04-29 02:12:40,970][__main__][INFO] - [065/101] Processing S62223: song 04_Allegro_fl_fl_0009 for listener L6229
+[2025-04-29 02:12:43,739][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62223_L6229_remix.flac: 41484 samples clipped
+[2025-04-29 02:12:43,759][__main__][INFO] - [066/101] Processing S62226: song 04_Allegro_fl_fl_0010 for listener L6251
+[2025-04-29 02:12:46,557][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62226_L6251_remix.flac: 1421 samples clipped
+[2025-04-29 02:12:46,576][__main__][INFO] - [067/101] Processing S62230: song 03_Dance_fl_cl_0001 for listener L6224
+[2025-04-29 02:12:49,454][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62230_L6224_remix.flac: 73 samples clipped
+[2025-04-29 02:12:49,472][__main__][INFO] - [068/101] Processing S62233: song 03_Dance_fl_cl_0002 for listener L6250
+[2025-04-29 02:12:52,181][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62233_L6250_remix.flac: 84033 samples clipped
+[2025-04-29 02:12:52,200][__main__][INFO] - [069/101] Processing S62237: song 03_Dance_fl_cl_0003 for listener L6223
+[2025-04-29 02:12:54,897][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62237_L6223_remix.flac: 4906 samples clipped
+[2025-04-29 02:12:54,916][__main__][INFO] - [070/101] Processing S62240: song 03_Dance_fl_cl_0003 for listener L6244
+[2025-04-29 02:12:57,616][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62240_L6244_remix.flac: 2315 samples clipped
+[2025-04-29 02:12:57,636][__main__][INFO] - [071/101] Processing S62244: song 03_Dance_fl_cl_0004 for listener L6220
+[2025-04-29 02:13:00,332][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62244_L6220_remix.flac: 1916 samples clipped
+[2025-04-29 02:13:00,351][__main__][INFO] - [072/101] Processing S62247: song 03_Dance_fl_cl_0005 for listener L6247
+[2025-04-29 02:13:03,043][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62247_L6247_remix.flac: 2669 samples clipped
+[2025-04-29 02:13:03,062][__main__][INFO] - [073/101] Processing S62251: song 03_Dance_fl_cl_0006 for listener L6217
+[2025-04-29 02:13:05,756][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62251_L6217_remix.flac: 271 samples clipped
+[2025-04-29 02:13:05,775][__main__][INFO] - [074/101] Processing S62254: song 14_Waltz_fl_fl_cl_0001 for listener L6242
+[2025-04-29 02:13:08,742][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62254_L6242_remix.flac: 12628 samples clipped
+[2025-04-29 02:13:08,761][__main__][INFO] - [075/101] Processing S62258: song 14_Waltz_fl_fl_cl_0002 for listener L6218
+[2025-04-29 02:13:11,600][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62258_L6218_remix.flac: 182131 samples clipped
+[2025-04-29 02:13:11,620][__main__][INFO] - [076/101] Processing S62261: song 14_Waltz_fl_fl_cl_0003 for listener L6240
+[2025-04-29 02:13:14,497][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62261_L6240_remix.flac: 21423 samples clipped
+[2025-04-29 02:13:14,517][__main__][INFO] - [077/101] Processing S62265: song 14_Waltz_fl_fl_cl_0004 for listener L6208
+[2025-04-29 02:13:17,367][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62265_L6208_remix.flac: 177207 samples clipped
+[2025-04-29 02:13:17,386][__main__][INFO] - [078/101] Processing S62268: song 14_Waltz_fl_fl_cl_0004 for listener L6240
+[2025-04-29 02:13:20,249][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62268_L6240_remix.flac: 13067 samples clipped
+[2025-04-29 02:13:20,268][__main__][INFO] - [079/101] Processing S62272: song 14_Waltz_fl_fl_cl_0005 for listener L6209
+[2025-04-29 02:13:23,109][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62272_L6209_remix.flac: 292125 samples clipped
+[2025-04-29 02:13:23,128][__main__][INFO] - [080/101] Processing S62275: song 14_Waltz_fl_fl_cl_0006 for listener L6232
+[2025-04-29 02:13:25,972][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62275_L6232_remix.flac: 158834 samples clipped
+[2025-04-29 02:13:25,992][__main__][INFO] - [081/101] Processing S62279: song 06_Entertainer_sax_sax_0001 for listener L6211
+[2025-04-29 02:13:28,786][__main__][INFO] - [082/101] Processing S62282: song 06_Entertainer_sax_sax_0002 for listener L6236
+[2025-04-29 02:13:31,492][__main__][INFO] - [083/101] Processing S62286: song 06_Entertainer_sax_sax_0003 for listener L6203
+[2025-04-29 02:13:34,187][__main__][INFO] - [084/101] Processing S62289: song 06_Entertainer_sax_sax_0004 for listener L6237
+[2025-04-29 02:13:36,875][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62289_L6237_remix.flac: 14 samples clipped
+[2025-04-29 02:13:36,894][__main__][INFO] - [085/101] Processing S62293: song 06_Entertainer_sax_sax_0005 for listener L6204
+[2025-04-29 02:13:39,603][__main__][INFO] - [086/101] Processing S62296: song 06_Entertainer_sax_sax_0005 for listener L6228
+[2025-04-29 02:13:42,316][__main__][INFO] - [087/101] Processing S62299: song 02-AchLiebenChristen_0001 for listener L6251
+[2025-04-29 02:13:45,343][__main__][INFO] - [088/101] Processing S62303: song 02-AchLiebenChristen_0002 for listener L6225
+[2025-04-29 02:13:48,269][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62303_L6225_remix.flac: 115451 samples clipped
+[2025-04-29 02:13:48,289][__main__][INFO] - [089/101] Processing S62306: song 08-FuerDeinenThron_0001 for listener L6249
+[2025-04-29 02:13:51,258][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62306_L6249_remix.flac: 36554 samples clipped
+[2025-04-29 02:13:51,279][__main__][INFO] - [090/101] Processing S62310: song 08-FuerDeinenThron_0002 for listener L6228
+[2025-04-29 02:13:54,196][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62310_L6228_remix.flac: 23135 samples clipped
+[2025-04-29 02:13:54,215][__main__][INFO] - [091/101] Processing S62313: song 01-AchGottundHerr_0001 for listener L6247
+[2025-04-29 02:13:57,188][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62313_L6247_remix.flac: 5017 samples clipped
+[2025-04-29 02:13:57,208][__main__][INFO] - [092/101] Processing S62317: song 10-NunBitten_0001 for listener L6215
+[2025-04-29 02:14:00,184][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62317_L6215_remix.flac: 152503 samples clipped
+[2025-04-29 02:14:00,204][__main__][INFO] - [093/101] Processing S62320: song 10-NunBitten_0001 for listener L6241
+[2025-04-29 02:14:03,119][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62320_L6241_remix.flac: 383229 samples clipped
+[2025-04-29 02:14:03,139][__main__][INFO] - [094/101] Processing S62324: song 10-NunBitten_0002 for listener L6219
+[2025-04-29 02:14:06,059][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62324_L6219_remix.flac: 444566 samples clipped
+[2025-04-29 02:14:06,079][__main__][INFO] - [095/101] Processing S62327: song 05-DieNacht_0001 for listener L6243
+[2025-04-29 02:14:09,081][__main__][INFO] - [096/101] Processing S62331: song 05-DieNacht_0002 for listener L6218
+[2025-04-29 02:14:12,011][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62331_L6218_remix.flac: 37424 samples clipped
+[2025-04-29 02:14:12,031][__main__][INFO] - [097/101] Processing S62334: song 07-HerrGott_0001 for listener L6240
+[2025-04-29 02:14:14,990][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62334_L6240_remix.flac: 749 samples clipped
+[2025-04-29 02:14:15,009][__main__][INFO] - [098/101] Processing S62338: song 07-HerrGott_0002 for listener L6213
+[2025-04-29 02:14:17,921][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62338_L6213_remix.flac: 9854 samples clipped
+[2025-04-29 02:14:17,941][__main__][INFO] - [099/101] Processing S62341: song 03-ChristederdubistTagundLicht_0001 for listener L6233
+[2025-04-29 02:14:20,909][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62341_L6233_remix.flac: 37 samples clipped
+[2025-04-29 02:14:20,928][__main__][INFO] - [100/101] Processing S62345: song 09-Jesus_0001 for listener L6209
+[2025-04-29 02:14:23,927][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62345_L6209_remix.flac: 159048 samples clipped
+[2025-04-29 02:14:23,947][__main__][INFO] - [101/101] Processing S62348: song 09-Jesus_0001 for listener L6237
+[2025-04-29 02:14:26,872][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/test/S62348_L6237_remix.flac: 40502 samples clipped
+[2025-04-29 02:14:26,891][__main__][INFO] - Done!
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[2025-04-29 02:14:28,394][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-04-29 02:14:28,440][__main__][INFO] - [001/101] Evaluating S62001 for listener L6201
+[2025-04-29 02:15:02,396][__main__][INFO] - [002/101] Evaluating S62004 for listener L6229
+[2025-04-29 02:15:35,060][__main__][INFO] - [003/101] Evaluating S62007 for listener L6251
+[2025-04-29 02:15:55,833][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:15:58,409][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:16:03,554][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:16:06,124][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:16:06,126][__main__][INFO] - [004/101] Evaluating S62011 for listener L6233
+[2025-04-29 02:16:38,263][__main__][INFO] - [005/101] Evaluating S62014 for listener L6249
+[2025-04-29 02:17:11,153][__main__][INFO] - [006/101] Evaluating S62018 for listener L6228
+[2025-04-29 02:17:43,928][__main__][INFO] - [007/101] Evaluating S62021 for listener L6246
+[2025-04-29 02:18:16,826][__main__][INFO] - [008/101] Evaluating S62025 for listener L6216
+[2025-04-29 02:19:19,690][__main__][INFO] - [009/101] Evaluating S62028 for listener L6245
+[2025-04-29 02:20:20,370][__main__][INFO] - [010/101] Evaluating S62032 for listener L6215
+[2025-04-29 02:21:20,773][__main__][INFO] - [011/101] Evaluating S62035 for listener L6245
+[2025-04-29 02:22:21,012][__main__][INFO] - [012/101] Evaluating S62039 for listener L6208
+[2025-04-29 02:23:21,532][__main__][INFO] - [013/101] Evaluating S62042 for listener L6239
+[2025-04-29 02:24:22,061][__main__][INFO] - [014/101] Evaluating S62046 for listener L6214
+[2025-04-29 02:25:22,464][__main__][INFO] - [015/101] Evaluating S62049 for listener L6229
+[2025-04-29 02:26:23,254][__main__][INFO] - [016/101] Evaluating S62053 for listener L6209
+[2025-04-29 02:27:23,496][__main__][INFO] - [017/101] Evaluating S62056 for listener L6230
+[2025-04-29 02:28:23,476][__main__][INFO] - [018/101] Evaluating S62060 for listener L6207
+[2025-04-29 02:29:23,792][__main__][INFO] - [019/101] Evaluating S62063 for listener L6229
+[2025-04-29 02:30:23,831][__main__][INFO] - [020/101] Evaluating S62067 for listener L6205
+[2025-04-29 02:31:24,259][__main__][INFO] - [021/101] Evaluating S62070 for listener L6232
+[2025-04-29 02:32:24,527][__main__][INFO] - [022/101] Evaluating S62074 for listener L6203
+[2025-04-29 02:33:24,871][__main__][INFO] - [023/101] Evaluating S62077 for listener L6222
+[2025-04-29 02:34:25,144][__main__][INFO] - [024/101] Evaluating S62080 for listener L6251
+[2025-04-29 02:35:09,715][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:35:12,239][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:35:17,445][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:35:19,982][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:35:19,984][__main__][INFO] - [025/101] Evaluating S62084 for listener L6227
+[2025-04-29 02:36:20,391][__main__][INFO] - [026/101] Evaluating S62087 for listener L6249
+[2025-04-29 02:36:45,117][__main__][INFO] - [027/101] Evaluating S62091 for listener L6218
+[2025-04-29 02:37:09,633][__main__][INFO] - [028/101] Evaluating S62094 for listener L6248
+[2025-04-29 02:37:34,259][__main__][INFO] - [029/101] Evaluating S62098 for listener L6220
+[2025-04-29 02:37:57,688][__main__][INFO] - [030/101] Evaluating S62101 for listener L6243
+[2025-04-29 02:38:20,784][__main__][INFO] - [031/101] Evaluating S62105 for listener L6221
+[2025-04-29 02:38:43,958][__main__][INFO] - [032/101] Evaluating S62108 for listener L6237
+[2025-04-29 02:39:07,119][__main__][INFO] - [033/101] Evaluating S62112 for listener L6215
+[2025-04-29 02:39:38,379][__main__][INFO] - [034/101] Evaluating S62115 for listener L6235
+[2025-04-29 02:40:09,350][__main__][INFO] - [035/101] Evaluating S62119 for listener L6213
+[2025-04-29 02:40:40,367][__main__][INFO] - [036/101] Evaluating S62122 for listener L6234
+[2025-04-29 02:41:11,198][__main__][INFO] - [037/101] Evaluating S62126 for listener L6212
+[2025-04-29 02:41:42,136][__main__][INFO] - [038/101] Evaluating S62129 for listener L6230
+[2025-04-29 02:42:13,529][__main__][INFO] - [039/101] Evaluating S62133 for listener L6204
+[2025-04-29 02:42:44,344][__main__][INFO] - [040/101] Evaluating S62136 for listener L6241
+[2025-04-29 02:43:15,426][__main__][INFO] - [041/101] Evaluating S62140 for listener L6212
+[2025-04-29 02:43:46,407][__main__][INFO] - [042/101] Evaluating S62143 for listener L6229
+[2025-04-29 02:44:17,479][__main__][INFO] - [043/101] Evaluating S62147 for listener L6204
+[2025-04-29 02:44:48,638][__main__][INFO] - [044/101] Evaluating S62150 for listener L6220
+[2025-04-29 02:45:22,466][__main__][INFO] - [045/101] Evaluating S62153 for listener L6251
+[2025-04-29 02:45:44,622][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:45:47,142][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:45:52,294][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:45:54,822][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:45:54,824][__main__][INFO] - [046/101] Evaluating S62157 for listener L6225
+[2025-04-29 02:46:28,804][__main__][INFO] - [047/101] Evaluating S62160 for listener L6245
+[2025-04-29 02:47:02,209][__main__][INFO] - [048/101] Evaluating S62164 for listener L6224
+[2025-04-29 02:47:35,878][__main__][INFO] - [049/101] Evaluating S62167 for listener L6243
+[2025-04-29 02:48:09,202][__main__][INFO] - [050/101] Evaluating S62171 for listener L6215
+[2025-04-29 02:48:42,634][__main__][INFO] - [051/101] Evaluating S62174 for listener L6241
+[2025-04-29 02:49:06,039][__main__][INFO] - [052/101] Evaluating S62178 for listener L6215
+[2025-04-29 02:49:29,222][__main__][INFO] - [053/101] Evaluating S62181 for listener L6237
+[2025-04-29 02:49:52,439][__main__][INFO] - [054/101] Evaluating S62185 for listener L6213
+[2025-04-29 02:50:15,458][__main__][INFO] - [055/101] Evaluating S62188 for listener L6240
+[2025-04-29 02:50:38,420][__main__][INFO] - [056/101] Evaluating S62192 for listener L6215
+[2025-04-29 02:51:21,465][__main__][INFO] - [057/101] Evaluating S62195 for listener L6235
+[2025-04-29 02:52:04,052][__main__][INFO] - [058/101] Evaluating S62199 for listener L6216
+[2025-04-29 02:52:46,623][__main__][INFO] - [059/101] Evaluating S62202 for listener L6236
+[2025-04-29 02:53:29,249][__main__][INFO] - [060/101] Evaluating S62206 for listener L6205
+[2025-04-29 02:54:11,834][__main__][INFO] - [061/101] Evaluating S62209 for listener L6235
+[2025-04-29 02:54:54,962][__main__][INFO] - [062/101] Evaluating S62213 for listener L6206
+[2025-04-29 02:55:37,423][__main__][INFO] - [063/101] Evaluating S62216 for listener L6234
+[2025-04-29 02:56:20,025][__main__][INFO] - [064/101] Evaluating S62220 for listener L6201
+[2025-04-29 02:57:02,280][__main__][INFO] - [065/101] Evaluating S62223 for listener L6229
+[2025-04-29 02:57:44,754][__main__][INFO] - [066/101] Evaluating S62226 for listener L6251
+[2025-04-29 02:58:15,340][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:58:17,914][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:58:23,147][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 02:58:25,711][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 02:58:25,714][__main__][INFO] - [067/101] Evaluating S62230 for listener L6224
+[2025-04-29 02:58:58,251][__main__][INFO] - [068/101] Evaluating S62233 for listener L6250
+[2025-04-29 02:59:30,409][__main__][INFO] - [069/101] Evaluating S62237 for listener L6223
+[2025-04-29 03:00:02,671][__main__][INFO] - [070/101] Evaluating S62240 for listener L6244
+[2025-04-29 03:00:34,815][__main__][INFO] - [071/101] Evaluating S62244 for listener L6220
+[2025-04-29 03:01:07,219][__main__][INFO] - [072/101] Evaluating S62247 for listener L6247
+[2025-04-29 03:01:39,501][__main__][INFO] - [073/101] Evaluating S62251 for listener L6217
+[2025-04-29 03:02:11,929][__main__][INFO] - [074/101] Evaluating S62254 for listener L6242
+[2025-04-29 03:02:44,007][__main__][INFO] - [075/101] Evaluating S62258 for listener L6218
+[2025-04-29 03:03:15,715][__main__][INFO] - [076/101] Evaluating S62261 for listener L6240
+[2025-04-29 03:03:47,296][__main__][INFO] - [077/101] Evaluating S62265 for listener L6208
+[2025-04-29 03:04:18,983][__main__][INFO] - [078/101] Evaluating S62268 for listener L6240
+[2025-04-29 03:04:50,788][__main__][INFO] - [079/101] Evaluating S62272 for listener L6209
+[2025-04-29 03:05:22,353][__main__][INFO] - [080/101] Evaluating S62275 for listener L6232
+[2025-04-29 03:05:53,888][__main__][INFO] - [081/101] Evaluating S62279 for listener L6211
+[2025-04-29 03:06:24,176][__main__][INFO] - [082/101] Evaluating S62282 for listener L6236
+[2025-04-29 03:06:54,437][__main__][INFO] - [083/101] Evaluating S62286 for listener L6203
+[2025-04-29 03:07:24,525][__main__][INFO] - [084/101] Evaluating S62289 for listener L6237
+[2025-04-29 03:07:54,711][__main__][INFO] - [085/101] Evaluating S62293 for listener L6204
+[2025-04-29 03:08:24,901][__main__][INFO] - [086/101] Evaluating S62296 for listener L6228
+[2025-04-29 03:08:55,122][__main__][INFO] - [087/101] Evaluating S62299 for listener L6251
+[2025-04-29 03:09:07,156][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 03:09:09,717][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 03:09:14,891][clarity.evaluator.haspi.eb][WARNING] - Function melcor9: Signal below threshold, outputs set to 0.
+[2025-04-29 03:09:17,463][clarity.evaluator.haspi.eb][WARNING] - Function AveCovary2: Ave signal below threshold, outputs set to 0.
+[2025-04-29 03:09:17,465][__main__][INFO] - [088/101] Evaluating S62303 for listener L6225
+[2025-04-29 03:09:40,452][__main__][INFO] - [089/101] Evaluating S62306 for listener L6249
+[2025-04-29 03:10:02,287][__main__][INFO] - [090/101] Evaluating S62310 for listener L6228
+[2025-04-29 03:10:23,776][__main__][INFO] - [091/101] Evaluating S62313 for listener L6247
+[2025-04-29 03:10:44,120][__main__][INFO] - [092/101] Evaluating S62317 for listener L6215
+[2025-04-29 03:11:06,561][__main__][INFO] - [093/101] Evaluating S62320 for listener L6241
+[2025-04-29 03:11:28,871][__main__][INFO] - [094/101] Evaluating S62324 for listener L6219
+[2025-04-29 03:11:51,208][__main__][INFO] - [095/101] Evaluating S62327 for listener L6243
+[2025-04-29 03:12:13,277][__main__][INFO] - [096/101] Evaluating S62331 for listener L6218
+[2025-04-29 03:12:35,228][__main__][INFO] - [097/101] Evaluating S62334 for listener L6240
+[2025-04-29 03:12:56,785][__main__][INFO] - [098/101] Evaluating S62338 for listener L6213
+[2025-04-29 03:13:18,123][__main__][INFO] - [099/101] Evaluating S62341 for listener L6233
+[2025-04-29 03:13:38,184][__main__][INFO] - [100/101] Evaluating S62345 for listener L6209
+[2025-04-29 03:13:59,099][__main__][INFO] - [101/101] Evaluating S62348 for listener L6237
+[2025-04-29 03:14:19,873][__main__][INFO] - Done!
+evaluate.py:334: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 0])),
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1015: RuntimeWarning: invalid value encountered in multiply
+  _basilar_membrane = gain * basilar_membrane
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1721: RuntimeWarning: invalid value encountered in divide
+  reference_linear_magnitude /= (
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1725: RuntimeWarning: invalid value encountered in divide
+  processed_linear_magnitude /= processed_sum
+evaluate.py:350: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 1])),
+evaluate.py:334: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 0])),
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1015: RuntimeWarning: invalid value encountered in multiply
+  _basilar_membrane = gain * basilar_membrane
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1721: RuntimeWarning: invalid value encountered in divide
+  reference_linear_magnitude /= (
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1725: RuntimeWarning: invalid value encountered in divide
+  processed_linear_magnitude /= processed_sum
+evaluate.py:350: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 1])),
+evaluate.py:334: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 0])),
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1015: RuntimeWarning: invalid value encountered in multiply
+  _basilar_membrane = gain * basilar_membrane
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1721: RuntimeWarning: invalid value encountered in divide
+  reference_linear_magnitude /= (
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1725: RuntimeWarning: invalid value encountered in divide
+  processed_linear_magnitude /= processed_sum
+evaluate.py:350: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 1])),
+evaluate.py:334: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 0])),
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1015: RuntimeWarning: invalid value encountered in multiply
+  _basilar_membrane = gain * basilar_membrane
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1721: RuntimeWarning: invalid value encountered in divide
+  reference_linear_magnitude /= (
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1725: RuntimeWarning: invalid value encountered in divide
+  processed_linear_magnitude /= processed_sum
+evaluate.py:350: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 1])),
+evaluate.py:334: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 0])),
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1015: RuntimeWarning: invalid value encountered in multiply
+  _basilar_membrane = gain * basilar_membrane
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1721: RuntimeWarning: invalid value encountered in divide
+  reference_linear_magnitude /= (
+/mnt/scratch/sc22ol/Project/clarity/evaluator/haspi/eb.py:1725: RuntimeWarning: invalid value encountered in divide
+  processed_linear_magnitude /= processed_sum
+evaluate.py:350: RuntimeWarning: divide by zero encountered in log10
+  level1=65 - 20 * np.log10(compute_rms(reference_mixture[:, 1])),
+Both scripts ran successfully!

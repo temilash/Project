@@ -1,0 +1,24 @@
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "enhance.py", line 311, in enhance
+    with Path(config.path.gains_file).open("r", encoding="utf-8") as file:
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/scratch/sc22ol/test_set/cadenza_cad2_task2_eval.v1_1(2)/metadata/gains.json'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2025-04-25 21:57:04,228][__main__][INFO] - Evaluating from enhanced_signals directory
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "evaluate.py", line 208, in run_calculate_aq
+    with Path(config.path.gains_file).open("r", encoding="utf-8") as file:
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/users/sc22ol/.conda/envs/clarity/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/scratch/sc22ol/test_set/cadenza_cad2_task2_eval.v1_1(2)/metadata/gains.json'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Both scripts ran successfully!

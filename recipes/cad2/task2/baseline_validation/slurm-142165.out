@@ -1,0 +1,36 @@
+[2025-03-13 13:25:44,165][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-13 13:25:45,543][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-13 13:25:46,636][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-13 13:25:47,737][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-13 13:25:48,806][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-13 13:25:49,913][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-13 13:25:50,970][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-13 13:25:53,608][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-13 13:25:55,034][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-13 13:25:59,281][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50001_L5051_remix.flac: 1 samples clipped
+[2025-03-13 13:25:59,314][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+/users/sc22ol/.conda/envs/clarity/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.10/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[2025-03-13 13:26:02,410][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50201_L5009_remix.flac: 456 samples clipped
+[2025-03-13 13:26:02,433][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-03-13 13:26:05,729][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50401_L5043_remix.flac: 5929 samples clipped
+[2025-03-13 13:26:05,754][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-03-13 13:26:09,072][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50601_L5007_remix.flac: 3562 samples clipped
+[2025-03-13 13:26:09,095][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-03-13 13:26:12,415][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+/users/sc22ol/.conda/envs/clarity/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/users/sc22ol/.conda/envs/clarity/lib/python3.10/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[2025-03-13 13:26:15,093][__main__][INFO] - Done!
+[2025-03-13 13:26:19,803][__main__][INFO] - Evaluating from enhanced_signals directory
+[2025-03-13 13:26:19,844][__main__][INFO] - [001/006] Evaluating S50001 for listener L5051
+[2025-03-13 13:26:39,759][__main__][INFO] - [002/006] Evaluating S50201 for listener L5009
+[2025-03-13 13:26:58,838][__main__][INFO] - [003/006] Evaluating S50401 for listener L5043
+[2025-03-13 13:27:18,110][__main__][INFO] - [004/006] Evaluating S50601 for listener L5007
+[2025-03-13 13:27:37,310][__main__][INFO] - [005/006] Evaluating S50801 for listener L5066
+[2025-03-13 13:27:56,442][__main__][INFO] - [006/006] Evaluating S51001 for listener L5053
+[2025-03-13 13:28:15,208][__main__][INFO] - Done!
+Both scripts ran successfully!

@@ -1,0 +1,146 @@
+[2025-03-05 14:45:54,151][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-05 14:45:57,440][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-05 14:46:00,312][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-05 14:46:03,020][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-05 14:46:14,421][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-05 14:46:17,502][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-05 14:46:20,116][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-05 14:46:22,746][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-05 14:46:25,382][__main__][INFO] - [001/2088] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-05 14:46:25,384][clarity.utils.flac_encoder][ERROR] - File \Users\temil\clarity\audio\audio\valid\anitrasdance_001\mix_anitrasdance_001.flac not found.
+[2025-03-05 14:47:12,634][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-05 14:47:15,594][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-05 14:47:18,257][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-05 14:47:20,803][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-05 14:47:23,691][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-05 14:47:26,491][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-05 14:47:29,240][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-05 14:47:31,712][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-05 14:47:34,306][__main__][INFO] - [001/2088] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-05 14:49:01,659][__main__][INFO] - [002/2088] Processing S50001: song anitrasdance_001 for listener L5076
+[2025-03-05 14:50:25,244][__main__][INFO] - [003/2088] Processing S50002: song anitrasdance_001 for listener L5055
+[2025-03-05 14:51:54,207][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals\valid\S50002_L5055_remix.flac: 96 samples clipped
+[2025-03-05 14:51:54,271][__main__][INFO] - [004/2088] Processing S50002: song anitrasdance_001 for listener L5008
+[2025-03-05 14:53:22,448][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-05 14:53:25,515][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-05 14:53:28,461][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-05 14:53:31,627][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-05 14:53:35,146][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-05 14:53:37,839][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-05 14:53:40,394][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-05 14:53:43,191][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-05 14:53:46,125][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-05 14:55:11,579][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-03-05 14:56:42,950][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-03-05 14:58:30,385][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-03-05 15:00:16,402][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-03-05 15:02:03,666][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-03-05 15:02:49,734][__main__][INFO] - Done!
+[2025-03-05 15:12:49,044][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-05 15:12:52,908][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-05 15:12:56,678][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-05 15:13:13,192][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-05 15:13:16,393][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-05 15:13:19,957][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-05 15:13:23,376][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-05 15:13:26,766][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-05 15:13:30,283][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-05 15:15:26,092][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals\valid\S50001_L5051_remix.flac: 216271 samples clipped
+[2025-03-05 15:15:26,130][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-03-05 15:17:33,134][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals\valid\S50201_L5009_remix.flac: 158610 samples clipped
+[2025-03-05 15:17:33,172][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-03-05 15:19:58,737][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals\valid\S50401_L5043_remix.flac: 558716 samples clipped
+[2025-03-05 15:19:58,773][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-03-05 15:22:26,665][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals\valid\S50601_L5007_remix.flac: 593920 samples clipped
+[2025-03-05 15:22:26,707][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-03-05 15:24:47,656][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals\valid\S50801_L5066_remix.flac: 364616 samples clipped
+[2025-03-05 15:24:47,695][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-03-05 15:25:47,684][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals\valid\S51001_L5053_remix.flac: 243675 samples clipped
+[2025-03-05 15:25:47,740][__main__][INFO] - Done!
+[2025-03-06 13:16:41,392][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-06 13:16:44,147][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-06 13:16:46,319][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-06 13:16:48,401][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-06 13:16:50,508][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-06 13:16:53,004][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-06 13:16:55,790][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-06 13:16:58,217][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-06 13:17:00,392][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-06 13:18:37,165][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-03-06 13:20:01,365][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-03-06 13:21:45,652][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-03-06 13:23:54,835][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-03-06 13:26:04,454][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-03-06 13:26:51,136][__main__][INFO] - Done!
+[2025-03-06 13:44:00,480][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-06 13:44:02,444][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-06 13:44:04,311][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-06 13:44:06,180][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-06 13:44:08,225][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-06 13:44:10,230][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-06 13:44:12,160][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-06 13:44:14,623][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-06 13:44:16,887][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-06 13:45:54,087][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-03-06 13:47:35,745][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-03-06 13:49:35,002][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-03-06 13:51:32,427][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-03-06 13:53:37,638][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-03-06 13:54:21,785][__main__][INFO] - Done!
+[2025-03-08 16:59:06,554][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-08 16:59:11,632][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-08 16:59:22,552][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-08 16:59:28,199][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-08 16:59:34,239][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-08 16:59:39,383][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-08 16:59:43,808][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-08 16:59:49,083][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-08 16:59:53,752][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-08 17:01:27,415][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-03-08 17:02:59,761][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-03-08 17:05:04,370][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-03-08 17:07:03,060][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-03-08 17:08:57,550][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-03-08 17:09:44,767][__main__][INFO] - Done!
+[2025-03-08 17:35:29,343][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-08 17:35:35,569][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-08 17:35:41,473][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-08 17:35:46,726][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-08 17:35:52,253][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-08 17:35:57,349][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-08 17:36:02,782][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-08 17:36:08,469][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-08 17:36:13,822][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-08 17:37:09,396][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-08 17:37:15,174][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-08 17:37:20,389][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-08 17:37:25,824][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-08 17:37:30,822][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-08 17:37:35,411][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-08 17:37:40,749][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-08 17:37:45,770][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-08 17:37:51,052][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-03-08 17:39:13,596][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-03-08 17:39:19,416][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-03-08 17:39:25,081][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-03-08 17:39:30,823][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-03-08 17:39:36,349][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-03-08 17:39:42,244][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-03-08 17:39:47,551][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-03-08 17:39:53,302][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-03-08 17:39:59,768][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-04-23 21:24:14,350][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_Causal
+[2025-04-23 21:24:18,876][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_Causal
+[2025-04-23 21:24:24,012][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_Causal
+[2025-04-23 21:24:30,222][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_Causal
+[2025-04-23 21:24:34,844][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_Causal
+[2025-04-23 21:24:39,910][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_Causal
+[2025-04-23 21:24:47,886][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_Causal
+[2025-04-23 21:24:52,595][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_Causal
+[2025-04-23 21:24:57,381][__main__][INFO] - [001/006] Processing S50001: song anitrasdance_001 for listener L5051
+[2025-04-23 21:26:33,210][__main__][INFO] - [002/006] Processing S50201: song sq7294793_2_010 for listener L5009
+[2025-04-23 21:28:15,266][__main__][INFO] - [003/006] Processing S50401: song sample_014 for listener L5043
+[2025-04-23 21:30:19,643][__main__][INFO] - [004/006] Processing S50601: song sample_064 for listener L5007
+[2025-04-23 21:32:16,783][__main__][INFO] - [005/006] Processing S50801: song sample_114 for listener L5066
+[2025-04-23 21:33:56,700][__main__][INFO] - [006/006] Processing S51001: song sample_164 for listener L5053
+[2025-04-23 21:34:39,660][__main__][INFO] - Done!
