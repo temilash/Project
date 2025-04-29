@@ -1,0 +1,180 @@
+44_K515_vn_vn_va_va_vc_0001
+Viola           ==> SDR:   0.099  SIR:  -9.666  ISR:   3.206  SAR:  -0.069  
+accompaniment   ==> SDR:   6.534  SIR:   6.562  ISR:  37.803  SAR: 126.779  
+
+44_K515_vn_vn_va_va_vc_0001
+Viola           ==> SDR:  -0.016  SIR: -11.230  ISR:   1.957  SAR:  -1.571  
+accompaniment   ==> SDR:   6.534  SIR:   6.562  ISR:  37.803  SAR: 127.185  
+
+44_K515_vn_vn_va_va_vc_0002
+Viola           ==> SDR:   0.018  SIR:  -1.896  ISR:   1.546  SAR:  -1.005  
+accompaniment   ==> SDR:  10.159  SIR:  10.206  ISR:  36.257  SAR: 127.110  
+
+44_K515_vn_vn_va_va_vc_0002
+Viola           ==> SDR:   0.018  SIR:  -1.896  ISR:   1.546  SAR:  -1.005  
+accompaniment   ==> SDR:  10.159  SIR:  10.206  ISR:  36.257  SAR: 127.110  
+
+44_K515_vn_vn_va_va_vc_0003
+Viola           ==> SDR:   0.555  SIR:  -5.353  ISR:   2.115  SAR:   1.689  
+accompaniment   ==> SDR:   7.234  SIR:   7.260  ISR:  36.304  SAR: 126.954  
+
+44_K515_vn_vn_va_va_vc_0003
+Viola           ==> SDR:   0.555  SIR:  -5.353  ISR:   2.115  SAR:   1.689  
+accompaniment   ==> SDR:   7.234  SIR:   7.260  ISR:  36.304  SAR: 126.954  
+
+44_K515_vn_vn_va_va_vc_0004
+Viola           ==> SDR:   0.312  SIR:  -5.413  ISR:   0.358  SAR:  -1.051  
+accompaniment   ==> SDR:   5.154  SIR:   5.191  ISR:  34.664  SAR: 126.665  
+
+44_K515_vn_vn_va_va_vc_0004
+Viola           ==> SDR:   0.312  SIR:  -5.413  ISR:   0.358  SAR:  -1.051  
+accompaniment   ==> SDR:   5.154  SIR:   5.191  ISR:  34.664  SAR: 126.665  
+
+44_K515_vn_vn_va_va_vc_0005
+Viola           ==> SDR:   0.530  SIR:  -7.331  ISR:   1.711  SAR:   1.635  
+accompaniment   ==> SDR:  11.791  SIR:  11.801  ISR:  37.461  SAR: 127.102  
+
+44_K515_vn_vn_va_va_vc_0005
+Viola           ==> SDR:   0.530  SIR:  -7.331  ISR:   1.711  SAR:   1.635  
+accompaniment   ==> SDR:  11.791  SIR:  11.801  ISR:  37.461  SAR: 127.102  
+
+44_K515_vn_vn_va_va_vc_0006
+Viola           ==> SDR:   0.458  SIR:   3.033  ISR:   1.055  SAR:   0.079  
+accompaniment   ==> SDR:   4.505  SIR:   4.409  ISR:  26.002  SAR: 127.226  
+
+44_K515_vn_vn_va_va_vc_0006
+Viola           ==> SDR:   0.458  SIR:   3.033  ISR:   1.055  SAR:   0.079  
+accompaniment   ==> SDR:   4.505  SIR:   4.409  ISR:  26.002  SAR: 127.226  
+
+44_K515_vn_vn_va_va_vc_0007
+Viola           ==> SDR:   0.527  SIR:  -0.668  ISR:   1.510  SAR:  -0.037  
+accompaniment   ==> SDR:   5.668  SIR:   5.746  ISR:  29.094  SAR: 126.949  
+
+44_K515_vn_vn_va_va_vc_0007
+Viola           ==> SDR:   0.527  SIR:  -0.668  ISR:   1.510  SAR:  -0.037  
+accompaniment   ==> SDR:   5.668  SIR:   5.746  ISR:  29.094  SAR: 126.949  
+
+44_K515_vn_vn_va_va_vc_0008
+Viola           ==> SDR:   0.543  SIR:   2.267  ISR:   2.678  SAR:   0.366  
+accompaniment   ==> SDR:   4.334  SIR:   4.302  ISR:  34.766  SAR: 126.926  
+
+44_K515_vn_vn_va_va_vc_0008
+Viola           ==> SDR:   0.543  SIR:   2.267  ISR:   2.678  SAR:   0.366  
+accompaniment   ==> SDR:   4.334  SIR:   4.302  ISR:  34.766  SAR: 126.926  
+
+44_K515_vn_vn_va_va_vc_0009
+Viola           ==> SDR:   0.585  SIR:  -3.580  ISR:   1.012  SAR:  -0.540  
+accompaniment   ==> SDR:   6.999  SIR:   7.191  ISR:  21.867  SAR: 127.109  
+
+44_K515_vn_vn_va_va_vc_0009
+Viola           ==> SDR:   0.585  SIR:  -3.580  ISR:   1.012  SAR:  -0.540  
+accompaniment   ==> SDR:   6.999  SIR:   7.191  ISR:  21.867  SAR: 127.109  
+
+44_K515_vn_vn_va_va_vc_0010
+Viola           ==> SDR:   1.224  SIR:   5.192  ISR:   2.677  SAR:   0.251  
+accompaniment   ==> SDR:   4.742  SIR:   4.785  ISR:  29.862  SAR: 127.255  
+
+44_K515_vn_vn_va_va_vc_0010
+Viola           ==> SDR:   1.224  SIR:   5.192  ISR:   2.677  SAR:   0.251  
+accompaniment   ==> SDR:   4.742  SIR:   4.785  ISR:  29.862  SAR: 127.255  
+
+44_K515_vn_vn_va_va_vc_0011
+Viola           ==> SDR:   0.360  SIR:   0.207  ISR:   1.960  SAR:   0.021  
+accompaniment   ==> SDR:   1.828  SIR:   1.949  ISR:  29.738  SAR: 126.831  
+
+44_K515_vn_vn_va_va_vc_0011
+Viola           ==> SDR:   0.360  SIR:   0.207  ISR:   1.960  SAR:   0.021  
+accompaniment   ==> SDR:   1.828  SIR:   1.949  ISR:  29.738  SAR: 126.831  
+
+44_K515_vn_vn_va_va_vc_0012
+Viola           ==> SDR:   0.528  SIR:   2.932  ISR:   1.251  SAR:  -0.110  
+accompaniment   ==> SDR:   1.273  SIR:   1.095  ISR:  28.095  SAR: 127.249  
+
+44_K515_vn_vn_va_va_vc_0012
+Viola           ==> SDR:   0.528  SIR:   2.932  ISR:   1.251  SAR:  -0.110  
+accompaniment   ==> SDR:   1.273  SIR:   1.095  ISR:  28.095  SAR: 127.249  
+
+44_K515_vn_vn_va_va_vc_0013
+Viola           ==> SDR:   0.691  SIR:   1.368  ISR:   1.081  SAR:  -0.161  
+accompaniment   ==> SDR:   3.571  SIR:   3.615  ISR:  32.621  SAR: 127.307  
+
+44_K515_vn_vn_va_va_vc_0013
+Viola           ==> SDR:   0.691  SIR:   1.368  ISR:   1.081  SAR:  -0.161  
+accompaniment   ==> SDR:   3.571  SIR:   3.615  ISR:  32.621  SAR: 127.307  
+
+44_K515_vn_vn_va_va_vc_0014
+Viola           ==> SDR:   0.339  SIR:  -0.404  ISR:   1.540  SAR:  -0.097  
+accompaniment   ==> SDR:   2.544  SIR:   2.833  ISR:  21.981  SAR: 127.238  
+
+44_K515_vn_vn_va_va_vc_0014
+Viola           ==> SDR:   0.339  SIR:  -0.404  ISR:   1.540  SAR:  -0.097  
+accompaniment   ==> SDR:   2.544  SIR:   2.833  ISR:  21.981  SAR: 127.238  
+
+44_K515_vn_vn_va_va_vc_0015
+Viola           ==> SDR:   0.415  SIR:  -0.701  ISR:   0.443  SAR:  -1.443  
+accompaniment   ==> SDR:   0.222  SIR:   0.228  ISR:  22.703  SAR: 126.224  
+
+44_K515_vn_vn_va_va_vc_0015
+Viola           ==> SDR:   0.415  SIR:  -0.701  ISR:   0.443  SAR:  -1.443  
+accompaniment   ==> SDR:   0.222  SIR:   0.228  ISR:  22.703  SAR: 126.224  
+
+25_Pirates_vn_vn_va_sax_0001
+Viola           ==> SDR:   0.265  SIR:  -6.918  ISR:   0.365  SAR:  -0.184  
+accompaniment   ==> SDR:   6.448  SIR:   6.437  ISR:  31.156  SAR: 126.029  
+
+25_Pirates_vn_vn_va_sax_0002
+Viola           ==> SDR:   0.253  SIR:  -4.963  ISR:   0.560  SAR:   0.833  
+accompaniment   ==> SDR:   4.825  SIR:   4.850  ISR:  29.869  SAR: 126.961  
+
+25_Pirates_vn_vn_va_sax_0003
+Viola           ==> SDR:   0.367  SIR:  -2.882  ISR:   0.498  SAR:  -0.133  
+accompaniment   ==> SDR:   5.696  SIR:   5.697  ISR:  34.563  SAR: 126.958  
+
+26_King_vn_vn_va_vc_0001
+Viola           ==> SDR:   0.045  SIR: -10.142  ISR:   0.475  SAR:   0.324  
+accompaniment   ==> SDR:   9.977  SIR:  10.287  ISR:  28.600  SAR: 126.986  
+
+26_King_vn_vn_va_vc_0002
+Viola           ==> SDR:   0.344  SIR:  -5.639  ISR:   0.730  SAR:  -0.290  
+accompaniment   ==> SDR:   7.890  SIR:   7.864  ISR:  25.924  SAR: 126.845  
+
+26_King_vn_vn_va_vc_0003
+Viola           ==> SDR:   0.424  SIR:  -2.767  ISR:   0.543  SAR:  -0.120  
+accompaniment   ==> SDR:   6.473  SIR:   6.495  ISR:  20.738  SAR: 127.032  
+
+26_King_vn_vn_va_vc_0004
+Viola           ==> SDR:   0.357  SIR:  -3.583  ISR:   0.423  SAR:  -0.601  
+accompaniment   ==> SDR:   3.103  SIR:   3.113  ISR:  24.786  SAR: 126.474  
+
+26_King_vn_vn_va_vc_0005
+Viola           ==> SDR:   0.358  SIR:  -5.255  ISR:   0.526  SAR:  -0.978  
+accompaniment   ==> SDR:   7.553  SIR:   7.641  ISR:  26.793  SAR: 126.582  
+
+27_King_vn_vn_va_sax_0001
+Viola           ==> SDR:   0.048  SIR:  -8.324  ISR:   0.273  SAR:  -0.226  
+accompaniment   ==> SDR:   9.308  SIR:   9.271  ISR:  28.183  SAR: 127.073  
+
+27_King_vn_vn_va_sax_0002
+Viola           ==> SDR:   0.390  SIR:  -3.166  ISR:   0.628  SAR:   0.185  
+accompaniment   ==> SDR:   9.259  SIR:   9.355  ISR:  29.232  SAR: 126.864  
+
+27_King_vn_vn_va_sax_0003
+Viola           ==> SDR:   0.354  SIR:  -1.753  ISR:   0.524  SAR:  -1.128  
+accompaniment   ==> SDR:   6.872  SIR:   6.942  ISR:  23.286  SAR: 126.844  
+
+27_King_vn_vn_va_sax_0004
+Viola           ==> SDR:   0.241  SIR:  -3.763  ISR:   0.308  SAR:  -0.150  
+accompaniment   ==> SDR:   3.731  SIR:   4.083  ISR:  19.358  SAR: 126.746  
+
+27_King_vn_vn_va_sax_0005
+Viola           ==> SDR:   0.167  SIR:  -4.434  ISR:   0.249  SAR:  -1.914  
+accompaniment   ==> SDR:   6.134  SIR:   6.339  ISR:  27.984  SAR: 126.826  
+
+Aggrated Scores (median over frames, median over tracks)
+Viola           ==> SDR:   0.359  SIR:  -3.373  ISR:   0.679  SAR:  -0.142  
+accompaniment   ==> SDR:   5.915  SIR:   6.042  ISR:  28.847  SAR: 126.951  
+
+Aggrated Scores (mean over frames, median over tracks)
+Viola           ==> SDR:   0.210  SIR:  -2.782  ISR:   0.735  SAR:  -0.508  
+accompaniment   ==> SDR:   6.064  SIR:   6.288  ISR:  27.968  SAR: 126.718  
+

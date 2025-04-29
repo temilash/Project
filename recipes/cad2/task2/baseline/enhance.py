@@ -6,6 +6,11 @@ import json
 import logging
 from collections import Counter
 from pathlib import Path
+import os
+import yaml
+from safetensors.torch import load_file
+from scipy.signal import hilbert
+
 
 # pylint: disable=import-error
 import hydra
@@ -54,6 +59,46 @@ def check_repeated_source(gains: dict, source_list: dict) -> dict:
             new_gains[key] = value
     return new_gains
 
+
+def normalize_audio(audio: torch.Tensor) -> torch.Tensor:
+    """
+    Normalize the input audio to have a consistent loudness before separation.
+    
+    Args:
+        audio (torch.Tensor): Input mixture signal (batch, channels, time)
+
+    Returns:
+        torch.Tensor: Normalized audio
+    """
+    mean_val = torch.mean(audio, dim=-1, keepdim=True)
+    std_val = torch.std(audio, dim=-1, keepdim=True) + 1e-8  # Avoid division by zero
+    return (audio - mean_val) / std_val
+
+def apply_phase_correction(reference_signal, target_signal):
+    """
+    Aligns the phase of the target signal to match the reference signal.
+
+    Args:
+        reference_signal (np.ndarray): The reference signal.
+        target_signal (np.ndarray): The signal to be phase-aligned.
+
+    Returns:
+        np.ndarray: Phase-aligned target signal.
+    """
+    analytic_ref = hilbert(reference_signal)
+    analytic_target = hilbert(target_signal)
+
+    correlation = np.correlate(np.abs(analytic_ref), np.abs(analytic_target), mode="full")
+    delay = np.argmax(correlation) - (len(reference_signal) - 1)
+
+    if delay > 0:
+        aligned_signal = np.pad(target_signal, (delay, 0), mode="constant")[:-delay]
+    elif delay < 0:
+        aligned_signal = np.pad(target_signal, (0, -delay), mode="constant")[-delay:]
+    else:
+        aligned_signal = target_signal
+
+    return aligned_signal
 
 def separate_sources(
     model: torch.nn.Module,
@@ -171,6 +216,7 @@ def decompose_signal(
     return out_sources
 
 
+
 def load_separation_model(
     causality: str, device: torch.device, force_redownload: bool = True
 ) -> dict[str, ConvTasNetStereo]:
@@ -185,26 +231,32 @@ def load_separation_model(
         model: Separation model.
     """
     models = {}
-    causal = {"causal": "Causal", "noncausal": "NonCausal"}
+    base_dir = "/mnt/scratch/sc22ol/Project/recipes/cad2/task2/ConvTasNet/crm50"
+    causal_suffix = {"causal": "Causal", "noncausal": "NonCausal"}
 
     for instrument in [
-        "Bassoon",
-        "Cello",
-        "Clarinet",
-        "Flute",
-        "Oboe",
-        "Sax",
-        "Viola",
-        "Violin",
+        "Bassoon", "Cello", "Clarinet", "Flute",
+        "Oboe", "Sax", "Viola", "Violin"
     ]:
-        logger.info(
-            "Loading model "
-            f"cadenzachallenge/ConvTasNet_{instrument}_{causal[causality]}"
-        )
-        models[instrument] = ConvTasNetStereo.from_pretrained(
-            f"cadenzachallenge/ConvTasNet_{instrument}_{causal[causality]}",
-            force_download=force_redownload,
-        ).to(device)
+        model_path = os.path.join(base_dir, instrument, "best_model.safetensors")
+        config_path = os.path.join(base_dir, instrument, "conf.yml")
+
+        logger.info(f"Loading local model for {instrument} from {model_path}")
+
+        # Load YAML config
+        with open(config_path, "r") as f:
+            config = yaml.safe_load(f)
+
+        # Create model
+        model = ConvTasNetStereo(**config["convtasnet"], samplerate=config["data"]["sample_rate"])
+
+        # Load weights
+        state_dict = load_file(model_path)
+        model.load_state_dict(state_dict)
+
+        model = model.to(device).eval()
+        models[instrument] = model
+
     return models
 
 

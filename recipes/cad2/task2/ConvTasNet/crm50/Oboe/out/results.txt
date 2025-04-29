@@ -1,0 +1,48 @@
+11_Maria_ob_vc_0001
+Oboe            ==> SDR:   1.252  SIR:   6.343  ISR:   1.049  SAR:  -1.664  
+accompaniment   ==> SDR:  -4.651  SIR:  -4.522  ISR:  29.704  SAR: 124.215  
+
+11_Maria_ob_vc_0002
+Oboe            ==> SDR:   0.403  SIR:   3.695  ISR:   0.568  SAR:   2.218  
+accompaniment   ==> SDR:   7.465  SIR:   7.490  ISR:  30.068  SAR: 127.047  
+
+11_Maria_ob_vc_0003
+Oboe            ==> SDR:   0.238  SIR:   3.722  ISR:   0.286  SAR:   1.188  
+accompaniment   ==> SDR:   3.328  SIR:   3.354  ISR:  30.618  SAR: 126.926  
+
+11_Maria_ob_vc_0004
+Oboe            ==> SDR:   0.184  SIR:  -1.346  ISR:   0.246  SAR:   0.136  
+accompaniment   ==> SDR:   0.795  SIR:   0.809  ISR:  31.978  SAR: 127.038  
+
+11_Maria_ob_vc_0005
+Oboe            ==> SDR:   0.108  SIR:  -2.600  ISR:   0.149  SAR:   0.258  
+accompaniment   ==> SDR:   2.358  SIR:   2.368  ISR:  33.268  SAR: 126.139  
+
+11_Maria_ob_vc_0006
+Oboe            ==> SDR:   0.181  SIR:   0.635  ISR:   0.254  SAR:   0.669  
+accompaniment   ==> SDR:   7.627  SIR:   7.657  ISR:  37.082  SAR: 126.561  
+
+40_Miserere_fl_fl_ob_cl_bn_0001
+Oboe            ==> SDR:   0.143  SIR:  -7.608  ISR:   0.334  SAR:   1.386  
+accompaniment   ==> SDR:  14.595  SIR:  14.957  ISR:  35.694  SAR: 125.949  
+
+40_Miserere_fl_fl_ob_cl_bn_0002
+Oboe            ==> SDR:   0.209  SIR:  -0.967  ISR:   0.555  SAR:   1.182  
+accompaniment   ==> SDR:  13.184  SIR:  13.088  ISR:  33.206  SAR: 126.472  
+
+41_Miserere_fl_fl_ob_sax_bn_0001
+Oboe            ==> SDR:   0.047  SIR:  -6.662  ISR:   0.234  SAR:   3.520  
+accompaniment   ==> SDR:  14.626  SIR:  14.517  ISR:  31.925  SAR: 126.556  
+
+41_Miserere_fl_fl_ob_sax_bn_0002
+Oboe            ==> SDR:   0.081  SIR:  -3.867  ISR:   0.258  SAR:   2.111  
+accompaniment   ==> SDR:  12.294  SIR:  12.362  ISR:  35.266  SAR: 126.752  
+
+Aggrated Scores (median over frames, median over tracks)
+Oboe            ==> SDR:   0.183  SIR:  -1.157  ISR:   0.272  SAR:   1.185  
+accompaniment   ==> SDR:   7.546  SIR:   7.574  ISR:  32.592  SAR: 126.558  
+
+Aggrated Scores (mean over frames, median over tracks)
+Oboe            ==> SDR:   0.139  SIR:  -0.781  ISR:   0.374  SAR:   0.223  
+accompaniment   ==> SDR:   8.165  SIR:   8.157  ISR:  32.318  SAR: 126.185  
+

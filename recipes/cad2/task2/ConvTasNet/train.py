@@ -8,6 +8,7 @@ import pytorch_lightning as pl
 import torch
 import yaml
 from asteroid.engine.system import System
+from asteroid.losses import PITLossWrapper, pairwise_neg_sisdr
 from asteroid.utils import parse_args_as_dict, prepare_parser_from_dict
 from local import (
     Compose,
@@ -19,6 +20,35 @@ from local import (
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.utils.data import DataLoader
+
+import torch
+import torch.nn.functional as F
+
+from asteroid.losses.sdr import PairwiseNegSDR
+
+sdr_loss = PairwiseNegSDR(sdr_type="sdsdr")
+l1_loss_fn = torch.nn.L1Loss()
+
+
+def combined_sdsdr_l1_loss(est, target):
+    """
+    Combined SD-SDR and L1 loss.
+    est, target: [B, n_src, 2, T]
+    Returns: scalar loss (lower is better)
+    """
+    # SD-SDR stereo loss (negative, so we don't negate here)
+    sdr_l = sdr_loss(est[:, :, 0, :], target[:, :, 0, :])
+    sdr_r = sdr_loss(est[:, :, 1, :], target[:, :, 1, :])
+    sdsdr = 0.5 * (sdr_l + sdr_r)  # already negative, want to minimize
+
+    # L1 loss stereo
+    l1_l = l1_loss_fn(est[:, :, 0, :], target[:, :, 0, :])
+    l1_r = l1_loss_fn(est[:, :, 1, :], target[:, :, 1, :])
+    l1 = 0.5 * (l1_l + l1_r)
+
+    # Combine (50% each)
+    return 0.5 * sdsdr + 0.5 * l1
+
 
 # Keys which are not in the conf.yml file can be added here.
 # In the hierarchical dictionary created when parsing, the key `key` can be
@@ -94,8 +124,8 @@ def main(conf):
         yaml.safe_dump(conf, outfile)
 
     # Define Loss function.
-    loss_func = torch.nn.L1Loss()
-    # loss_func = PITLossWrapper(pairwise_neg_sisdr, pit_from="pw_mtx")
+    #loss_func = torch.nn.L1Loss()
+    loss_func = PITLossWrapper(combined_sdsdr_l1_loss, pit_from="pw_mtx")
     system = System(
         model=model,
         loss_func=loss_func,
@@ -115,7 +145,7 @@ def main(conf):
     callbacks.append(checkpoint)
     if conf["training"]["early_stop"]:
         callbacks.append(
-            EarlyStopping(monitor="val_loss", mode="min", patience=20, verbose=True)
+            EarlyStopping(monitor="val_loss", mode="min", patience=5, verbose=True)
         )
 
     trainer = pl.Trainer(
