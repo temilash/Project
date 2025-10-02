@@ -29,3 +29,5 @@ Unlike the Conv-TasNet baseline, the model preserves both magnitude and phase us
 
 
 ⚡ *This project demonstrates how tailored machine learning pipelines can make classical music more accessible to hearing-impaired listeners, laying the groundwork for future hearing-aid innovations.*
+
+Look at recipes/cad2/task2 for my code
